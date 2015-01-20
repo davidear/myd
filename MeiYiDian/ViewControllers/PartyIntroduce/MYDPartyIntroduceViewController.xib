@@ -17,12 +17,7 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-sr-Khs">
                     <rect key="frame" x="0.0" y="0.0" width="874" height="44"/>
                     <items>
-                        <barButtonItem title="企业简介" id="ePj-jy-9Za"/>
-                        <barButtonItem title="创始人" id="qaT-cW-0Vm"/>
-                        <barButtonItem title="发展历程" id="Nt2-LO-kN5"/>
-                        <barButtonItem title="品牌介绍" id="2ba-bs-iTw"/>
-                        <barButtonItem title="企业理念" id="oyd-ex-Dmw"/>
-                        <barButtonItem title="团队介绍" id="2P3-1B-Z9Z"/>
+                        <barButtonItem title="周年店庆" id="ePj-jy-9Za"/>
                     </items>
                 </toolbar>
             </subviews>

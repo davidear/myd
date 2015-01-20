@@ -55,9 +55,6 @@
     } failure:^(NSError *error) {
         
     }];
-    
-    
-    [self downloadPictures];
 }
 
 - (void)downloadPictures

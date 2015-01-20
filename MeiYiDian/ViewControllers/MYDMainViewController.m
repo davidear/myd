@@ -28,11 +28,17 @@ static NSString *MyCell = @"MyCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self initDataSource];
+    [self initSubviews];
 }
 
+- (void)initSubviews
+{
+}
 - (void)initDataSource
 {
     self.dataArray = @[@"首页",@"企业介绍",@"价格表",@"项目介绍",@"产品介绍",@"活动方案",@"作品展示"];
+    self.selectedRow = -1;
 }
 #pragma mark - TableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +76,11 @@ static NSString *MyCell = @"MyCell";
     [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     switch (indexPath.row) {
         case 0:
+        {
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
             break;
         case 1:
         {
@@ -79,25 +90,25 @@ static NSString *MyCell = @"MyCell";
             break;
         case 2:
         {
-            MYDMaterialIntroduceViewController *VC = [[MYDMaterialIntroduceViewController alloc] init];
+            MYDPriceIntroduceViewController *VC = [[MYDPriceIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 3:
         {
-            MYDPartyIntroduceViewController *VC = [[MYDPartyIntroduceViewController alloc] init];
+            MYDProjectIntroduceViewController *VC = [[MYDProjectIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 4:
         {
-            MYDPriceIntroduceViewController *VC = [[MYDPriceIntroduceViewController alloc] init];
+            MYDMaterialIntroduceViewController *VC = [[MYDMaterialIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 5:
         {
-            MYDProjectIntroduceViewController *VC = [[MYDProjectIntroduceViewController alloc] init];
+            MYDPartyIntroduceViewController *VC = [[MYDPartyIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
@@ -112,4 +123,6 @@ static NSString *MyCell = @"MyCell";
     }
     self.selectedRow = indexPath.row;
 }
+
+
 @end

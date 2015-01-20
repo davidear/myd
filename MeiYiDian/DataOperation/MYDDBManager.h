@@ -75,6 +75,7 @@
 - (NSMutableArray *)readWritingPictures;
 - (NSMutableArray *)readAnnouncements;
 - (NSMutableArray *)readProjectCatalogs;
+- (NSMutableArray *)readProjects;
 - (NSMutableArray *)readProjectPictures;
 - (int)readDataVersionFromBaseData;//baseData表中的DataVersion
 @end

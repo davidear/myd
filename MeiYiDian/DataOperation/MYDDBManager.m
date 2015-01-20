@@ -1528,6 +1528,28 @@ public class LoginUser
     [self closeDB];
     return mutableArray;
 }
+- (NSMutableArray *)readProjects
+{
+    if (![self openDB]) {
+        return nil;
+    }
+    if (![_db tableExists:@"Projects"]) {
+        return nil;
+    }
+    FMResultSet *rs = [_db executeQuery:@"select * from Projects"];
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    if ([rs next]) {
+        NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+        for (NSString *str in ProjectsKeyArray) {
+            [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
+        }
+        [mutableArray addObject:mutableDic];
+    }
+    [rs close];
+    [self closeDB];
+    return mutableArray;
+}
+
 - (NSMutableArray *)readProjectPictures
 {
     if (![self openDB]) {

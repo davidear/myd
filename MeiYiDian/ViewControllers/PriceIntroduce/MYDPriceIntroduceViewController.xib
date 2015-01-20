@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MYDPriceIntroduceViewController">
             <connections>
+                <outlet property="tableView" destination="xSJ-JK-YCh" id="cSo-u7-ooZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +18,26 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0D-L6-X71">
                     <rect key="frame" x="0.0" y="0.0" width="874" height="44"/>
                     <items>
-                        <barButtonItem title="企业简介" id="dVJ-ua-arh"/>
-                        <barButtonItem title="创始人" id="frs-ow-USe"/>
-                        <barButtonItem title="发展历程" id="ZY9-HO-85U"/>
-                        <barButtonItem title="品牌介绍" id="eGd-dm-pUQ"/>
-                        <barButtonItem title="企业理念" id="Rsx-iK-q7B"/>
-                        <barButtonItem title="团队介绍" id="w3I-En-AVs"/>
+                        <barButtonItem title="项目" id="dVJ-ua-arh"/>
+                        <barButtonItem title="产品" id="frs-ow-USe"/>
                     </items>
                 </toolbar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xSJ-JK-YCh">
+                    <rect key="frame" x="0.0" y="151" width="874" height="527"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="mSq-0K-FRm"/>
+                        <outlet property="delegate" destination="-1" id="kN3-BQ-sbZ"/>
+                    </connections>
+                </tableView>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rH-GS-iDU">
+                    <rect key="frame" x="0.0" y="44" width="874" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="HZZ-xU-3rX"/>
+                        <tabBarItem systemItem="more" id="cCA-pq-O7J"/>
+                    </items>
+                </tabBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

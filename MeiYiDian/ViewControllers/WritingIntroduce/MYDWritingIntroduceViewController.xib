@@ -17,12 +17,10 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3J-Td-X42">
                     <rect key="frame" x="0.0" y="0.0" width="874" height="44"/>
                     <items>
-                        <barButtonItem title="企业简介" id="sXD-CP-IZJ"/>
-                        <barButtonItem title="创始人" id="hHK-mo-tMf"/>
-                        <barButtonItem title="发展历程" id="eee-Nm-CGB"/>
-                        <barButtonItem title="品牌介绍" id="cmd-1B-OYO"/>
-                        <barButtonItem title="企业理念" id="x72-O3-8xE"/>
-                        <barButtonItem title="团队介绍" id="cnm-dK-3Fk"/>
+                        <barButtonItem title="美发" id="sXD-CP-IZJ"/>
+                        <barButtonItem title="美甲" id="hHK-mo-tMf"/>
+                        <barButtonItem title="美体" id="eee-Nm-CGB"/>
+                        <barButtonItem title="会员卡" id="cmd-1B-OYO"/>
                     </items>
                 </toolbar>
             </subviews>

@@ -17,12 +17,11 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KyA-6u-LNC">
                     <rect key="frame" x="0.0" y="0.0" width="874" height="44"/>
                     <items>
-                        <barButtonItem title="企业简介" id="wTh-zR-sxV"/>
-                        <barButtonItem title="创始人" id="V2b-8F-RnR"/>
-                        <barButtonItem title="发展历程" id="5VV-20-iL2"/>
-                        <barButtonItem title="品牌介绍" id="26c-XN-cKE"/>
-                        <barButtonItem title="企业理念" id="0hW-3q-gyW"/>
-                        <barButtonItem title="团队介绍" id="LTB-ne-K1X"/>
+                        <barButtonItem title="面部护理" id="wTh-zR-sxV"/>
+                        <barButtonItem title="身体护理" id="V2b-8F-RnR"/>
+                        <barButtonItem title="仪器护理" id="nDJ-u4-2wW"/>
+                        <barButtonItem title="健胸保健" id="h3C-dT-l8u"/>
+                        <barButtonItem title="美甲" id="YqY-Ie-anN"/>
                     </items>
                 </toolbar>
             </subviews>

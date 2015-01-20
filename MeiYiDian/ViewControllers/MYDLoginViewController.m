@@ -37,7 +37,7 @@
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
         int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
-        if (1) {
+        if (oldDataVersion != newDataVersion | oldDataVersion == 0 ) {
             [[MYDMediator getInstant] getBaseDataWithDepartmentId:[[NSUserDefaults standardUserDefaults] objectForKey:@"DepartmentId"] success:^(NSString *responseString) {
                 
                 [self downloadPictures];
@@ -45,6 +45,10 @@
                     
                 }];
             } failure:^(NSError *error) {
+                
+            }];
+        }else{
+            [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
                 
             }];
         }

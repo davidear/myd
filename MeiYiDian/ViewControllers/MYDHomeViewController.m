@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
-@property (strong, nonatomic) NSMutableArray *imageArray;
+@property (strong, nonatomic) NSMutableArray *imageViewArray;
 
 @end
 
@@ -41,21 +41,16 @@
 
 - (void)initDataSource
 {
-    
     self.dataArray = [[MYDDBManager getInstant] readScrollPictures];
     if (self.dataArray == nil) {
         return;
     }
-    self.imageArray = [NSMutableArray array];
+    self.imageViewArray = [NSMutableArray array];
     
     for (NSDictionary *dic in self.dataArray) {
-        if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"FileName"]]) {
-            [[MYDMediator getInstant] getPictureWithDepartmentId:[[[[MYDDBManager getInstant] readLoginUser] lastObject] objectForKey:@"DepartmentId"] typeCode:@"03" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
-                
-            } failure:^(NSError *error) {
-                
-            }];
-        }
+        UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"FileName"]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        [self.imageViewArray addObject:imageView];
     }
 }
 
@@ -72,20 +67,10 @@
     // 1. 实例化视图
     // 2. 创建滚动视图
     // 3. 初始化数据
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.dataArray.count];
-    for (NSInteger i = 0; i < 5; i++) {
-        // 1) 创建图片的文件名
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i + 1];
-        // 2) 建立图像视图
-        UIImage *image = [UIImage imageNamed:imageName];
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-        // 3) 将图像视图添加到数组
-        [array addObject:imageView];
-    }
     // 将建立好的图像数组添加到scrollView中
     // 1) for (NSInteger idx = 0; idx < 5; idx ++)
     // 2) for (UIImageView obj in array)
-    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.imageViewArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         // 1) 从数组取出imageView
         UIImageView *imageView = obj;
         // 2) 设置图像视图的frame

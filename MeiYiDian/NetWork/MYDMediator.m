@@ -150,11 +150,7 @@ static MYDMediator *instant = nil;
     [network PostRequestWithSoapMessage:soapMessage soapAction:soapAction success:^(NSString *responseString, id responseData) {
         //处理返回的数据
         [packageManager unpackDataVersionBag:responseString];
-        
-        
-        
-        
-        
+
         successBlock(responseString);
         
     } failure:^(NSError *error) {

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 childrenAreOurFuture. All rights reserved.
 //
 
-#import "MYDBaseViewController.h"
+#import "MYDBaseSubViewController.h"
 
-@interface MYDPartyIntroduceViewController : MYDBaseViewController
+@interface MYDPartyIntroduceViewController : MYDBaseSubViewController
 
 @end

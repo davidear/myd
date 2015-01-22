@@ -27,12 +27,11 @@
 //    [self login];
 //    [self getBaseData];
 //    [[MYDDBManager getInstant] readLoginUser];
-    [self getPicture];
+//    [self getPicture];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)getEnterpriseInfo
+{
+    
 }
 - (void)getPicture
 {

@@ -1223,7 +1223,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from MaterialCatalogs"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in MaterialCatalogsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1244,7 +1244,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Materials"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in MaterialsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1286,7 +1286,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from PlanCatalogs"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in PlanCatalogsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1307,7 +1307,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Plans"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in PlansKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1370,7 +1370,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Parties"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in PartiesKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1391,7 +1391,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from IntroductionCatalogs"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in CatalogsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1412,7 +1412,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Introductions"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in IntroductionsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1433,7 +1433,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from WritingCatalogs"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in CatalogsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1454,7 +1454,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Writings"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in WritingsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1496,7 +1496,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Announcements"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in AnnouncementsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1517,7 +1517,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from ProjectCatalogs"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in CatalogsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
@@ -1538,7 +1538,7 @@ public class LoginUser
     }
     FMResultSet *rs = [_db executeQuery:@"select * from Projects"];
     NSMutableArray *mutableArray = [NSMutableArray array];
-    if ([rs next]) {
+    while ([rs next]) {
         NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
         for (NSString *str in ProjectsKeyArray) {
             [mutableDic setObject:[rs objectForColumnName:str] forKey:str];

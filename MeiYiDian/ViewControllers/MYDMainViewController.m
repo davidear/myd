@@ -16,6 +16,13 @@
 
 @interface MYDMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 //UI
+@property (strong, nonatomic) MYDEnterpriseIntroduceViewController *enterpriseIntroduceVC;
+@property (strong, nonatomic) MYDMaterialIntroduceViewController *materialIntroduceVC;
+@property (strong, nonatomic) MYDPartyIntroduceViewController *partyIntroduceVC;
+@property (strong, nonatomic) MYDPriceIntroduceViewController *priceIntroduceVC;
+
+
+
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (assign, nonatomic) int selectedRow;
@@ -32,6 +39,20 @@ static NSString *MyCell = @"MyCell";
     [self initSubviews];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self initViewControllers];
+}
+
+//加快加载速度
+- (void)initViewControllers
+{
+    self.enterpriseIntroduceVC = [[MYDEnterpriseIntroduceViewController alloc] init];
+    self.materialIntroduceVC = [[MYDMaterialIntroduceViewController alloc] init];
+    self.partyIntroduceVC = [[MYDPartyIntroduceViewController alloc] init];
+    self.priceIntroduceVC = [[MYDPriceIntroduceViewController alloc] init];
+
+}
 - (void)initSubviews
 {
 }
@@ -84,36 +105,54 @@ static NSString *MyCell = @"MyCell";
             break;
         case 1:
         {
-            MYDEnterpriseIntroduceViewController *VC = [[MYDEnterpriseIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
+            [self.contentView addSubview:self.enterpriseIntroduceVC.view];
+//            self.contentView = VC.view;
+//            [self.view setNeedsDisplay];
         }
             break;
         case 2:
         {
-            MYDPriceIntroduceViewController *VC = [[MYDPriceIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
+            [self.contentView addSubview:self.priceIntroduceVC.view];
         }
             break;
         case 3:
         {
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
             MYDProjectIntroduceViewController *VC = [[MYDProjectIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 4:
         {
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
             MYDMaterialIntroduceViewController *VC = [[MYDMaterialIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 5:
         {
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
             MYDPartyIntroduceViewController *VC = [[MYDPartyIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }
             break;
         case 6:
         {
+            if (self.contentView.subviews.count != 0) {
+                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+            }
             MYDWritingIntroduceViewController *VC = [[MYDWritingIntroduceViewController alloc] init];
             [self.contentView addSubview:VC.view];
         }

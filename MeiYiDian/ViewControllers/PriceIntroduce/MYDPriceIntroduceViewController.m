@@ -62,12 +62,14 @@
         }
         tableView.delegate = self;
         tableView.dataSource = self;
+        if (i == 0) {
+            tableView.backgroundColor = [UIColor blueColor];
+        }else{
+            tableView.backgroundColor = [UIColor greenColor];
+        }
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.scrollView addSubview:tableView];
-        
     }
-    
-
 }
 
 #pragma mark - UITableView
@@ -78,8 +80,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (tableView.tag) {
-        case kTableViewForMaterial: return self.materialArray.count;
         case kTableViewForProject: return self.projectArray.count;
+        case kTableViewForMaterial: return self.materialArray.count;
         default: return 0;
     }
 }
@@ -94,7 +96,25 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
 //    NSDictionary *dic = self.materialdataArray[indexPath.row];
-    cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:@"TitlePictureFileName"];
+    switch (tableView.tag) {
+        case kTableViewForProject:
+        {
+            NSDictionary *dic = [self.projectArray objectAtIndex:indexPath.row];
+            NSString *str = [dic objectForKey:@"TitlePictureFileName"];
+//            [self.projectArray[indexPath.row] objectForKey:@"TitlePictureFileName"]
+            cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:str];
+            cell.textLabel.text = [self.projectArray[indexPath.row] objectForKey:@"Name"];
+        }
+            break;
+        case kTableViewForMaterial:
+             cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[self.materialArray[indexPath.row] objectForKey:@"TitlePictureFileName"]];
+            cell.textLabel.text = [self.materialArray[indexPath.row] objectForKey:@"Name"];
+            break;
+        default:
+            break;
+    }
+    
+
 //    cell.textLabel.text = [dic objectForKey:@"Name"];
     return cell;
 }

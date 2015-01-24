@@ -1127,7 +1127,7 @@ public class LoginUser
         if ([rs next]) {
             for (NSString *str in keyArray) {
                 NSString *tempStr = [NSString stringWithFormat:@"update BaseDataVersion set %@ = ? where Id = ?",str];
-                [_db executeUpdate:tempStr,onlyOneStr,[NSNumber numberWithInt:[[dic objectForKey:str] intValue]]];
+                [_db executeUpdate:tempStr,[NSNumber numberWithInt:[[dic objectForKey:str] intValue]],onlyOneStr];
             }
         }else {
             [_db executeUpdate:@"INSERT INTO BaseDataVersion (Id,DataVersion) VALUES (?,?)", onlyOneStr,[NSNumber numberWithInt:[[dic objectForKey:@"DataVersion"] intValue]]];
@@ -1555,7 +1555,7 @@ public class LoginUser
     if (![self openDB]) {
         return nil;
     }
-    if (![_db tableExists:@"ProjProjectPicturesectCatalogs"]) {
+    if (![_db tableExists:@"ProjectPictures"]) {
         return nil;
     }
     FMResultSet *rs = [_db executeQuery:@"select * from ProjectPictures"];

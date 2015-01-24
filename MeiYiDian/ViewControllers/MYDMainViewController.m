@@ -20,6 +20,8 @@
 @property (strong, nonatomic) MYDMaterialIntroduceViewController *materialIntroduceVC;
 @property (strong, nonatomic) MYDPartyIntroduceViewController *partyIntroduceVC;
 @property (strong, nonatomic) MYDPriceIntroduceViewController *priceIntroduceVC;
+@property (strong, nonatomic) MYDProjectIntroduceViewController *projectIntroduceVC;
+@property (strong, nonatomic) MYDWritingIntroduceViewController *writingIntroduceVC;
 
 
 
@@ -51,7 +53,8 @@ static NSString *MyCell = @"MyCell";
     self.materialIntroduceVC = [[MYDMaterialIntroduceViewController alloc] init];
     self.partyIntroduceVC = [[MYDPartyIntroduceViewController alloc] init];
     self.priceIntroduceVC = [[MYDPriceIntroduceViewController alloc] init];
-
+    self.projectIntroduceVC = [[MYDProjectIntroduceViewController alloc] init];
+    self.writingIntroduceVC = [[MYDWritingIntroduceViewController alloc] init];
 }
 - (void)initSubviews
 {
@@ -126,8 +129,7 @@ static NSString *MyCell = @"MyCell";
             if (self.contentView.subviews.count != 0) {
                 [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
             }
-            MYDProjectIntroduceViewController *VC = [[MYDProjectIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            [self.contentView addSubview:self.projectIntroduceVC.view];
         }
             break;
         case 4:
@@ -135,8 +137,7 @@ static NSString *MyCell = @"MyCell";
             if (self.contentView.subviews.count != 0) {
                 [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
             }
-            MYDMaterialIntroduceViewController *VC = [[MYDMaterialIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            [self.contentView addSubview:self.materialIntroduceVC.view];
         }
             break;
         case 5:
@@ -144,8 +145,7 @@ static NSString *MyCell = @"MyCell";
             if (self.contentView.subviews.count != 0) {
                 [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
             }
-            MYDPartyIntroduceViewController *VC = [[MYDPartyIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            [self.contentView addSubview:self.partyIntroduceVC.view];
         }
             break;
         case 6:
@@ -153,8 +153,7 @@ static NSString *MyCell = @"MyCell";
             if (self.contentView.subviews.count != 0) {
                 [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
             }
-            MYDWritingIntroduceViewController *VC = [[MYDWritingIntroduceViewController alloc] init];
-            [self.contentView addSubview:VC.view];
+            [self.contentView addSubview:self.writingIntroduceVC.view];
         }
             break;
         default:

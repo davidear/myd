@@ -95,4 +95,10 @@ static MYDNetwork *instant = nil;
     [networkQueue addOperation:request];
     NSLog(@"networkQueue's request count is %d",networkQueue.requestsCount);
 }
+
+//#pragma mark - ASIHttpQueueDelegate
+- (void)queueDidFinished
+{
+    
+}
 @end

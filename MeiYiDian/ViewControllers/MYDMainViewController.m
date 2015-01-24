@@ -23,6 +23,8 @@
 @property (strong, nonatomic) MYDProjectIntroduceViewController *projectIntroduceVC;
 @property (strong, nonatomic) MYDWritingIntroduceViewController *writingIntroduceVC;
 
+@property (strong, nonatomic) UINavigationController *navigationController;
+
 
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;

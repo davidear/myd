@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */; };
+		3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */; };
+		3C2047F71A73B65D0079B6C3 /* MYDItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2047F51A73B65D0079B6C3 /* MYDItemDetailViewController.m */; };
+		3C2047F81A73B65D0079B6C3 /* MYDItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2047F61A73B65D0079B6C3 /* MYDItemDetailViewController.xib */; };
 		3C239E2F1A5BBF30008419A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E2E1A5BBF30008419A4 /* main.m */; };
 		3C239E321A5BBF30008419A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E311A5BBF30008419A4 /* AppDelegate.m */; };
 		3C239E351A5BBF30008419A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E341A5BBF30008419A4 /* ViewController.m */; };
@@ -99,6 +103,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDItemDetailView.xib; sourceTree = "<group>"; };
+		3C2047F11A73AC620079B6C3 /* MYDItemDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDItemDetailView.h; sourceTree = "<group>"; };
+		3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDItemDetailView.m; sourceTree = "<group>"; };
+		3C2047F41A73B65D0079B6C3 /* MYDItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDItemDetailViewController.h; sourceTree = "<group>"; };
+		3C2047F51A73B65D0079B6C3 /* MYDItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDItemDetailViewController.m; sourceTree = "<group>"; };
+		3C2047F61A73B65D0079B6C3 /* MYDItemDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDItemDetailViewController.xib; sourceTree = "<group>"; };
 		3C239E291A5BBF30008419A4 /* MeiYiDian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiYiDian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C239E2D1A5BBF30008419A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C239E2E1A5BBF30008419A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -275,6 +285,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C2047E81A73A7AB0079B6C3 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */,
+				3C2047F11A73AC620079B6C3 /* MYDItemDetailView.h */,
+				3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */,
+				3C2047F41A73B65D0079B6C3 /* MYDItemDetailViewController.h */,
+				3C2047F51A73B65D0079B6C3 /* MYDItemDetailViewController.m */,
+				3C2047F61A73B65D0079B6C3 /* MYDItemDetailViewController.xib */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
 		3C239E201A5BBF30008419A4 = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				3CCEAC3B1A5CDDBE00BF16F0 /* BaseViewControllers */,
+				3C2047E81A73A7AB0079B6C3 /* ItemDetail */,
 				3C5E10921A6C8716008D1E5E /* EnterpriseIntroduce */,
 				3C5E10931A6C8716008D1E5E /* MaterialIntroduce */,
 				3C5E10941A6C8716008D1E5E /* PartyIntroduce */,
@@ -780,9 +804,11 @@
 				3CCB9DCA1A689C9B00031372 /* ViewController.xib in Resources */,
 				3C5E10A11A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib in Resources */,
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
+				3C2047F81A73B65D0079B6C3 /* MYDItemDetailViewController.xib in Resources */,
 				3CCB9DDB1A69127200031372 /* 2.jpg in Resources */,
 				3CCB9DDD1A69127200031372 /* 4.jpg in Resources */,
 				3CCB9DDA1A69127200031372 /* 1.jpg in Resources */,
+				3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +849,7 @@
 				3C239EB51A5BC612008419A4 /* ASIFormDataRequest.m in Sources */,
 				3CCC293F1A6D44780087F280 /* SDWebImageDownloaderOperation.m in Sources */,
 				3CCF8F9A1A5E57730074ECED /* FMResultSet.m in Sources */,
+				3C2047F71A73B65D0079B6C3 /* MYDItemDetailViewController.m in Sources */,
 				3C239EDA1A5BC7E1008419A4 /* MYDMediator.m in Sources */,
 				3C239E321A5BBF30008419A4 /* AppDelegate.m in Sources */,
 				3CA5E5341A714DD600A7CFF6 /* MYDBaseSubViewController.m in Sources */,
@@ -846,6 +873,7 @@
 				3CCC293E1A6D44780087F280 /* SDWebImageDownloader.m in Sources */,
 				3CCC29481A6D44780087F280 /* UIView+WebCacheOperation.m in Sources */,
 				3C239EB81A5BC612008419A4 /* ASINetworkQueue.m in Sources */,
+				3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */,
 				3C239EB31A5BC612008419A4 /* ASIDataDecompressor.m in Sources */,
 				3C239EB41A5BC612008419A4 /* ASIDownloadCache.m in Sources */,
 				3CCF8F891A5E2B450074ECED /* MYDNetwork.m in Sources */,

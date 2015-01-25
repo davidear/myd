@@ -31,6 +31,9 @@
 }
 - (void)initSubviews
 {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 874, 50)];
+    view.backgroundColor = [UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1];
+    [self.view addSubview:view];
     self.tabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
     self.tabBar.delegate = self;
     [self.view addSubview:self.tabBar];

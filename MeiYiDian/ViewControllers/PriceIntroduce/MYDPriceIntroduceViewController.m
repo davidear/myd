@@ -162,7 +162,7 @@
         case kTableViewForMaterial:
         {
             UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[self.materialArray[indexPath.row] objectForKey:@"TitlePictureFileName"]];
-            self.itemDetailView = [[MYDItemDetailView alloc] initWithImage:image Title:[self.materialArray[indexPath.row] objectForKey:@"Name"] Price:[self.materialArray[indexPath.row] objectForKey:@"Price"] Description:[self.projectArray[indexPath.row] objectForKey:@"Description"]];
+            self.itemDetailView = [[MYDItemDetailView alloc] initWithImage:image Title:[self.materialArray[indexPath.row] objectForKey:@"Name"] Price:[self.materialArray[indexPath.row] objectForKey:@"Price"] Description:[self.materialArray[indexPath.row] objectForKey:@"Description"]];
             self.itemDetailView.frame = CGRectOffset(self.itemDetailView.frame, 0, 60);
             [self.view addSubview:self.itemDetailView];
         }

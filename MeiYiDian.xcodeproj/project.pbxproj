@@ -34,13 +34,10 @@
 		3C58443C1A5CC643004310D1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C58443B1A5CC643004310D1 /* libz.dylib */; };
 		3C5E109B1A6C9018008D1E5E /* MYDEnterpriseIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10991A6C9018008D1E5E /* MYDEnterpriseIntroduceViewController.m */; };
 		3C5E10A01A6C9272008D1E5E /* MYDMaterialIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E109E1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.m */; };
-		3C5E10A11A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5E109F1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib */; };
 		3C5E10A51A6C92D7008D1E5E /* MYDPartyIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10A31A6C92D7008D1E5E /* MYDPartyIntroduceViewController.m */; };
 		3C5E10AA1A6C930A008D1E5E /* MYDPriceIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10A81A6C930A008D1E5E /* MYDPriceIntroduceViewController.m */; };
 		3C5E10AF1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10AD1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m */; };
-		3C5E10B01A6C9338008D1E5E /* MYDProjectIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5E10AE1A6C9338008D1E5E /* MYDProjectIntroduceViewController.xib */; };
 		3C5E10B41A6C935D008D1E5E /* MYDWritingIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */; };
-		3C5E10B51A6C935D008D1E5E /* MYDWritingIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5E10B31A6C935D008D1E5E /* MYDWritingIntroduceViewController.xib */; };
 		3CA5E5341A714DD600A7CFF6 /* MYDBaseSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5E5331A714DD600A7CFF6 /* MYDBaseSubViewController.m */; };
 		3CCB9DCA1A689C9B00031372 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCB9DC91A689C9B00031372 /* ViewController.xib */; };
 		3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB9DCC1A68A39300031372 /* MYDLoginViewController.m */; };
@@ -155,17 +152,14 @@
 		3C5E10991A6C9018008D1E5E /* MYDEnterpriseIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDEnterpriseIntroduceViewController.m; sourceTree = "<group>"; };
 		3C5E109D1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDMaterialIntroduceViewController.h; sourceTree = "<group>"; };
 		3C5E109E1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDMaterialIntroduceViewController.m; sourceTree = "<group>"; };
-		3C5E109F1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDMaterialIntroduceViewController.xib; sourceTree = "<group>"; };
 		3C5E10A21A6C92D7008D1E5E /* MYDPartyIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDPartyIntroduceViewController.h; sourceTree = "<group>"; };
 		3C5E10A31A6C92D7008D1E5E /* MYDPartyIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDPartyIntroduceViewController.m; sourceTree = "<group>"; };
 		3C5E10A71A6C930A008D1E5E /* MYDPriceIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDPriceIntroduceViewController.h; sourceTree = "<group>"; };
 		3C5E10A81A6C930A008D1E5E /* MYDPriceIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDPriceIntroduceViewController.m; sourceTree = "<group>"; };
 		3C5E10AC1A6C9338008D1E5E /* MYDProjectIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDProjectIntroduceViewController.h; sourceTree = "<group>"; };
 		3C5E10AD1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDProjectIntroduceViewController.m; sourceTree = "<group>"; };
-		3C5E10AE1A6C9338008D1E5E /* MYDProjectIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDProjectIntroduceViewController.xib; sourceTree = "<group>"; };
 		3C5E10B11A6C935D008D1E5E /* MYDWritingIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDWritingIntroduceViewController.h; sourceTree = "<group>"; };
 		3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDWritingIntroduceViewController.m; sourceTree = "<group>"; };
-		3C5E10B31A6C935D008D1E5E /* MYDWritingIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDWritingIntroduceViewController.xib; sourceTree = "<group>"; };
 		3CA5E5321A714DD600A7CFF6 /* MYDBaseSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDBaseSubViewController.h; sourceTree = "<group>"; };
 		3CA5E5331A714DD600A7CFF6 /* MYDBaseSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDBaseSubViewController.m; sourceTree = "<group>"; };
 		3CCB9DC91A689C9B00031372 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -504,7 +498,6 @@
 			children = (
 				3C5E109D1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.h */,
 				3C5E109E1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.m */,
-				3C5E109F1A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib */,
 			);
 			name = MaterialIntroduce;
 			path = materialIntroduce;
@@ -533,7 +526,6 @@
 			children = (
 				3C5E10AC1A6C9338008D1E5E /* MYDProjectIntroduceViewController.h */,
 				3C5E10AD1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m */,
-				3C5E10AE1A6C9338008D1E5E /* MYDProjectIntroduceViewController.xib */,
 			);
 			path = ProjectIntroduce;
 			sourceTree = "<group>";
@@ -543,7 +535,6 @@
 			children = (
 				3C5E10B11A6C935D008D1E5E /* MYDWritingIntroduceViewController.h */,
 				3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */,
-				3C5E10B31A6C935D008D1E5E /* MYDWritingIntroduceViewController.xib */,
 			);
 			path = WritingIntroduce;
 			sourceTree = "<group>";
@@ -796,13 +787,10 @@
 				3CCB9DDE1A69127200031372 /* 5.jpg in Resources */,
 				3CCB9DDC1A69127200031372 /* 3.jpg in Resources */,
 				3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */,
-				3C5E10B01A6C9338008D1E5E /* MYDProjectIntroduceViewController.xib in Resources */,
 				3C239E3D1A5BBF30008419A4 /* LaunchScreen.xib in Resources */,
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
-				3C5E10B51A6C935D008D1E5E /* MYDWritingIntroduceViewController.xib in Resources */,
 				3C239E3A1A5BBF30008419A4 /* Images.xcassets in Resources */,
 				3CCB9DCA1A689C9B00031372 /* ViewController.xib in Resources */,
-				3C5E10A11A6C9272008D1E5E /* MYDMaterialIntroduceViewController.xib in Resources */,
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
 				3C2047F81A73B65D0079B6C3 /* MYDItemDetailViewController.xib in Resources */,
 				3CCB9DDB1A69127200031372 /* 2.jpg in Resources */,

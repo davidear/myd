@@ -142,6 +142,16 @@
         }
     }
     
+    picArr = [[MYDDBManager getInstant] readWritings];
+    for (NSDictionary *dic in picArr) {
+        if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"TitlePictureFileName"]]) {
+            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"04" fileName:[dic objectForKey:@"TitlePictureFileName"] success:^(NSString *responseString) {
+                NSLog(@"download %@ done!",[dic objectForKey:@"TitlePictureFileName"]);
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+    }
 }
 
 

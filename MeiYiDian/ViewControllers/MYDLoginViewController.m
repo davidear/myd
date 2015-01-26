@@ -19,8 +19,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
-
+@property (assign, nonatomic) BOOL isSelected;
 @end
 
 @implementation MYDLoginViewController
@@ -41,6 +42,9 @@
 
 //在点击按钮时做初始化
 - (IBAction)loginButtonPressed:(id)sender {
+    if (self.isSelected == YES) {
+        return;
+    }
     [[MYDMediator getInstant] loginWithUserName:@"myd001" password:@"myd001" success:^(NSString *responseString) {
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
@@ -56,8 +60,10 @@
             [self downloadPictures];
         }
     } failure:^(NSError *error) {
-        
+        self.isSelected = NO;
     }];
+    
+    self.isSelected = YES;
 }
 
 - (void)downloadDone

@@ -26,6 +26,8 @@ static MYDNetwork *instant = nil;
     if (self) {
         queue = [[NSMutableDictionary alloc] init];
         networkQueue = [[ASINetworkQueue alloc] init];
+        networkQueue.delegate = self;
+        networkQueue.requestDidFinishSelector = @selector(requestDidFinishAction);
         [networkQueue go];
     }
     return self;
@@ -97,8 +99,9 @@ static MYDNetwork *instant = nil;
 }
 
 //#pragma mark - ASIHttpQueueDelegate
-- (void)queueDidFinished
+- (void)requestDidFinishAction
 {
-    
+    NSLog(@"\n~~~~~networkQueue.count is %d~~~~~",networkQueue.requestsCount);
 }
+
 @end

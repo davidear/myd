@@ -66,7 +66,7 @@
     NSArray *picArr;
     //获取01产品图片
     picArr = [[MYDDBManager getInstant] readMaterialPictures];
-    for (NSDictionary *dic in picArr) {
+    for (NSDictionary *dic in picArr) {         
         if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"FileName"]]) {
             [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"01" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
                 NSLog(@"download %@ done!",[dic objectForKey:@"FileName"]);
@@ -93,7 +93,7 @@
     picArr = [[MYDDBManager getInstant] readWritingPictures];
     for (NSDictionary *dic in picArr) {
         if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"FileName"]]) {
-            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"03" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
+            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"04" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
                 NSLog(@"download %@ done!",[dic objectForKey:@"FileName"]);
             } failure:^(NSError *error) {
                 
@@ -106,7 +106,7 @@
     picArr = [[MYDDBManager getInstant] readProjectPictures];
     for (NSDictionary *dic in picArr) {
         if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"FileName"]]) {
-            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"03" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
+            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"05" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
                 NSLog(@"download %@ done!",[dic objectForKey:@"FileName"]);
             } failure:^(NSError *error) {
                 

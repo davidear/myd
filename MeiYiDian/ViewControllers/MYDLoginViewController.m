@@ -12,11 +12,13 @@
 #import "MYDMediator.h"
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
+#import "MYDProgressManager.h"
 
 @interface MYDLoginViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 
 
 @end
@@ -27,7 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PicturesDone" object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,23 +45,24 @@
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
         int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
+        
         if (oldDataVersion != newDataVersion | oldDataVersion == 0 ) {
             [[MYDMediator getInstant] getBaseDataWithDepartmentId:[[NSUserDefaults standardUserDefaults] objectForKey:@"DepartmentId"] success:^(NSString *responseString) {
-                
                 [self downloadPictures];
-                [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
-                    
-                }];
             } failure:^(NSError *error) {
                 
             }];
         }else{
             [self downloadPictures];
-            [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
-                
-            }];
         }
     } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)downloadDone
+{
+    [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
         
     }];
 }
@@ -116,8 +123,6 @@
     }
     
     //获取06团队图片
-
-
     
 //!!!比较坑的来了，上面的图片不是其类中包含图片，比如说05取的图不是在porjects中的图片字段所指的图，那么，所有类中出现的图也必须下载
     picArr = [[MYDDBManager getInstant] readProjects];
@@ -152,6 +157,9 @@
             }];
         }
     }
+    
+    [[MYDProgressManager getInstant] showInView:self.view];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDone) name:@"PicturesDone" object:nil];
 }
 
 

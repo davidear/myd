@@ -26,4 +26,5 @@
                           failure:(void (^)(NSError *error))failure
                              task:(NetworkTask)task;
 
+- (void)setProgressDelegate:(id)object;
 @end

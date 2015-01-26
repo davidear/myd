@@ -5,9 +5,9 @@
 //  Created by dfy on 15/1/8.
 //  Copyright (c) 2015年 childrenAreOurFuture. All rights reserved.
 //
-
 #import "MYDNetwork.h"
 #import "ASIHTTPRequest.h"
+#import "MYDProgressManager.h"
 
 @implementation MYDNetwork
 #pragma mark - 单例
@@ -28,6 +28,7 @@ static MYDNetwork *instant = nil;
         networkQueue = [[ASINetworkQueue alloc] init];
         networkQueue.delegate = self;
         networkQueue.requestDidFinishSelector = @selector(requestDidFinishAction);
+        networkQueue.downloadProgressDelegate = [MYDProgressManager getInstant].progressView;
         [networkQueue go];
     }
     return self;
@@ -45,6 +46,11 @@ static MYDNetwork *instant = nil;
 -(id)copyWithZone:(NSZone *)zone
 {
     return instant;
+}
+
+- (void)setProgressDelegate:(id)object
+{
+    networkQueue.downloadProgressDelegate = object;
 }
 #pragma mark - 网络方法
 - (void)PostRequestWithSoapMessage:(NSString *)soapMessage soapAction:(NSString *)soapAction success:(void (^)(NSString *, id))success failure:(void (^)(NSError *))failure task:(NetworkTask)task
@@ -101,7 +107,13 @@ static MYDNetwork *instant = nil;
 //#pragma mark - ASIHttpQueueDelegate
 - (void)requestDidFinishAction
 {
+    if (networkQueue.requestsCount == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PicturesDone" object:nil];
+    }
     NSLog(@"\n~~~~~networkQueue.count is %d~~~~~",networkQueue.requestsCount);
 }
+
+#pragma mark - Progress Delegate
+
 
 @end

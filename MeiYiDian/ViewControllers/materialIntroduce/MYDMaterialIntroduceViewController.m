@@ -10,9 +10,8 @@
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
 #import "MYDItemDetailView.h"
+#import "MYDScrollView.h"
 
-#define kMainScrollView 100
-#define kDetailScrollView 200
 @interface MYDMaterialIntroduceViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 //DATA
@@ -22,12 +21,14 @@
 //整理后的数据字典
 @property (strong, nonatomic) NSMutableArray *sortedCatalogIdArray;
 @property (strong, nonatomic) NSMutableDictionary *sortedDic;
-@property (strong, nonatomic) NSMutableArray *sortedArray;//数组，元素还是数组，排序按照OrderCode
+@property (strong, nonatomic) NSMutableArray *sortedArray;//数组，元素还是数组,对应是每个tableView的数据源,排序按照OrderCode
+@property (strong, nonatomic) NSMutableArray *sortedAllArray;//数组，元素是materialEntity的字典，按照sortedArray的次序排列
 //UI
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) UIScrollView *detailScrollView;
+
 @property (strong, nonatomic) MYDItemDetailView *itemDetailView;
+@property (strong, nonatomic) MYDScrollView *detailScrollView;
 @end
 
 @implementation MYDMaterialIntroduceViewController
@@ -37,15 +38,21 @@
     // Do any additional setup after loading the view from its nib.
     [self setSubviews];
 }
-
+#pragma mark 继承父类方法
+- (void)initSubviews
+{
+    [super initSubviews];
+}
 - (void)initDataSource
 {
+    [super initDataSource];
     self.catalogsArray = [[MYDDBManager getInstant] readMaterialCatalogs];
     self.materialArray = [[MYDDBManager getInstant] readMaterials];
 
     self.sortedDic = [NSMutableDictionary dictionary];
     self.sortedCatalogIdArray = [NSMutableArray array];
     self.sortedArray = [NSMutableArray array];
+    self.sortedAllArray = [NSMutableArray array];
 //    数据处理
 //按照orderCode顺序将catalogId和对应的数组加入字典
     for (int i = 0; i < self.catalogsArray.count; i++) {
@@ -61,6 +68,7 @@
         for (NSDictionary *dic in self.materialArray) {
             if ([[dic objectForKey:@"CatalogId"] isEqualToString:self.sortedCatalogIdArray[i]]) {
                 [tempArr addObject:dic];
+                [self.sortedAllArray addObject:dic];
             }
         }
         [self.sortedDic setValue:tempArr forKey:self.sortedCatalogIdArray[i]];
@@ -97,10 +105,8 @@
     
     self.scrollView.frame = CGRectMake(0, 60, 874, 618);
     self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 618);
-    self.scrollView.tag = kMainScrollView;
     
     //添加列表
-    
     for (NSDictionary *dic in self.catalogsArray) {
         int i = [[dic objectForKey:@"OrderCode"] intValue] - 1;
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 618)];
@@ -135,11 +141,6 @@
     }
     //    NSDictionary *dic = self.materialdataArray[indexPath.row];
     
-    
-    
-    
-    
-    
 //    //取出该tableView对应的catalogId
 //    NSString *catalogId;
 //    for (NSDictionary *dic  in self.catalogsArray) {
@@ -166,12 +167,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSMutableArray *tempArr = self.sortedArray[tableView.tag];
-
-    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
-    self.itemDetailView = [[MYDItemDetailView alloc] initWithImage:image Title:[tempArr[indexPath.row] objectForKey:@"Name"] Price:[tempArr[indexPath.row] objectForKey:@"Price"] Description:[tempArr[indexPath.row] objectForKey:@"Description"]];
-    self.itemDetailView.frame = CGRectOffset(self.itemDetailView.frame, 0, 60);
-    [self.view addSubview:self.itemDetailView];
+//    NSMutableArray *tempArr = self.sortedArray[tableView.tag];
+//
+//    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
+//    self.itemDetailView = [[MYDItemDetailView alloc] initWithImage:image Title:[tempArr[indexPath.row] objectForKey:@"Name"] Price:[tempArr[indexPath.row] objectForKey:@"Price"] Description:[tempArr[indexPath.row] objectForKey:@"Description"]];
+//    self.itemDetailView.frame = CGRectOffset(self.itemDetailView.frame, 0, 60);
+//    [self.view addSubview:self.itemDetailView];
+    
+    NSDictionary *dic = [self.sortedArray[tableView.tag] objectAtIndex:indexPath.row];
+    NSInteger index = [self.sortedAllArray indexOfObject:dic];
+    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 618) index:index];
+    [self.view addSubview:self.detailScrollView];
+    self.detailScrollView.detailDataList = self.sortedAllArray;
 
 }
 
@@ -190,7 +197,7 @@
 #pragma mark - UIScrollView
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-
+    
     // 根据scorllView的contentOffset属性，判断当前所在的页数
     NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
     

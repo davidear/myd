@@ -15,4 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 - (id)initWithImage:(UIImage *)image Title:(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin;
+
+//刷新界面
+- (void)reloadDataWithImage:(UIImage *)image Title :(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin;
 @end

@@ -213,6 +213,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"LoginUser"]) {
         [_db executeUpdate:@"CREATE TABLE LoginUser (Id text, Name text, PasswordHash text, PasswordSalt text, FirstLastName text, Qq text, WeiXing text, Email text, Tel text, DepartmentId text, DepartmentName text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM LoginUser"];
     }
 //    现在表中查询有没有相同的元素，如果有，做修改操作
     FMResultSet *rs = [_db executeQuery:@"select * from LoginUser where Id = ?",[dic objectForKey:@"Id"]];
@@ -275,6 +277,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"MaterialCatalogs"]) {
         [_db executeUpdate:@"CREATE TABLE MaterialCatalogs (Id text, Name text, Code text, ParentId text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM MaterialCatalogs"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -372,6 +376,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Materials"]) {
         [_db executeUpdate:@"CREATE TABLE Materials (Id text, Name text, Code text, CatalogId text, UnitName text, StandardName text, Price float, TypeCodeX text, OrderCode integer, TitlePictureFileName text, Description text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Materials"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -419,6 +425,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"MaterialPictures"]) {
         [_db executeUpdate:@"CREATE TABLE MaterialPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM MaterialPictures"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -463,6 +471,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"PlanCatalogs"]) {
         [_db executeUpdate:@"CREATE TABLE PlanCatalogs (Id text, Name text, Code text, ParentId text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM PlanCatalogs"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -512,6 +522,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Plans"]) {
         [_db executeUpdate:@"CREATE TABLE Plans (Id text, Name text, Code text, CatalogId text,Price float, ProjectId text, OrderCode integer, TitlePictureFileName text, Description text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Plans"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -560,6 +572,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"PlanPictures"]) {
         [_db executeUpdate:@"CREATE TABLE PlanPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM PlanPictures"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -605,6 +619,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"ScrollPictures"]) {
         [_db executeUpdate:@"CREATE TABLE ScrollPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM ScrollPictures"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -650,6 +666,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Parties"]) {
         [_db executeUpdate:@"CREATE TABLE Parties (Id text, Name text, Code text, Content text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Parties"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -693,6 +711,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"IntroductionCatalogs"]) {
         [_db executeUpdate:@"CREATE TABLE IntroductionCatalogs (Id text, Name text, Code text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM IntroductionCatalogs"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -737,6 +757,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Introductions"]) {
         [_db executeUpdate:@"CREATE TABLE Introductions (Id text, CatalogId text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Introductions"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -783,6 +805,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"WritingCatalogs"]) {
         [_db executeUpdate:@"CREATE TABLE WritingCatalogs (Id text, Name text, Code text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM WritingCatalogs"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -829,6 +853,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Writings"]) {
         [_db executeUpdate:@"CREATE TABLE Writings (Id text, CatalogId text, Title text, OrderCode integer, TitlePictureFileName text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Writings"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -876,6 +902,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"WritingPictures"]) {
         [_db executeUpdate:@"CREATE TABLE WritingPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM WritingPictures"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -921,6 +949,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Announcements"]) {
         [_db executeUpdate:@"CREATE TABLE Announcements (Id text, Title text, Content text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Announcements"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -968,6 +998,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"ProjectCatalogs"]) {
         [_db executeUpdate:@"CREATE TABLE ProjectCatalogs (Id text, Name text, Code text, ParentId text, OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM ProjectCatalogs"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -1030,6 +1062,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"Projects"]) {
         [_db executeUpdate:@"CREATE TABLE Projects (Id text, Name text, Code text, CatalogId text, UnitName text, StandardName text, Price float, OrderCode integer, TitlePictureFileName text, Description text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Projects"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {
@@ -1080,6 +1114,8 @@ public class LoginUser
     //创建表格
     if (![_db tableExists:@"ProjectPictures"]) {
         [_db executeUpdate:@"CREATE TABLE ProjectPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM ProjectPictures"];
     }
     //    现在表中查询有没有相同的元素，如果有，做修改操作
     for (NSDictionary *dic in dicArray) {

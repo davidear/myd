@@ -30,4 +30,12 @@
 }
 - (IBAction)imageButtonAction:(id)sender {
 }
+
+- (void)reloadDataWithImage:(UIImage *)image Title :(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin
+{
+    [self.imageButton setImage:image forState:UIControlStateNormal];
+    self.titleLabel.text = title;
+    self.priceLabel.text = [NSString stringWithFormat:@"价格：%@元",price];
+    self.descriptionTextView.text = descriptioin;
+}
 @end

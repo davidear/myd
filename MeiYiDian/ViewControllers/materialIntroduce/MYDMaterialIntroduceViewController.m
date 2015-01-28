@@ -9,7 +9,6 @@
 #import "MYDMaterialIntroduceViewController.h"
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
-#import "MYDItemDetailView.h"
 #import "MYDScrollView.h"
 
 @interface MYDMaterialIntroduceViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -27,8 +26,9 @@
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 
-@property (strong, nonatomic) MYDItemDetailView *itemDetailView;
+//滑动图
 @property (strong, nonatomic) MYDScrollView *detailScrollView;
+@property (strong, nonatomic) MYDScrollDoneBlock scrollDoneBlock;
 @end
 
 @implementation MYDMaterialIntroduceViewController
@@ -37,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setSubviews];
+    [self initBlocks];
 }
 #pragma mark 继承父类方法
 - (void)initSubviews
@@ -46,21 +47,25 @@
 - (void)initDataSource
 {
     [super initDataSource];
-    self.catalogsArray = [[MYDDBManager getInstant] readMaterialCatalogs];
-    self.materialArray = [[MYDDBManager getInstant] readMaterials];
-
+    self.catalogsArray = [[MYDDBManager getInstant] readMaterialCatalogs];//乱序
+    self.materialArray = [[MYDDBManager getInstant] readMaterials];//乱序
+    //整理序列,从小到大orderCode
+    self.catalogsArray = [self.catalogsArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[NSNumber numberWithInt:[[obj1 objectForKey:@"OrderCode"] intValue]] compare:[NSNumber numberWithInt:[[obj2 objectForKey:@"OrderCode"] intValue]]];
+    }];
+    self.materialArray = [self.materialArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[NSNumber numberWithInt:[[obj1 objectForKey:@"OrderCode"] intValue]] compare:[NSNumber numberWithInt:[[obj2 objectForKey:@"OrderCode"] intValue]]];
+    }];
+    
     self.sortedDic = [NSMutableDictionary dictionary];
     self.sortedCatalogIdArray = [NSMutableArray array];
     self.sortedArray = [NSMutableArray array];
     self.sortedAllArray = [NSMutableArray array];
 //    数据处理
 //按照orderCode顺序将catalogId和对应的数组加入字典
-    for (int i = 0; i < self.catalogsArray.count; i++) {
-        for (NSDictionary *dic  in self.catalogsArray) {
-                    if ([[dic objectForKey:@"OrderCode"] intValue] - 1 == i) {
-                        [self.sortedCatalogIdArray addObject:[dic objectForKey:@"Id"]];
-                    }
-        }
+
+    for (NSDictionary *dic  in self.catalogsArray) {
+        [self.sortedCatalogIdArray addObject:[dic objectForKey:@"Id"]];
     }
     
     for (int i = 0; i < self.sortedCatalogIdArray.count; i++) {
@@ -74,17 +79,20 @@
         [self.sortedDic setValue:tempArr forKey:self.sortedCatalogIdArray[i]];
         [self.sortedArray addObject:tempArr];
     }
-    
-//    
-//    for (NSDictionary *dic in self.materialArray) {
-//        if ([[dic objectForKey:@"CatalogId"] isEqualToString:catalogId]) {
-//            cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"TitlePictureFileName"]];
-//            cell.textLabel.text = [dic objectForKey:@"Name"];
-//        }
-//    }
-
 }
-
+#pragma mark -
+- (void)initBlocks
+{
+    __block MYDMaterialIntroduceViewController *blockVC = self;
+    self.scrollDoneBlock = ^(NSInteger index){
+        NSDictionary *dic = blockVC.sortedAllArray[index];
+        for (int i = 0; i < blockVC.sortedCatalogIdArray.count; i++) {
+            if ([[dic objectForKey:@"CatalogId"] isEqualToString:blockVC.sortedCatalogIdArray[i]]) {
+                blockVC.tabBar.selectedItem = blockVC.tabBar.items[i];
+            }
+        }
+    };
+}
 - (void)setSubviews
 {
     //    //初始化navigationController
@@ -139,55 +147,28 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
-    //    NSDictionary *dic = self.materialdataArray[indexPath.row];
-    
-//    //取出该tableView对应的catalogId
-//    NSString *catalogId;
-//    for (NSDictionary *dic  in self.catalogsArray) {
-//        if ([[dic objectForKey:@"OrderCode"] intValue] - 1 == tableView.tag) {
-//            catalogId = [dic objectForKey:@"Id"];
-//        }
-//    }
-//    
-//    for (NSDictionary *dic in self.materialArray) {
-//        if ([[dic objectForKey:@"CatalogId"] isEqualToString:catalogId]) {
-//            cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"TitlePictureFileName"]];
-//            cell.textLabel.text = [dic objectForKey:@"Name"];
-//        }
-//    }
-    
     NSMutableArray *tempArr = self.sortedArray[tableView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
     cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Name"];
-//
-//    
-    //    cell.textLabel.text = [dic objectForKey:@"Name"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSMutableArray *tempArr = self.sortedArray[tableView.tag];
-//
-//    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
-//    self.itemDetailView = [[MYDItemDetailView alloc] initWithImage:image Title:[tempArr[indexPath.row] objectForKey:@"Name"] Price:[tempArr[indexPath.row] objectForKey:@"Price"] Description:[tempArr[indexPath.row] objectForKey:@"Description"]];
-//    self.itemDetailView.frame = CGRectOffset(self.itemDetailView.frame, 0, 60);
-//    [self.view addSubview:self.itemDetailView];
-    
     NSDictionary *dic = [self.sortedArray[tableView.tag] objectAtIndex:indexPath.row];
     NSInteger index = [self.sortedAllArray indexOfObject:dic];
     self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 618) index:index];
     [self.view addSubview:self.detailScrollView];
+    self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
     self.detailScrollView.detailDataList = self.sortedAllArray;
-
 }
 
 #pragma mark - UITabBar
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if ([self.view.subviews containsObject:self.itemDetailView]) {
-        [self.itemDetailView removeFromSuperview];
-        self.itemDetailView = nil;
+    if ([self.view.subviews containsObject:self.detailScrollView]) {
+        [self.detailScrollView removeFromSuperview];
+        self.detailScrollView = nil;
     }
     CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
     

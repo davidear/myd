@@ -9,36 +9,19 @@
 #import "MYDPartyIntroduceViewController.h"
 
 @interface MYDPartyIntroduceViewController ()
-////UI
-//@property (strong, nonatomic) UITabBar *tabBar;
-//@property (strong, nonatomic) UIScrollView *scrollView;
-//DATA
 @property (strong, nonatomic) NSArray *partiesArray;
-//@property (strong, nonatomic) NSArray *introductionArray;
 @end
 
 @implementation MYDPartyIntroduceViewController
-//- (id)init
-//{
-//    self = [super init];
-//    if (self) {
-//        [self initDataSource];
-//    }
-//    return self;
-//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setSubviews];
 }
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [self setSubviews];
-//}
+
 - (void)initDataSource
 {
     self.partiesArray = [[MYDDBManager getInstant] readParties];
-//    self.introductionArray = [[MYDDBManager getInstant] readIntroductions];
 }
 
 

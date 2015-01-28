@@ -13,6 +13,8 @@
 // 记录图像数量
 @property (assign, nonatomic) NSInteger imageCount;
 
+//记录最初展示的序号
+@property (assign, nonatomic) NSInteger index;
 // 保存滚动视图显示内容的图像视图数组，数组中一共有三张图片
 @property (strong, nonatomic) NSArray *itemDetailViewList;
 
@@ -33,14 +35,15 @@
     CGFloat height = self.bounds.size.height;
     
     [self.scrollView setContentSize:CGSizeMake((self.imageCount + 2) * width, height)];
-    [self setScrollContentWithPage:0];
+    [self setScrollContentWithPage:self.index];
 }
 
 #pragma mark 实例化控件
-- (id)initWithFrame:(CGRect)frame index:(int)index
+- (id)initWithFrame:(CGRect)frame index:(NSInteger)index
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.index = index;
         // 把原有的loadView中的大部分代码复制到此处
         // 2. 实例化滚动视图
         UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:self.bounds];
@@ -82,7 +85,7 @@
         // 5) 设置允许分页
         [scroll setPagingEnabled:YES];
         // 6) 设置偏移位置
-        [scroll setContentOffset:CGPointMake(width, 0)];
+        [scroll setContentOffset:CGPointMake(width * (index + 1), 0)];
         
         // 7) 设置当前显示的内容
         // 在一个独立的位置测试，也便于讲解，写一个单独的方法
@@ -97,6 +100,9 @@
 // 参数page是从0开始的
 - (void)setScrollContentWithPage:(NSInteger)page
 {
+    //    block
+    self.scrollDoneBlock(page);
+    
     // 需要page-1 page page+1 三个页面
     // 如果是0：99 0 1
     // 如果是1: 0 1 2
@@ -128,6 +134,10 @@
 }
 
 #pragma mark - 滚动视图代理方法
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+
+}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // 1. 计算页号
@@ -156,6 +166,9 @@
     if (needAdjust) {
         [scrollView setContentOffset:CGPointMake(pageNo * scrollView.bounds.size.width, 0)];
     }
+
+
+
 }
 
 @end

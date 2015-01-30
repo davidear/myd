@@ -38,8 +38,8 @@
     self.tabBar.delegate = self;
     [self.view addSubview:self.tabBar];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 618)];
-    self.scrollView.contentSize = CGSizeMake(874, 618);
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598)];
+    self.scrollView.contentSize = CGSizeMake(874, 598);
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;

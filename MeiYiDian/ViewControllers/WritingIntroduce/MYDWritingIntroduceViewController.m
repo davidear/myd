@@ -96,15 +96,15 @@
     self.tabBar.items = array;
     self.tabBar.selectedItem = array[0];
     
-    self.scrollView.frame = CGRectMake(0, 60, 874, 618);
-    self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 618);
+    self.scrollView.frame = CGRectMake(0, 60, 874, 598);
+    self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 598);
     self.scrollView.tag = kMainScrollView;
     
     //添加列表
     
     for (NSDictionary *dic in self.catalogsArray) {
         int i = [[dic objectForKey:@"OrderCode"] intValue] - 1;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 618)];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tag = i;
@@ -158,7 +158,7 @@
     
     NSMutableArray *tempArr = self.sortedArray[tableView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
-    cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Name"];
+    cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Title"];
     //
     //
     //    cell.textLabel.text = [dic objectForKey:@"Name"];

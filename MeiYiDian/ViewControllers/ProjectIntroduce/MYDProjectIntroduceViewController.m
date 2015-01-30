@@ -75,6 +75,7 @@
         for (NSDictionary *dic in self.projectArray) {
             if ([[dic objectForKey:@"CatalogId"] isEqualToString:self.sortedCatalogIdArray[i]]) {
                 [tempArr addObject:dic];
+                [self.sortedAllArray addObject:dic];
             }
         }
         [self.sortedDic setValue:tempArr forKey:self.sortedCatalogIdArray[i]];
@@ -113,13 +114,13 @@
     self.tabBar.items = array;
     self.tabBar.selectedItem = array[0];
     
-    self.scrollView.frame = CGRectMake(0, 60, 874, 618);
-    self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 618);
+    self.scrollView.frame = CGRectMake(0, 60, 874, 598);
+    self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 598);
     
     //添加列表
     for (NSDictionary *dic in self.catalogsArray) {
         int i = [[dic objectForKey:@"OrderCode"] intValue] - 1;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 618)];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tag = i;
@@ -132,7 +133,7 @@
 #pragma mark - UITableView
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return 150;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -159,7 +160,7 @@
 {
     NSDictionary *dic = [self.sortedArray[tableView.tag] objectAtIndex:indexPath.row];
     NSInteger index = [self.sortedAllArray indexOfObject:dic];
-    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 618) index:index];
+    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598) index:index];
     [self.view addSubview:self.detailScrollView];
     self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
     self.detailScrollView.detailDataList = self.sortedAllArray;

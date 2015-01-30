@@ -10,4 +10,5 @@
 
 @interface MYDMainViewController : MYDBaseViewController
 
+@property (assign, nonatomic) NSInteger tableIndex;
 @end

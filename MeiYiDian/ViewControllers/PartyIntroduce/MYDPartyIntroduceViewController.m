@@ -39,13 +39,13 @@
     self.tabBar.items = array;
     self.tabBar.selectedItem = array[0];
     
-    self.scrollView.frame = CGRectMake(0, 60, 874, 618);
-    self.scrollView.contentSize = CGSizeMake(874 * self.partiesArray.count, 618);
+    self.scrollView.frame = CGRectMake(0, 60, 874, 598);
+    self.scrollView.contentSize = CGSizeMake(874 * self.partiesArray.count, 598);
     
     
     //加载webView
     for (int i =0; i < self.partiesArray.count; i++) {
-        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 618)];
+        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
         NSString *idStr = [self.partiesArray[i] objectForKey:@"Id"];
         NSString *str = [NSString stringWithFormat:@"http://pad.zmmyd.com/Publics/Party.aspx?id=%@",idStr];
         NSURL *url = [NSURL URLWithString:str];

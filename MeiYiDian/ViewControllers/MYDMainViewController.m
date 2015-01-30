@@ -36,6 +36,11 @@
 
 @implementation MYDMainViewController
 static NSString *MyCell = @"MyCell";
+//- (void)setTableIndex:(NSInteger)tableIndex
+//{
+//    _tableIndex = tableIndex;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -46,6 +51,7 @@ static NSString *MyCell = @"MyCell";
 - (void)viewDidAppear:(BOOL)animated
 {
     [self initViewControllers];
+    [self swithContentViewWithIndex:self.tableIndex];
 }
 
 //加快加载速度
@@ -100,22 +106,84 @@ static NSString *MyCell = @"MyCell";
         return;
     }
     [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    switch (indexPath.row) {
-        case 0:
-        {
-            [self dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-        }
-            break;
+    
+    if (indexPath.row == 0) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else {
+        [self swithContentViewWithIndex:indexPath.row];
+    }
+    
+//    switch (indexPath.row) {
+//        case 0:
+//        {
+//            [self dismissViewControllerAnimated:YES completion:^{
+//            }];
+//        }
+//            break;
+//        case 1:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.enterpriseIntroduceVC.view];
+//        }
+//            break;
+//        case 2:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.priceIntroduceVC.view];
+//        }
+//            break;
+//        case 3:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.projectIntroduceVC.view];
+//        }
+//            break;
+//        case 4:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.materialIntroduceVC.view];
+//        }
+//            break;
+//        case 5:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.partyIntroduceVC.view];
+//        }
+//            break;
+//        case 6:
+//        {
+//            if (self.contentView.subviews.count != 0) {
+//                [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
+//            }
+//            [self.contentView addSubview:self.writingIntroduceVC.view];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
+    self.selectedRow = indexPath.row;
+}
+- (void)swithContentViewWithIndex:(NSInteger)index
+{
+    switch (index) {
         case 1:
         {
             if (self.contentView.subviews.count != 0) {
                 [[self.contentView.subviews objectAtIndex:0] removeFromSuperview];
             }
             [self.contentView addSubview:self.enterpriseIntroduceVC.view];
-//            self.contentView = VC.view;
-//            [self.view setNeedsDisplay];
         }
             break;
         case 2:
@@ -161,8 +229,6 @@ static NSString *MyCell = @"MyCell";
         default:
             break;
     }
-    self.selectedRow = indexPath.row;
 }
-
 
 @end

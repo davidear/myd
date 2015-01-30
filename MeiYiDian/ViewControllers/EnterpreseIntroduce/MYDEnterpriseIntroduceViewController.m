@@ -56,8 +56,8 @@
 //    self.tabBar.selectedItem = array[0];
 //    [self.view addSubview:self.tabBar];
 //    
-//    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 618)];
-//    self.scrollView.contentSize = CGSizeMake(874 * self.introductionCatalogsArray.count, 618);
+//    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598)];
+//    self.scrollView.contentSize = CGSizeMake(874 * self.introductionCatalogsArray.count, 598);
 //    self.scrollView.delegate = self;
 //    self.scrollView.pagingEnabled = YES;
 //    self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -79,13 +79,13 @@
     self.tabBar.items = array;
     self.tabBar.selectedItem = array[0];
     
-    self.scrollView.frame = CGRectMake(0, 60, 874, 618);
-    self.scrollView.contentSize = CGSizeMake(874 * self.introductionCatalogsArray.count, 618);
+    self.scrollView.frame = CGRectMake(0, 60, 874, 598);
+    self.scrollView.contentSize = CGSizeMake(874 * self.introductionCatalogsArray.count, 598);
     
     
     //加载webView
     for (int i =0; i < self.introductionCatalogsArray.count; i++) {
-        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 618)];
+        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
         NSString *idStr;
         for (NSDictionary *dic in self.introductionArray) {
             if ([[dic objectForKey:@"CatalogId"] isEqualToString:[self.introductionCatalogsArray[i] objectForKey:@"Id"]]) {

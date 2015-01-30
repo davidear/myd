@@ -17,6 +17,13 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *horizontalScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIButton *annoucementButton;
+@property (strong, nonatomic) IBOutlet UIButton *customerInfo;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *imageButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *textButtons;
+
+//Controller
+@property (strong, nonatomic) UINavigationController *navC;
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
 @property (strong, nonatomic) NSMutableArray *imageViewArray;
@@ -31,6 +38,7 @@
     [self initDataSource];
     [self initSubviews];
     [self setSubviews];
+    [self initControllers];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -39,6 +47,11 @@
     [super viewDidAppear:animated];
 }
 
+- (void)initControllers
+{
+    self.navC = [[UINavigationController alloc] initWithRootViewController:[[MYDMainViewController alloc] init]];
+    self.navC.navigationBarHidden = YES;
+}
 - (void)initDataSource
 {
     self.dataArray = [[MYDDBManager getInstant] readScrollPictures];
@@ -60,6 +73,17 @@
 }
 - (void)setSubviews
 {
+    //设置圆角
+    self.annoucementButton.layer.cornerRadius = 8;
+    self.customerInfo.layer.cornerRadius = 12;
+    for (UIButton *btn in self.textButtons) {
+        btn.layer.cornerRadius = 8;
+    }
+    for (UIButton *btn in self.imageButtons) {
+        btn.layer.cornerRadius = 12;
+    }
+    
+    
     //有两个scrollView，所有使用tag标记
     self.horizontalScrollView.tag = kTagForhorizontalScrollView;
     
@@ -101,22 +125,47 @@
 }
 #pragma mark - 界面按钮事件
 - (IBAction)enterpriseIntroduce:(id)sender {
-    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:[[MYDMainViewController alloc] init]];
-    navC.navigationBarHidden = YES;
-    [self presentViewController:navC animated:YES completion:^{
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 1;
+    [self presentViewController:self.navC animated:YES completion:^{
         
     }];
 //    [self.navigationController pushViewController:[[MYDMainViewController alloc] init] animated:YES];
 }
 - (IBAction)projectIntroduce:(id)sender {
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 3;
+    [self presentViewController:self.navC animated:YES completion:^{
+        
+    }];
 }
 - (IBAction)priceIntroduce:(id)sender {
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 2;
+    [self presentViewController:self.navC animated:YES completion:^{
+        
+    }];
 }
 - (IBAction)materialIntroduce:(id)sender {
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 4;
+    [self presentViewController:self.navC animated:YES completion:^{
+        
+    }];
 }
 - (IBAction)partyIntroduce:(id)sender {
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 5;
+    [self presentViewController:self.navC animated:YES completion:^{
+        
+    }];
 }
 - (IBAction)writingIntroduce:(id)sender {
+    MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
+    mainVC.tableIndex = 6;
+    [self presentViewController:self.navC animated:YES completion:^{
+        
+    }];
 }
 
 

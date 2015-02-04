@@ -122,7 +122,8 @@
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"TitlePictureFileName"]];
         // 取出图像视图数组中的图像视图
         MYDItemDetailView *itemDetailView = self.itemDetailViewList[i];
-        [itemDetailView reloadDataWithImage:image Title:[dic objectForKey:@"Name"] Price:[dic objectForKey:@"Price"] Description:[dic objectForKey:@"Description"]];
+//        itemDetailView.delegate = self;
+        [itemDetailView reloadDataWithImage:image PictureEntityDic:dic];
         // 设置图像
 //        [imageView setImage:image];
         
@@ -170,5 +171,9 @@
 
 
 }
-
+//#pragma MYDItemDetailViewDelegate
+//- (void)imageButtonAction:(MYDPictureScrollViewController *)VC
+//{
+//    [self.delegate itemDetailImageButtonAction:VC];
+//}
 @end

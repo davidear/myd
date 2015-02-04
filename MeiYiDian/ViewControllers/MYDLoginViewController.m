@@ -45,7 +45,7 @@
     if (self.isSelected == YES) {
         return;
     }
-    [[MYDMediator getInstant] loginWithUserName:@"myd001" password:@"myd001" success:^(NSString *responseString) {
+    [[MYDMediator getInstant] loginWithUserName:self.userNameTextField.text password:self.passwordTextField.text success:^(NSString *responseString) {
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
         int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
@@ -60,6 +60,8 @@
             [self downloadPictures];
         }
     } failure:^(NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败，请重试" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
         self.isSelected = NO;
     }];
     

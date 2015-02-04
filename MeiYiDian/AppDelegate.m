@@ -37,7 +37,6 @@
 //    sideMenu.contentViewShadowRadius = 12;
 //    sideMenu.contentViewShadowEnabled = YES;
     
-    
 //    self.window.rootViewController = [[MYDMainViewController alloc] init];
     self.window.rootViewController = [[MYDLoginViewController alloc] init];
     

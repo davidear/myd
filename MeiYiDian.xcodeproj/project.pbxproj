@@ -25,6 +25,10 @@
 		3C239EB81A5BC612008419A4 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E6B1A5BC612008419A4 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3C239ED71A5BC612008419A4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239EB01A5BC612008419A4 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3C239EDA1A5BC7E1008419A4 /* MYDMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239ED91A5BC7E1008419A4 /* MYDMediator.m */; };
+		3C2A0CE01A820D8F00318799 /* MYDPictureScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */; };
+		3C2A0CE61A820DFA00318799 /* MPParallaxCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */; };
+		3C2A0CE71A820DFA00318799 /* MPParallaxLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */; };
+		3C2A0CEB1A820EDD00318799 /* MPTextReavealLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */; };
 		3C5844341A5CC613004310D1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844331A5CC613004310D1 /* CFNetwork.framework */; };
 		3C5844361A5CC625004310D1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844351A5CC625004310D1 /* SystemConfiguration.framework */; };
 		3C5844381A5CC631004310D1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844371A5CC631004310D1 /* MobileCoreServices.framework */; };
@@ -37,6 +41,8 @@
 		3C5E10AF1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10AD1A6C9338008D1E5E /* MYDProjectIntroduceViewController.m */; };
 		3C5E10B41A6C935D008D1E5E /* MYDWritingIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */; };
 		3C726BED1A763588000E577A /* MYDProgressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C726BEC1A763588000E577A /* MYDProgressManager.m */; };
+		3C97A9461A7CB24B00EE191B /* MYDImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */; };
+		3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */; };
 		3CA5E5341A714DD600A7CFF6 /* MYDBaseSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5E5331A714DD600A7CFF6 /* MYDBaseSubViewController.m */; };
 		3CC101891A7BD42E00A34B05 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC101881A7BD42E00A34B05 /* header.png */; };
 		3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC1018A1A7BD4EB00A34B05 /* headerBig.png */; };
@@ -144,6 +150,14 @@
 		3C239ED81A5BC7E1008419A4 /* MYDMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDMediator.h; sourceTree = "<group>"; };
 		3C239ED91A5BC7E1008419A4 /* MYDMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDMediator.m; sourceTree = "<group>"; };
 		3C239EDE1A5BCB0E008419A4 /* MYDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYDConfig.h; sourceTree = "<group>"; };
+		3C2A0CDE1A820D8F00318799 /* MYDPictureScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDPictureScrollViewController.h; sourceTree = "<group>"; };
+		3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDPictureScrollViewController.m; sourceTree = "<group>"; };
+		3C2A0CE21A820DFA00318799 /* MPParallaxCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPParallaxCollectionViewCell.h; sourceTree = "<group>"; };
+		3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPParallaxCollectionViewCell.m; sourceTree = "<group>"; };
+		3C2A0CE41A820DFA00318799 /* MPParallaxLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPParallaxLayout.h; sourceTree = "<group>"; };
+		3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPParallaxLayout.m; sourceTree = "<group>"; };
+		3C2A0CE91A820EDD00318799 /* MPTextReavealLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextReavealLabel.h; sourceTree = "<group>"; };
+		3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextReavealLabel.m; sourceTree = "<group>"; };
 		3C5844331A5CC613004310D1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3C5844351A5CC625004310D1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3C5844371A5CC631004310D1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -163,8 +177,12 @@
 		3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDWritingIntroduceViewController.m; sourceTree = "<group>"; };
 		3C726BEB1A763588000E577A /* MYDProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDProgressManager.h; sourceTree = "<group>"; };
 		3C726BEC1A763588000E577A /* MYDProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDProgressManager.m; sourceTree = "<group>"; };
+		3C97A9431A7CB24B00EE191B /* MYDImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDImageScrollViewController.h; sourceTree = "<group>"; };
+		3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDImageScrollViewController.m; sourceTree = "<group>"; };
+		3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDImageScrollViewController.xib; sourceTree = "<group>"; };
 		3CA5E5321A714DD600A7CFF6 /* MYDBaseSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDBaseSubViewController.h; sourceTree = "<group>"; };
 		3CA5E5331A714DD600A7CFF6 /* MYDBaseSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDBaseSubViewController.m; sourceTree = "<group>"; };
+		3CB01ECC1A821F4F001D1878 /* MYDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYDConstants.h; sourceTree = "<group>"; };
 		3CC101881A7BD42E00A34B05 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		3CC1018A1A7BD4EB00A34B05 /* headerBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerBig.png; sourceTree = "<group>"; };
 		3CC1018C1A7BD8E200A34B05 /* 产品介绍.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品介绍.png"; sourceTree = "<group>"; };
@@ -329,6 +347,7 @@
 				3CCEAC3A1A5CDD9500BF16F0 /* ViewControllers */,
 				3C239E301A5BBF30008419A4 /* AppDelegate.h */,
 				3C239E311A5BBF30008419A4 /* AppDelegate.m */,
+				3CB01ECC1A821F4F001D1878 /* MYDConstants.h */,
 				3C239E331A5BBF30008419A4 /* ViewController.h */,
 				3C239E341A5BBF30008419A4 /* ViewController.m */,
 				3CCB9DC91A689C9B00031372 /* ViewController.xib */,
@@ -374,6 +393,9 @@
 				3C726BEC1A763588000E577A /* MYDProgressManager.m */,
 				3CC67C951A7781370043DE4C /* MYDScrollView.h */,
 				3CC67C961A7781370043DE4C /* MYDScrollView.m */,
+				3C97A9431A7CB24B00EE191B /* MYDImageScrollViewController.h */,
+				3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */,
+				3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -400,6 +422,8 @@
 		3C239E551A5BC522008419A4 /* ThirdPartFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3C2A0CE81A820EDD00318799 /* MPTextReavealLabel */,
+				3C2A0CE11A820DFA00318799 /* MPParallaxCollection */,
 				3CCC29171A6D44780087F280 /* SDWebImage */,
 				3CCF8F8A1A5E57730074ECED /* fmdb */,
 				3CCEAC5D1A5E0F1800BF16F0 /* KissXML */,
@@ -467,6 +491,35 @@
 				3C239EB01A5BC612008419A4 /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		3C2A0CDD1A820D7200318799 /* PictureScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3C2A0CDE1A820D8F00318799 /* MYDPictureScrollViewController.h */,
+				3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */,
+			);
+			path = PictureScrollViewController;
+			sourceTree = "<group>";
+		};
+		3C2A0CE11A820DFA00318799 /* MPParallaxCollection */ = {
+			isa = PBXGroup;
+			children = (
+				3C2A0CE21A820DFA00318799 /* MPParallaxCollectionViewCell.h */,
+				3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */,
+				3C2A0CE41A820DFA00318799 /* MPParallaxLayout.h */,
+				3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */,
+			);
+			path = MPParallaxCollection;
+			sourceTree = "<group>";
+		};
+		3C2A0CE81A820EDD00318799 /* MPTextReavealLabel */ = {
+			isa = PBXGroup;
+			children = (
+				3C2A0CE91A820EDD00318799 /* MPTextReavealLabel.h */,
+				3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */,
+			);
+			path = MPTextReavealLabel;
 			sourceTree = "<group>";
 		};
 		3C58443D1A5CC835004310D1 /* Frameworks */ = {
@@ -617,6 +670,7 @@
 		3CCEAC3A1A5CDD9500BF16F0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C2A0CDD1A820D7200318799 /* PictureScrollViewController */,
 				3CCEAC3B1A5CDDBE00BF16F0 /* BaseViewControllers */,
 				3C2047E81A73A7AB0079B6C3 /* ItemDetail */,
 				3C5E10921A6C8716008D1E5E /* EnterpriseIntroduce */,
@@ -818,6 +872,7 @@
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
 				3CC101891A7BD42E00A34B05 /* header.png in Resources */,
 				3CC101931A7BD8E200A34B05 /* 活动方案.png in Resources */,
+				3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */,
 				3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */,
 				3CC101961A7BD8E200A34B05 /* 项目介绍.png in Resources */,
 				3CC101941A7BD8E200A34B05 /* 价格表.png in Resources */,
@@ -851,6 +906,7 @@
 				3C239EB61A5BC612008419A4 /* ASIHTTPRequest.m in Sources */,
 				3CCC293B1A6D44780087F280 /* SDImageCache.m in Sources */,
 				3CCF8F9D1A5E62B20074ECED /* MYDBaseSplitViewController.m in Sources */,
+				3C2A0CEB1A820EDD00318799 /* MPTextReavealLabel.m in Sources */,
 				3CCC293A1A6D44780087F280 /* NSData+ImageContentType.m in Sources */,
 				3C5E109B1A6C9018008D1E5E /* MYDEnterpriseIntroduceViewController.m in Sources */,
 				3C239EB11A5BC612008419A4 /* ASIAuthenticationDialog.m in Sources */,
@@ -859,6 +915,7 @@
 				3CCEAC3E1A5CDDE100BF16F0 /* MYDBaseNavigationController.m in Sources */,
 				3CCEAC4A1A5CDEDB00BF16F0 /* MYDBaseViewController.m in Sources */,
 				3CCC29471A6D44780087F280 /* UIImageView+WebCache.m in Sources */,
+				3C2A0CE71A820DFA00318799 /* MPParallaxLayout.m in Sources */,
 				3CCF8FB01A5F611B0074ECED /* MYDDBManager.m in Sources */,
 				3C239EB51A5BC612008419A4 /* ASIFormDataRequest.m in Sources */,
 				3CCC293F1A6D44780087F280 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -886,9 +943,11 @@
 				3CCC293E1A6D44780087F280 /* SDWebImageDownloader.m in Sources */,
 				3CCC29481A6D44780087F280 /* UIView+WebCacheOperation.m in Sources */,
 				3C239EB81A5BC612008419A4 /* ASINetworkQueue.m in Sources */,
+				3C97A9461A7CB24B00EE191B /* MYDImageScrollViewController.m in Sources */,
 				3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */,
 				3C239EB31A5BC612008419A4 /* ASIDataDecompressor.m in Sources */,
 				3C726BED1A763588000E577A /* MYDProgressManager.m in Sources */,
+				3C2A0CE61A820DFA00318799 /* MPParallaxCollectionViewCell.m in Sources */,
 				3C239EB41A5BC612008419A4 /* ASIDownloadCache.m in Sources */,
 				3CCF8F891A5E2B450074ECED /* MYDNetwork.m in Sources */,
 				3CC67C971A7781370043DE4C /* MYDScrollView.m in Sources */,
@@ -901,6 +960,7 @@
 				3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */,
 				3CCEAC391A5CDCD300BF16F0 /* UIViewController+RESideMenu.m in Sources */,
 				3CCF8FAD1A5F60D60074ECED /* MYDPackageManager.m in Sources */,
+				3C2A0CE01A820D8F00318799 /* MYDPictureScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,6 +1076,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeiYiDian/MeiYiDian-Prefix.pch";
@@ -1029,6 +1090,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "35eebf96-9463-4fc4-a8fd-ad630d9a25d7";
 			};
 			name = Debug;
 		};
@@ -1036,6 +1098,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeiYiDian/MeiYiDian-Prefix.pch";
@@ -1049,6 +1112,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "35eebf96-9463-4fc4-a8fd-ad630d9a25d7";
 			};
 			name = Release;
 		};

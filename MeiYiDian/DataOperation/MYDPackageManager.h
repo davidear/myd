@@ -17,7 +17,7 @@
  * @param NSString responseString
  * @return nil
  */
-- (void)unpackLoginBag:(NSString *)responseString;
+- (BOOL)unpackLoginBag:(NSString *)responseString;
 /*!
  * @brief 数据版本号包解析
  * @param NSString responseString

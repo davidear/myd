@@ -187,4 +187,9 @@
     
 }
 
+//#pragma MYDScrollViewDelegate
+//- (void)itemDetailImageButtonAction:(MYDPictureScrollViewController *)VC
+//{
+//    [self.view addSubview:VC.view];
+//}
 @end

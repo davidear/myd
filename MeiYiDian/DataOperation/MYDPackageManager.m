@@ -46,7 +46,7 @@ static MYDPackageManager *instant = nil;
 }
 
 #pragma mark - XML解包
-- (void)unpackLoginBag:(NSString *)responseString
+- (BOOL)unpackLoginBag:(NSString *)responseString
 {
     NSMutableString *mutableString = [NSMutableString stringWithString:responseString];
     [mutableString deleteCharactersInRange:[mutableString rangeOfString: @"<?xml version=\"1.0\" encoding=\"utf-8\"?>"]];
@@ -79,10 +79,10 @@ static MYDPackageManager *instant = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[MYDDBManager getInstant] saveLoginResultWithDataVersion:[DataVersionStr intValue] DepartmentId:DepartmentId];
+        return YES;
+    }else{
+        return NO;
     }
-         
-
-    
 }
 
 - (void)unpackDataVersionBag:(NSString *)responseString

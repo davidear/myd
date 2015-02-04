@@ -14,6 +14,8 @@
 #import "MYDProjectIntroduceViewController.h"
 #import "MYDWritingIntroduceViewController.h"
 
+#import "MYDConstants.h"
+
 @interface MYDMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 //UI
 @property (strong, nonatomic) MYDEnterpriseIntroduceViewController *enterpriseIntroduceVC;
@@ -52,6 +54,7 @@ static NSString *MyCell = @"MyCell";
 {
     [self initViewControllers];
     [self swithContentViewWithIndex:self.tableIndex];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
 }
 
 //加快加载速度
@@ -231,4 +234,11 @@ static NSString *MyCell = @"MyCell";
     }
 }
 
+#pragma mark - Notification Action
+- (void)presentPictureScrollViewController:(NSNotification *)notification
+{
+    [self presentViewController:notification.object animated:YES completion:^{
+        
+    }];
+}
 @end

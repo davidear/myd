@@ -107,13 +107,11 @@ static MYDMediator *instant = nil;
     NSString *soapAction = kMYDLoginSoapActionId;
     [network PostRequestWithSoapMessage:soapMessage soapAction:soapAction success:^(NSString *responseString, id responseData) {
 //处理返回的数据
-        [packageManager unpackLoginBag:responseString];
-        
-        
-        
-        
-        
-        successBlock(responseString);
+        if ([packageManager unpackLoginBag:responseString]) {
+            successBlock(responseString);
+        }else {
+            failureBlock([NSError errorWithDomain:@"密码不正确" code:0 userInfo:nil]);
+        }
         
     } failure:^(NSError *error) {
         failureBlock(error);

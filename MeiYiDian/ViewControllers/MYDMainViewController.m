@@ -13,6 +13,7 @@
 #import "MYDPriceIntroduceViewController.h"
 #import "MYDProjectIntroduceViewController.h"
 #import "MYDWritingIntroduceViewController.h"
+#import "MYDPictureScrollViewController.h"
 
 #import "MYDConstants.h"
 
@@ -237,7 +238,8 @@ static NSString *MyCell = @"MyCell";
 #pragma mark - Notification Action
 - (void)presentPictureScrollViewController:(NSNotification *)notification
 {
-    [self presentViewController:notification.object animated:YES completion:^{
+    MYDPictureScrollViewController *pictureScrollVC = [[MYDPictureScrollViewController alloc] initWithImageArray:notification.object];
+    [self presentViewController:pictureScrollVC animated:YES completion:^{
         
     }];
 }

@@ -12,7 +12,6 @@
 #import "MYDConstants.h"
 @interface MYDItemDetailView()
 @property (strong, nonatomic) NSDictionary *pictureEntityDic;
-@property (strong, nonatomic) MYDPictureScrollViewController *pictureScrollVC;
 @end
 
 @implementation MYDItemDetailView
@@ -51,9 +50,7 @@
     if (tempArr.count == 0) {
         return;
     }
-    self.pictureScrollVC = [[MYDPictureScrollViewController alloc] initWithImageArray:tempArr];
-//    [self.delegate imageButtonAction:self.pictureScrollVC];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForImageButtonAction object:self.pictureScrollVC];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForImageButtonAction object:tempArr];
 }
 
 - (void)reloadDataWithImage:(UIImage *)image PictureEntityDic:(NSDictionary *)dic

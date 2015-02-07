@@ -32,17 +32,13 @@
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (assign, nonatomic) int selectedRow;
+
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
 @end
 
 @implementation MYDMainViewController
 static NSString *MyCell = @"MyCell";
-//- (void)setTableIndex:(NSInteger)tableIndex
-//{
-//    _tableIndex = tableIndex;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,15 +47,21 @@ static NSString *MyCell = @"MyCell";
     [self initSubviews];
     
     [self initViewControllers];
-    [self swithContentViewWithIndex:self.tableIndex];
+    [self swithContentViewWithIndex:self.selectedRow];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self swithContentViewWithIndex:self.selectedRow];
+}
 //- (void)viewDidAppear:(BOOL)animated
 //{
-//    [self initViewControllers];
+////    [self initViewControllers];
+//    [super viewDidAppear:animated];
 //    [self swithContentViewWithIndex:self.tableIndex];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
+////    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
 //}
 
 //加快加载速度
@@ -78,7 +80,6 @@ static NSString *MyCell = @"MyCell";
 - (void)initDataSource
 {
     self.dataArray = @[@"首页",@"企业介绍",@"价格表",@"项目介绍",@"产品介绍",@"活动方案",@"作品展示"];
-    self.selectedRow = -1;
 }
 #pragma mark - TableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,9 +102,12 @@ static NSString *MyCell = @"MyCell";
         cell.backgroundColor = [UIColor clearColor];
         cell.imageView.frame = CGRectMake(0, 0, 50, 50);
         cell.imageView.center = CGPointMake(cell.center.x, cell.center.y - 25);
-        cell.imageView.backgroundColor = [UIColor blueColor];
+//        cell.imageView.backgroundColor = [UIColor blueColor];
         cell.textLabel.center = CGPointMake(cell.center.x, cell.center.y + 8);
+        cell.textLabel.textColor = [UIColor colorWithRed:255.0/255 green:102.0/255 blue:102.0/255 alpha:1];
     }
+    NSString *imageName = [NSString stringWithFormat:@"0%d_icon.png",indexPath.row+1];
+    cell.imageView.image = [UIImage imageNamed:imageName];
     cell.textLabel.text = self.dataArray[indexPath.row];
     
     return cell;
@@ -191,6 +195,7 @@ static NSString *MyCell = @"MyCell";
 }
 - (void)swithContentViewWithIndex:(NSInteger)index
 {
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     switch (index) {
         case 1:
         {

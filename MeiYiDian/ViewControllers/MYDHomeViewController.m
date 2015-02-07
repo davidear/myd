@@ -136,7 +136,7 @@
 #pragma mark - 界面按钮事件
 - (IBAction)enterpriseIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 1;
+    mainVC.selectedRow = 1;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];
@@ -144,35 +144,35 @@
 }
 - (IBAction)projectIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 3;
+    mainVC.selectedRow = 3;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];
 }
 - (IBAction)priceIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 2;
+    mainVC.selectedRow = 2;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];
 }
 - (IBAction)materialIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 4;
+    mainVC.selectedRow = 4;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];
 }
 - (IBAction)partyIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 5;
+    mainVC.selectedRow = 5;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];
 }
 - (IBAction)writingIntroduce:(id)sender {
     MYDMainViewController *mainVC = (MYDMainViewController *)self.navC.topViewController;
-    mainVC.tableIndex = 6;
+    mainVC.selectedRow = 6;
     [self presentViewController:self.navC animated:YES completion:^{
         
     }];

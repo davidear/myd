@@ -10,5 +10,6 @@
 
 @interface MYDMainViewController : MYDBaseViewController
 
-@property (assign, nonatomic) NSInteger tableIndex;
+//@property (assign, nonatomic) NSInteger tableIndex;
+@property (assign, nonatomic) int selectedRow;
 @end

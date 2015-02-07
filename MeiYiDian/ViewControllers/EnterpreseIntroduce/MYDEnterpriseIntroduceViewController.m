@@ -10,32 +10,17 @@
 
 
 @interface MYDEnterpriseIntroduceViewController ()<UITabBarDelegate,UIScrollViewDelegate>
-////UI
-//@property (strong, nonatomic) UITabBar *tabBar;
-//@property (strong, nonatomic) UIScrollView *scrollView;
-//DATA
 @property (strong, nonatomic) NSArray *introductionCatalogsArray;
 @property (strong, nonatomic) NSArray *introductionArray;
 @end
 
 @implementation MYDEnterpriseIntroduceViewController
-//- (id)init
-//{
-//    self = [super init];
-//    if (self) {
-//        [self initDataSource];
-//    }
-//    return self;
-//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setSubviews];
 }
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [self setSubviews];
-//}
 - (void)initDataSource
 {
     self.introductionCatalogsArray = [[MYDDBManager getInstant] readIntroductionCatalogs];
@@ -86,6 +71,7 @@
     //加载webView
     for (int i =0; i < self.introductionCatalogsArray.count; i++) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
+        webView.backgroundColor = [UIColor whiteColor];
         NSString *idStr;
         for (NSDictionary *dic in self.introductionArray) {
             if ([[dic objectForKey:@"CatalogId"] isEqualToString:[self.introductionCatalogsArray[i] objectForKey:@"Id"]]) {

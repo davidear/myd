@@ -87,7 +87,7 @@ static NSString *kCell=@"cell";
 //            break;
 //            
 //    }
-    NSString *text = @"美易点出品";
+    NSString *text = @"美易点出品的master";
     
     // that shit just to not make dirty MPParallaxCollectionViewCell ... I add that only to demonstrate how to use the percent driven stuff
     if (![cell viewWithTag:3838]) {

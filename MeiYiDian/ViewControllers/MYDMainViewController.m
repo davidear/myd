@@ -49,14 +49,18 @@ static NSString *MyCell = @"MyCell";
     // Do any additional setup after loading the view from its nib.
     [self initDataSource];
     [self initSubviews];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
+    
     [self initViewControllers];
     [self swithContentViewWithIndex:self.tableIndex];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
 }
+
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [self initViewControllers];
+//    [self swithContentViewWithIndex:self.tableIndex];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentPictureScrollViewController:) name:kNotificationForImageButtonAction object:nil];
+//}
 
 //加快加载速度
 - (void)initViewControllers
@@ -106,6 +110,12 @@ static NSString *MyCell = @"MyCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        return;
+    }
     if (self.selectedRow == indexPath.row) {
         return;
     }

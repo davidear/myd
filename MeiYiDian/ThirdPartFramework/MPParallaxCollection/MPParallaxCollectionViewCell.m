@@ -18,7 +18,7 @@
         
         self.clipsToBounds=YES;
         self.imageView=[[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, -MAX_HORIZONTAL_PARALLAX, 0)];
-        self.imageView.contentMode=UIViewContentModeScaleAspectFill;
+        self.imageView.contentMode=UIViewContentModeScaleToFill;
         self.imageView.clipsToBounds=YES;
         self.imageView.autoresizingMask=UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:self.imageView];

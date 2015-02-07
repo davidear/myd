@@ -32,7 +32,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.partiesArray.count; i++) {
         NSDictionary *dic = [self.partiesArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:[UIImage imageNamed:@"all_icon_3.png"] selectedImage:nil];
         item.tag = i;
         [array addObject:item];
     }

@@ -87,11 +87,11 @@ static NSString *kCell=@"cell";
 //            break;
 //            
 //    }
-    NSString *text = @"美易点出品的master";
+    NSString *text = @"美易点出品";
     
     // that shit just to not make dirty MPParallaxCollectionViewCell ... I add that only to demonstrate how to use the percent driven stuff
     if (![cell viewWithTag:3838]) {
-        MPTextReavealLabel *label=[[MPTextReavealLabel alloc] initWithFrame:CGRectMake(20, self.view.bounds.size.height - 80, 280, 60)];
+        MPTextReavealLabel *label=[[MPTextReavealLabel alloc] initWithFrame:CGRectMake(20, self.view.bounds.size.height - 40, 280, 30)];
         label.tag=3838;
         label.lineWidth=3;
         [cell addSubview:label];
@@ -99,10 +99,9 @@ static NSString *kCell=@"cell";
     }
     
     MPTextReavealLabel *label=(MPTextReavealLabel *)[cell viewWithTag:3838];
-    label.frame=CGRectMake(20, self.view.bounds.size.height - 80, 280, 60);
-    label.attributedText=[[NSAttributedString alloc] initWithString:text attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-light" size:18]}];
-    
-    
+    label.frame=CGRectMake(20, self.view.bounds.size.height - 40, 280, 30);
+    label.attributedText=[[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-light" size:30],NSForegroundColorAttributeName : [UIColor colorWithRed:255.0/255 green:102.0/255 blue:102.0/255 alpha:1]}];
+//    label.attributedText = [[NSAttributedString alloc] initWithString:text];
     
     return cell;
 }

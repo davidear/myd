@@ -11,6 +11,7 @@
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
 #import "MYDScrollView.h"
+#import "MYDCell1.h"
 
 #define kMainScrollView 100
 #define kDetailScrollView 200
@@ -107,7 +108,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.catalogsArray.count; i++) {
         NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:[UIImage imageNamed:@"all_icon_3.png"] selectedImage:nil];
         item.tag = i;
         [array addObject:item];
     }
@@ -146,9 +147,9 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    MYDCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell = [[MYDCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
     NSMutableArray *tempArr = self.sortedArray[tableView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];

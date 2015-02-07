@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define MAX_HORIZONTAL_PARALLAX 150
+#define MAX_HORIZONTAL_PARALLAX 0
 
 @class MPParallaxCollectionViewCell;
 

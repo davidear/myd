@@ -11,6 +11,7 @@
 #import "MYDMediator.h"
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
+#import "MYDUIConstant.h"
 #define kTagForhorizontalScrollView 10
 @interface MYDHomeViewController ()<UIScrollViewDelegate>
 //UI
@@ -75,12 +76,21 @@
 {
     //设置圆角
     self.annoucementButton.layer.cornerRadius = 8;
+    self.annoucementButton.layer.borderColor = kColorForBorder;
+    self.annoucementButton.layer.borderWidth = 1;
     self.customerInfo.layer.cornerRadius = 12;
+    self.customerInfo.layer.borderWidth = 1;
+    self.customerInfo.layer.borderColor = kColorForBorder;
     for (UIButton *btn in self.textButtons) {
         btn.layer.cornerRadius = 8;
+        btn.layer.borderWidth = 1;
+        btn.layer.borderColor = kColorForBorder;
     }
     for (UIButton *btn in self.imageButtons) {
         btn.layer.cornerRadius = 12;
+        btn.layer.borderColor = [[UIColor whiteColor] CGColor];
+        btn.layer.borderWidth = 10;
+        btn.clipsToBounds = YES;
     }
     
     

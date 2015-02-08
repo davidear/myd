@@ -11,7 +11,6 @@
 		3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */; };
 		3C239E2F1A5BBF30008419A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E2E1A5BBF30008419A4 /* main.m */; };
 		3C239E321A5BBF30008419A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E311A5BBF30008419A4 /* AppDelegate.m */; };
-		3C239E351A5BBF30008419A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E341A5BBF30008419A4 /* ViewController.m */; };
 		3C239E3A1A5BBF30008419A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C239E391A5BBF30008419A4 /* Images.xcassets */; };
 		3C239E3D1A5BBF30008419A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C239E3B1A5BBF30008419A4 /* LaunchScreen.xib */; };
 		3C239E491A5BBF30008419A4 /* MeiYiDianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E481A5BBF30008419A4 /* MeiYiDianTests.m */; };
@@ -26,9 +25,6 @@
 		3C239ED71A5BC612008419A4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239EB01A5BC612008419A4 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3C239EDA1A5BC7E1008419A4 /* MYDMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239ED91A5BC7E1008419A4 /* MYDMediator.m */; };
 		3C2A0CE01A820D8F00318799 /* MYDPictureScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */; };
-		3C2A0CE61A820DFA00318799 /* MPParallaxCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */; };
-		3C2A0CE71A820DFA00318799 /* MPParallaxLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */; };
-		3C2A0CEB1A820EDD00318799 /* MPTextReavealLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */; };
 		3C5844341A5CC613004310D1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844331A5CC613004310D1 /* CFNetwork.framework */; };
 		3C5844361A5CC625004310D1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844351A5CC625004310D1 /* SystemConfiguration.framework */; };
 		3C5844381A5CC631004310D1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5844371A5CC631004310D1 /* MobileCoreServices.framework */; };
@@ -70,7 +66,6 @@
 		3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC101911A7BD8E200A34B05 /* 作品展示.png */; };
 		3CC101991A7BE2E200A34B05 /* query.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC101981A7BE2E200A34B05 /* query.png */; };
 		3CC67C971A7781370043DE4C /* MYDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC67C961A7781370043DE4C /* MYDScrollView.m */; };
-		3CCB9DCA1A689C9B00031372 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCB9DC91A689C9B00031372 /* ViewController.xib */; };
 		3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB9DCC1A68A39300031372 /* MYDLoginViewController.m */; };
 		3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCB9DCD1A68A39300031372 /* MYDLoginViewController.xib */; };
 		3CCB9DD31A6907E000031372 /* MYDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB9DD11A6907E000031372 /* MYDHomeViewController.m */; };
@@ -134,8 +129,6 @@
 		3C239E2E1A5BBF30008419A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C239E301A5BBF30008419A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C239E311A5BBF30008419A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3C239E331A5BBF30008419A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3C239E341A5BBF30008419A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3C239E391A5BBF30008419A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C239E3C1A5BBF30008419A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3C239E421A5BBF30008419A4 /* MeiYiDianTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeiYiDianTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,12 +161,6 @@
 		3C239EDE1A5BCB0E008419A4 /* MYDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYDConfig.h; sourceTree = "<group>"; };
 		3C2A0CDE1A820D8F00318799 /* MYDPictureScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDPictureScrollViewController.h; sourceTree = "<group>"; };
 		3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDPictureScrollViewController.m; sourceTree = "<group>"; };
-		3C2A0CE21A820DFA00318799 /* MPParallaxCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPParallaxCollectionViewCell.h; sourceTree = "<group>"; };
-		3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPParallaxCollectionViewCell.m; sourceTree = "<group>"; };
-		3C2A0CE41A820DFA00318799 /* MPParallaxLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPParallaxLayout.h; sourceTree = "<group>"; };
-		3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPParallaxLayout.m; sourceTree = "<group>"; };
-		3C2A0CE91A820EDD00318799 /* MPTextReavealLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextReavealLabel.h; sourceTree = "<group>"; };
-		3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextReavealLabel.m; sourceTree = "<group>"; };
 		3C5844331A5CC613004310D1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3C5844351A5CC625004310D1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3C5844371A5CC631004310D1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -231,7 +218,6 @@
 		3CC101981A7BE2E200A34B05 /* query.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = query.png; sourceTree = "<group>"; };
 		3CC67C951A7781370043DE4C /* MYDScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDScrollView.h; sourceTree = "<group>"; };
 		3CC67C961A7781370043DE4C /* MYDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDScrollView.m; sourceTree = "<group>"; };
-		3CCB9DC91A689C9B00031372 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		3CCB9DCB1A68A39300031372 /* MYDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDLoginViewController.h; sourceTree = "<group>"; };
 		3CCB9DCC1A68A39300031372 /* MYDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDLoginViewController.m; sourceTree = "<group>"; };
 		3CCB9DCD1A68A39300031372 /* MYDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDLoginViewController.xib; sourceTree = "<group>"; };
@@ -385,9 +371,6 @@
 				3C239E301A5BBF30008419A4 /* AppDelegate.h */,
 				3C239E311A5BBF30008419A4 /* AppDelegate.m */,
 				3CB01ECC1A821F4F001D1878 /* MYDConstants.h */,
-				3C239E331A5BBF30008419A4 /* ViewController.h */,
-				3C239E341A5BBF30008419A4 /* ViewController.m */,
-				3CCB9DC91A689C9B00031372 /* ViewController.xib */,
 				3C602FF11A85F09300958A01 /* MYDUIConstant.h */,
 				3C239E391A5BBF30008419A4 /* Images.xcassets */,
 				3C239E3B1A5BBF30008419A4 /* LaunchScreen.xib */,
@@ -462,8 +445,6 @@
 			children = (
 				3C7E45981A8790810063CD0E /* MBProgressHUD */,
 				3C7E45921A877AC60063CD0E /* iCarousel */,
-				3C2A0CE81A820EDD00318799 /* MPTextReavealLabel */,
-				3C2A0CE11A820DFA00318799 /* MPParallaxCollection */,
 				3CCC29171A6D44780087F280 /* SDWebImage */,
 				3CCF8F8A1A5E57730074ECED /* fmdb */,
 				3CCEAC5D1A5E0F1800BF16F0 /* KissXML */,
@@ -541,26 +522,6 @@
 				3C7E45961A877E3D0063CD0E /* MYDPictureScrollViewController.xib */,
 			);
 			path = PictureScrollViewController;
-			sourceTree = "<group>";
-		};
-		3C2A0CE11A820DFA00318799 /* MPParallaxCollection */ = {
-			isa = PBXGroup;
-			children = (
-				3C2A0CE21A820DFA00318799 /* MPParallaxCollectionViewCell.h */,
-				3C2A0CE31A820DFA00318799 /* MPParallaxCollectionViewCell.m */,
-				3C2A0CE41A820DFA00318799 /* MPParallaxLayout.h */,
-				3C2A0CE51A820DFA00318799 /* MPParallaxLayout.m */,
-			);
-			path = MPParallaxCollection;
-			sourceTree = "<group>";
-		};
-		3C2A0CE81A820EDD00318799 /* MPTextReavealLabel */ = {
-			isa = PBXGroup;
-			children = (
-				3C2A0CE91A820EDD00318799 /* MPTextReavealLabel.h */,
-				3C2A0CEA1A820EDD00318799 /* MPTextReavealLabel.m */,
-			);
-			path = MPTextReavealLabel;
 			sourceTree = "<group>";
 		};
 		3C58443D1A5CC835004310D1 /* Frameworks */ = {
@@ -955,7 +916,6 @@
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
 				3C602FF71A85FA0900958A01 /* all_icon_1@2x.png in Resources */,
 				3C239E3A1A5BBF30008419A4 /* Images.xcassets in Resources */,
-				3CCB9DCA1A689C9B00031372 /* ViewController.xib in Resources */,
 				3C921CF61A865DDD007EC0F1 /* 06_icon@2x.png in Resources */,
 				3C602FF91A85FB6400958A01 /* all_icon_3@2x.png in Resources */,
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
@@ -994,13 +954,11 @@
 				3CCC29421A6D44780087F280 /* UIButton+WebCache.m in Sources */,
 				3C239EB21A5BC612008419A4 /* ASIDataCompressor.m in Sources */,
 				3CCEAC371A5CDCD300BF16F0 /* RECommonFunctions.m in Sources */,
-				3C239E351A5BBF30008419A4 /* ViewController.m in Sources */,
 				3CCF8F981A5E57730074ECED /* FMDatabasePool.m in Sources */,
 				3CCF8F991A5E57730074ECED /* FMDatabaseQueue.m in Sources */,
 				3C239EB61A5BC612008419A4 /* ASIHTTPRequest.m in Sources */,
 				3CCC293B1A6D44780087F280 /* SDImageCache.m in Sources */,
 				3CCF8F9D1A5E62B20074ECED /* MYDBaseSplitViewController.m in Sources */,
-				3C2A0CEB1A820EDD00318799 /* MPTextReavealLabel.m in Sources */,
 				3CCC293A1A6D44780087F280 /* NSData+ImageContentType.m in Sources */,
 				3C5E109B1A6C9018008D1E5E /* MYDEnterpriseIntroduceViewController.m in Sources */,
 				3C239EB11A5BC612008419A4 /* ASIAuthenticationDialog.m in Sources */,
@@ -1009,7 +967,6 @@
 				3CCEAC3E1A5CDDE100BF16F0 /* MYDBaseNavigationController.m in Sources */,
 				3CCEAC4A1A5CDEDB00BF16F0 /* MYDBaseViewController.m in Sources */,
 				3CCC29471A6D44780087F280 /* UIImageView+WebCache.m in Sources */,
-				3C2A0CE71A820DFA00318799 /* MPParallaxLayout.m in Sources */,
 				3CCF8FB01A5F611B0074ECED /* MYDDBManager.m in Sources */,
 				3C239EB51A5BC612008419A4 /* ASIFormDataRequest.m in Sources */,
 				3CCC293F1A6D44780087F280 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1043,7 +1000,6 @@
 				3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */,
 				3C239EB31A5BC612008419A4 /* ASIDataDecompressor.m in Sources */,
 				3C726BED1A763588000E577A /* MYDProgressManager.m in Sources */,
-				3C2A0CE61A820DFA00318799 /* MPParallaxCollectionViewCell.m in Sources */,
 				3C239EB41A5BC612008419A4 /* ASIDownloadCache.m in Sources */,
 				3C602FF01A85E3A700958A01 /* MYDCell1.m in Sources */,
 				3CCF8F891A5E2B450074ECED /* MYDNetwork.m in Sources */,

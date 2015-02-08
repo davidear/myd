@@ -16,7 +16,7 @@
 #import "MBProgressHUD.h"
 #import "MYDNetwork.h"
 
-@interface MYDLoginViewController ()<MBProgressHUDDelegate>
+@interface MYDLoginViewController ()<MBProgressHUDDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -200,4 +200,26 @@
 //    }  
 //    
 //}
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case 0:
+            [textField resignFirstResponder];
+            [self.passwordTextField becomeFirstResponder];
+            break;
+        case 1:
+            if (self.userNameTextField.text.length != 0 && textField.text.length != 0) {
+                [textField resignFirstResponder];
+                [self loginButtonPressed:nil];
+            }else {
+                MBProgressHUD 
+            }
+            break;
+        default:
+            break;
+    }
+    return YES;
+}
+
 @end

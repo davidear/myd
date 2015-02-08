@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "MYDLoginViewController.h"
-#import "ViewController.h"
 #import "MYDHomeViewController.h"
 #import "MYDUIConstant.h"
 

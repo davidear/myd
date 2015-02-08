@@ -10,6 +10,7 @@
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
 #import "MYDConstants.h"
+#import "MYDUIConstant.h"
 @interface MYDItemDetailView()
 @property (strong, nonatomic) NSDictionary *pictureEntityDic;
 @end
@@ -60,6 +61,7 @@
     self.titleLabel.text = [dic objectForKey:@"Name"];
     self.priceLabel.text = [NSString stringWithFormat:@"价格：%@元",[dic objectForKey:@"Price"]];
     self.descriptionTextView.text = [dic objectForKey:@"Description"];
+    self.descriptionTextView.font = kFont_Small;
     self.Id = [dic objectForKey:@"Id"];
 }
 @end

@@ -63,9 +63,13 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败，请重试" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
         self.isSelected = NO;
+        self.userNameTextField.enabled = YES;
+        self.passwordTextField.enabled = YES;
     }];
     
     self.isSelected = YES;
+    self.userNameTextField.enabled = NO;
+    self.passwordTextField.enabled = NO;
 }
 
 - (void)downloadDone

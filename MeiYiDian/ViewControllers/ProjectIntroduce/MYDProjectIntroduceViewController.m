@@ -12,6 +12,7 @@
 #import "SDImageCache.h"
 #import "MYDScrollView.h"
 #import "MYDCell1.h"
+#import "MYDUIConstant.h"
 
 #define kMainScrollView 100
 #define kDetailScrollView 200
@@ -150,6 +151,7 @@
     MYDCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
     if (cell == nil) {
         cell = [[MYDCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell.textLabel.font = kFont_Normal;
     }
     NSMutableArray *tempArr = self.sortedArray[tableView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];

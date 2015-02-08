@@ -12,6 +12,7 @@
 #import "SDImageCache.h"
 //#import "MYDItemDetailView.h"
 #import "MYDScrollView.h"
+#import "MYDUIConstant.h"
 
 #define kMainScrollView 100
 #define kDetailScrollView 200
@@ -191,6 +192,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell.textLabel.font = kFont_Normal;
     }
     //    NSDictionary *dic = self.materialdataArray[indexPath.row];
     

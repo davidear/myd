@@ -16,6 +16,7 @@
 #import "MYDPictureScrollViewController.h"
 
 #import "MYDConstants.h"
+#import "MYDUIConstant.h"
 
 @interface MYDMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 //UI
@@ -105,6 +106,7 @@ static NSString *MyCell = @"MyCell";
 //        cell.imageView.backgroundColor = [UIColor blueColor];
         cell.textLabel.center = CGPointMake(cell.center.x, cell.center.y + 8);
         cell.textLabel.textColor = [UIColor colorWithRed:255.0/255 green:102.0/255 blue:102.0/255 alpha:1];
+        cell.textLabel.font = kFont_Small;
     }
     NSString *imageName = [NSString stringWithFormat:@"0%d_icon.png",indexPath.row+1];
     cell.imageView.image = [UIImage imageNamed:imageName];

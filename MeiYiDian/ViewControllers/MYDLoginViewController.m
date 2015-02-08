@@ -33,10 +33,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PicturesDone" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,6 +65,7 @@
 
 //在点击按钮时做初始化
 - (IBAction)loginButtonPressed:(id)sender {
+    [self.view endEditing:YES];
     if (self.isSelected == YES) {
         return;
     }
@@ -200,20 +221,30 @@
 //    }  
 //    
 //}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    [self.view endEditing:YES];
+}
 #pragma mark - UITextField Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     switch (textField.tag) {
-        case 0:
-            [textField resignFirstResponder];
+        case 1:
+//            [textField resignFirstResponder];
             [self.passwordTextField becomeFirstResponder];
             break;
-        case 1:
-            if (self.userNameTextField.text.length != 0 && textField.text.length != 0) {
+        case 2:
+            if (self.userNameTextField.text.length == 0) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写用户名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }else if (self.passwordTextField.text.length == 0) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }else {
                 [textField resignFirstResponder];
                 [self loginButtonPressed:nil];
-            }else {
-                MBProgressHUD 
             }
             break;
         default:
@@ -222,4 +253,30 @@
     return YES;
 }
 
+#pragma mark - Notification Action
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    NSDictionary *userInfo = [aNotification userInfo];
+    
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    
+    self.view.frame = CGRectOffset(self.view.frame, 0, -(CGRectGetMaxY(self.loginButton.frame) - keyboardRect.origin.y));
+    
+    [UIView commitAnimations];  
+}
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    self.view.frame = self.view.bounds;
+    
+    [UIView commitAnimations];  
+}
 @end

@@ -53,7 +53,7 @@
 - (void)setSubviews
 {
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 80 * self.introductionCatalogsArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 100 * self.introductionCatalogsArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.introductionCatalogsArray.count; i++) {
         NSDictionary *dic = [self.introductionCatalogsArray objectAtIndex:i];

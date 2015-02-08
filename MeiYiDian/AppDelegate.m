@@ -10,6 +10,7 @@
 #import "MYDLoginViewController.h"
 #import "ViewController.h"
 #import "MYDHomeViewController.h"
+#import "MYDUIConstant.h"
 
 @interface AppDelegate ()
 
@@ -41,6 +42,10 @@
     self.window.rootViewController = [[MYDLoginViewController alloc] init];
     
     [self.window makeKeyAndVisible];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Small} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Small} forState:UIControlStateSelected];
+    
     
     return YES;
 }

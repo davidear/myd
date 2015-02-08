@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *customerInfo;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *imageButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *textButtons;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *departmentNameLabels;
 
 //Controller
 @property (strong, nonatomic) UINavigationController *navC;
@@ -70,7 +71,9 @@
 
 - (void)initSubviews
 {
-    
+    for (UILabel *label in self.departmentNameLabels) {
+        label.text = [NSString stringWithFormat:@"%@欢迎您",[[[[MYDDBManager getInstant] readLoginUser] objectAtIndex:0] objectForKey:@"DepartmentName"]];
+    }
 }
 - (void)setSubviews
 {

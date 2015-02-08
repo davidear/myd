@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MYDMainViewController">
             <connections>
                 <outlet property="contentView" destination="S3C-TL-cAW" id="VIu-Y3-XcQ"/>
+                <outlet property="departmentNameLabel" destination="AUz-2V-MwH" id="1k6-zb-gko"/>
                 <outlet property="tableView" destination="4TQ-4P-2Oj" id="f4N-Mr-n5k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

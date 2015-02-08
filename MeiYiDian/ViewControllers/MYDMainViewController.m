@@ -26,6 +26,7 @@
 @property (strong, nonatomic) MYDPriceIntroduceViewController *priceIntroduceVC;
 @property (strong, nonatomic) MYDProjectIntroduceViewController *projectIntroduceVC;
 @property (strong, nonatomic) MYDWritingIntroduceViewController *writingIntroduceVC;
+@property (strong, nonatomic) IBOutlet UILabel *departmentNameLabel;
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 
@@ -77,6 +78,7 @@ static NSString *MyCell = @"MyCell";
 }
 - (void)initSubviews
 {
+    self.departmentNameLabel.text = [NSString stringWithFormat:@"%@欢迎您",[[[[MYDDBManager getInstant] readLoginUser] objectAtIndex:0] objectForKey:@"DepartmentName"]];
 }
 - (void)initDataSource
 {

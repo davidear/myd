@@ -24,6 +24,8 @@
                 <outletCollection property="imageButtons" destination="EMu-C6-LuZ" id="9s0-1E-6KT"/>
                 <outletCollection property="imageButtons" destination="eAN-bD-XmM" id="18e-UP-dbL"/>
                 <outletCollection property="imageButtons" destination="wfu-FW-Efw" id="8mH-gC-ygv"/>
+                <outletCollection property="departmentNameLabels" destination="8Rt-m2-h7j" id="2oj-lh-Kt0"/>
+                <outletCollection property="departmentNameLabels" destination="wYC-f2-vSm" id="D9H-1d-YkZ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -34,7 +34,7 @@ static NSString *kCell=@"cell";
 {
     [super viewDidLoad];
     //configure carousel
-    self.carousel.type = iCarouselTypeCoverFlow2;
+    self.carousel.type = iCarouselTypeCoverFlow;
 
 //    MPParallaxLayout *layout=[[MPParallaxLayout alloc] init];
 //    
@@ -73,9 +73,10 @@ static NSString *kCell=@"cell";
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 658)];
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024 - 100, 658- 50)];
         ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[index]];
-        view.contentMode = UIViewContentModeCenter;
+
+        view.contentMode = UIViewContentModeScaleToFill;
     }
     else
     {
@@ -101,21 +102,34 @@ static NSString *kCell=@"cell";
 
 - (UIView *)carousel:(__unused iCarousel *)carousel placeholderViewAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    
+    //站位图只有0和1两个index，用来显示最前和最后的图
+    NSInteger sourceIndex = index;
+    //don't do anything specific to the index within
+    //this `if (view == nil) {...}` statement because the view will be
+    //recycled and used with other index values later
+    if (self.imageArray.count <= 1) {
+        sourceIndex = 0;
+    }
+    if (index == 1) {
+        sourceIndex = 0;
+    }
+    if (index == 0) {
+        sourceIndex = self.imageArray.count - 1;
+    }
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        //don't do anything specific to the index within
-        //this `if (view == nil) {...}` statement because the view will be
-        //recycled and used with other index values later
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 658)];
-        ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[index]];
-        view.contentMode = UIViewContentModeCenter;
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024 - 100, 658 - 50)];
+//        if (self.imageArray.count == index) {
+//            index = self.imageArray.count -1;
+//        }
+        ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[sourceIndex]];
+        view.contentMode = UIViewContentModeScaleToFill;
     }
     else
     {
         //get a reference to the label in the recycled view
-        ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[index]];
+        ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[sourceIndex]];
     }
 //    ((UIImageView *)view).image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.imageArray[index]];
     //set item label

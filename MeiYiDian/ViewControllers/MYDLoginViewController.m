@@ -13,14 +13,17 @@
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
 #import "MYDProgressManager.h"
+#import "MBProgressHUD.h"
+#import "MYDNetwork.h"
 
-@interface MYDLoginViewController ()
+@interface MYDLoginViewController ()<MBProgressHUDDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
+@property (strong, nonatomic) MBProgressHUD *hud;
 @property (assign, nonatomic) BOOL isSelected;
 @end
 
@@ -170,10 +173,31 @@
         }
     }
     
-    [[MYDProgressManager getInstant] showInView:self.view];
+//    [[MYDProgressManager getInstant] showInView:self.view];
+    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:self.hud];
+    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+    [[MYDNetwork getInstant] setProgressDelegate:self.hud];
+    self.hud.delegate = self;
+    self.hud.labelText = @"Loading..";
+    [self.hud show:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDone) name:@"PicturesDone" object:nil];
 }
 
+#pragma mark HUD的代理方法,关闭HUD时执行
+-(void)hudWasHidden:(MBProgressHUD *)hud
+{
+    [hud removeFromSuperview];
+    hud = nil;
+}
 
-
+//-(void) myProgressTask{
+//    float progress = 0.0f;
+//    while (progress < 1.0f) {
+//        progress += 0.01f;
+//        self.hud.progress = progress;
+//        usleep(50000);
+//    }  
+//    
+//}
 @end

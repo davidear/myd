@@ -24,12 +24,12 @@ static MYDNetwork *instant = nil;
 - (id)init{
     self = [super init];
     if (self) {
-        queue = [[NSMutableDictionary alloc] init];
-        networkQueue = [[ASINetworkQueue alloc] init];
-        networkQueue.delegate = self;
-        networkQueue.requestDidFinishSelector = @selector(requestDidFinishAction);
-        networkQueue.downloadProgressDelegate = [MYDProgressManager getInstant].progressView;
-        [networkQueue go];
+//        queue = [[NSMutableDictionary alloc] init];
+        _networkQueue = [[ASINetworkQueue alloc] init];
+        _networkQueue.delegate = self;
+        _networkQueue.requestDidFinishSelector = @selector(requestDidFinishAction);
+        _networkQueue.downloadProgressDelegate = [MYDProgressManager getInstant].progressView;
+        [_networkQueue go];
     }
     return self;
 }
@@ -50,7 +50,7 @@ static MYDNetwork *instant = nil;
 
 - (void)setProgressDelegate:(id)object
 {
-    networkQueue.downloadProgressDelegate = object;
+    _networkQueue.downloadProgressDelegate = object;
 }
 #pragma mark - 网络方法
 - (void)PostRequestWithSoapMessage:(NSString *)soapMessage soapAction:(NSString *)soapAction success:(void (^)(NSString *, id))success failure:(void (^)(NSError *))failure task:(NetworkTask)task
@@ -82,7 +82,7 @@ static MYDNetwork *instant = nil;
  }
  */
 
-//使用ASINetworkQueue
+//使用ASInetworkQueue
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:kMYDServerId]];
     [request addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
     [request addRequestHeader:@"SOAPAction" value:soapAction];
@@ -100,17 +100,17 @@ static MYDNetwork *instant = nil;
     }];
     
 //    request.userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:task] forKey:@"task"];
-    [networkQueue addOperation:request];
-    NSLog(@"networkQueue's request count is %d",networkQueue.requestsCount);
+    [_networkQueue addOperation:request];
+    NSLog(@"_networkQueue's request count is %d",_networkQueue.requestsCount);
 }
 
 //#pragma mark - ASIHttpQueueDelegate
 - (void)requestDidFinishAction
 {
-    if (networkQueue.requestsCount == 0) {
+    if (_networkQueue.requestsCount == 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PicturesDone" object:nil];
     }
-    NSLog(@"\n~~~~~networkQueue.count is %d~~~~~",networkQueue.requestsCount);
+    NSLog(@"\n~~~~~_networkQueue.count is %d~~~~~",_networkQueue.requestsCount);
 }
 
 #pragma mark - Progress Delegate

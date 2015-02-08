@@ -13,10 +13,10 @@
 #import "ASINetworkQueue.h"
 
 @interface MYDNetwork : NSObject
-{
-    NSMutableDictionary *queue;
-    ASINetworkQueue *networkQueue;
-}
+@property (strong, nonatomic) ASINetworkQueue *networkQueue;
+//{
+//    NSMutableDictionary *queue;
+//}
 
 +(MYDNetwork *)getInstant;
 

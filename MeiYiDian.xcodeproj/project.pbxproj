@@ -46,6 +46,8 @@
 		3C602FF71A85FA0900958A01 /* all_icon_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C602FF61A85FA0900958A01 /* all_icon_1@2x.png */; };
 		3C602FF91A85FB6400958A01 /* all_icon_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C602FF81A85FB6400958A01 /* all_icon_3@2x.png */; };
 		3C726BED1A763588000E577A /* MYDProgressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C726BEC1A763588000E577A /* MYDProgressManager.m */; };
+		3C7E45951A877AC60063CD0E /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E45941A877AC60063CD0E /* iCarousel.m */; };
+		3C7E45971A877E3D0063CD0E /* MYDPictureScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7E45961A877E3D0063CD0E /* MYDPictureScrollViewController.xib */; };
 		3C921CF21A865DDD007EC0F1 /* 02_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CEB1A865DDD007EC0F1 /* 02_icon@2x.png */; };
 		3C921CF31A865DDD007EC0F1 /* 03_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CEC1A865DDD007EC0F1 /* 03_icon@2x.png */; };
 		3C921CF41A865DDD007EC0F1 /* 04_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CED1A865DDD007EC0F1 /* 04_icon@2x.png */; };
@@ -197,6 +199,9 @@
 		3C602FF81A85FB6400958A01 /* all_icon_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_icon_3@2x.png"; sourceTree = "<group>"; };
 		3C726BEB1A763588000E577A /* MYDProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDProgressManager.h; sourceTree = "<group>"; };
 		3C726BEC1A763588000E577A /* MYDProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDProgressManager.m; sourceTree = "<group>"; };
+		3C7E45931A877AC60063CD0E /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		3C7E45941A877AC60063CD0E /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		3C7E45961A877E3D0063CD0E /* MYDPictureScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDPictureScrollViewController.xib; sourceTree = "<group>"; };
 		3C921CEB1A865DDD007EC0F1 /* 02_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02_icon@2x.png"; sourceTree = "<group>"; };
 		3C921CEC1A865DDD007EC0F1 /* 03_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_icon@2x.png"; sourceTree = "<group>"; };
 		3C921CED1A865DDD007EC0F1 /* 04_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_icon@2x.png"; sourceTree = "<group>"; };
@@ -452,6 +457,7 @@
 		3C239E551A5BC522008419A4 /* ThirdPartFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3C7E45921A877AC60063CD0E /* iCarousel */,
 				3C2A0CE81A820EDD00318799 /* MPTextReavealLabel */,
 				3C2A0CE11A820DFA00318799 /* MPParallaxCollection */,
 				3CCC29171A6D44780087F280 /* SDWebImage */,
@@ -528,6 +534,7 @@
 			children = (
 				3C2A0CDE1A820D8F00318799 /* MYDPictureScrollViewController.h */,
 				3C2A0CDF1A820D8F00318799 /* MYDPictureScrollViewController.m */,
+				3C7E45961A877E3D0063CD0E /* MYDPictureScrollViewController.xib */,
 			);
 			path = PictureScrollViewController;
 			sourceTree = "<group>";
@@ -630,6 +637,15 @@
 				3C5E10B21A6C935D008D1E5E /* MYDWritingIntroduceViewController.m */,
 			);
 			path = WritingIntroduce;
+			sourceTree = "<group>";
+		};
+		3C7E45921A877AC60063CD0E /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				3C7E45931A877AC60063CD0E /* iCarousel.h */,
+				3C7E45941A877AC60063CD0E /* iCarousel.m */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		3C921CEA1A865DDD007EC0F1 /* 左侧栏 */ = {
@@ -921,6 +937,7 @@
 				3C921CF21A865DDD007EC0F1 /* 02_icon@2x.png in Resources */,
 				3C239E3D1A5BBF30008419A4 /* LaunchScreen.xib in Resources */,
 				3C602FF51A85F91400958A01 /* all_icon@2x.png in Resources */,
+				3C7E45971A877E3D0063CD0E /* MYDPictureScrollViewController.xib in Resources */,
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
 				3C602FF71A85FA0900958A01 /* all_icon_1@2x.png in Resources */,
@@ -986,6 +1003,7 @@
 				3CCF8F9A1A5E57730074ECED /* FMResultSet.m in Sources */,
 				3C239EDA1A5BC7E1008419A4 /* MYDMediator.m in Sources */,
 				3C239E321A5BBF30008419A4 /* AppDelegate.m in Sources */,
+				3C7E45951A877AC60063CD0E /* iCarousel.m in Sources */,
 				3CA5E5341A714DD600A7CFF6 /* MYDBaseSubViewController.m in Sources */,
 				3CCEAC711A5E0F1800BF16F0 /* DDXMLNode.m in Sources */,
 				3CCC293C1A6D44780087F280 /* SDWebImageCompat.m in Sources */,

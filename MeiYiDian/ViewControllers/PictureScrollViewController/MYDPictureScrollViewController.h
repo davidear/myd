@@ -7,13 +7,14 @@
 //
 
 #import "MYDBaseViewController.h"
-#import "MPParallaxLayout.h"
-#import "MPParallaxCollectionViewCell.h"
+#import "iCarousel.h"
+//#import "MPParallaxLayout.h"
+//#import "MPParallaxCollectionViewCell.h"
 
-@interface MYDPictureScrollViewController : MYDBaseViewController<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,MPParallaxCellDelegate>
-{
-    UICollectionView *_collectionView;
-}
+@interface MYDPictureScrollViewController : MYDBaseViewController
+//{
+//    UICollectionView *_collectionView;
+//}
 
 
 - (id)initWithImageArray:(NSArray *)imageArray;

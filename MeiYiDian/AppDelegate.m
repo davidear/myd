@@ -44,6 +44,7 @@
     
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Small} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Small} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] set]
     
     
     return YES;

@@ -20,8 +20,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) IBOutlet UIView *userNameRememberedView;
+@property (strong, nonatomic) IBOutlet UIView *passwordRememberedView;
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 @property (assign, nonatomic) BOOL isSelected;
@@ -32,6 +33,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //设置记住用户名和记住密码两个view
+    UITapGestureRecognizer *rememberUserNameTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(remenberUserName:)];
+    UITapGestureRecognizer *rememberPasswordTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(remenberPassword:)];
+    [self.passwordRememberedView addGestureRecognizer:rememberPasswordTap];
+    [self.userNameRememberedView addGestureRecognizer:rememberUserNameTap];
+    [((UIButton *)[self.userNameRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_noSelected.png"] forState:UIControlStateNormal];
+    [((UIButton *)[self.userNameRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_selected.png"] forState:UIControlStateSelected];
+    [((UIButton *)[self.passwordRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_noSelected.png"] forState:UIControlStateNormal];
+    [((UIButton *)[self.passwordRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_selected.png"] forState:UIControlStateSelected];
+    
+    //从NSUserDefault取值并赋值给两个view
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] isKindOfClass:[NSNumber class]]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] boolValue]) {
+            ((UIButton *)[self.userNameRememberedView viewWithTag:1]).selected = YES;
+            self.userNameTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginUserName"];
+            
+        }
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] isKindOfClass:[NSNumber class]]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] boolValue]) {
+            ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = YES;
+            self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginPassword"];
+        }
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -62,7 +87,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - 按钮事件
+- (void)remenberUserName:(UIView *)sender
+{
+    ((UIButton *)[self.userNameRememberedView viewWithTag:1]).selected = !((UIButton *)[self.userNameRememberedView viewWithTag:1]).isSelected;
 
+}
+- (void)remenberPassword:(UIView *)sender
+{
+    ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = !((UIButton *)[self.passwordRememberedView viewWithTag:1]).isSelected;
+    
+}
 //在点击按钮时做初始化
 - (IBAction)loginButtonPressed:(id)sender {
     [self.view endEditing:YES];
@@ -70,6 +105,11 @@
         return;
     }
     [[MYDMediator getInstant] loginWithUserName:self.userNameTextField.text password:self.passwordTextField.text success:^(NSString *responseString) {
+        //登录成功，将记住密码和记住用户名,密码和用户名四个参数都存入NSUserDefault
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:((UIButton *)[self.userNameRememberedView viewWithTag:1]).isSelected] forKey:@"remenberUserName"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:((UIButton *)[self.passwordRememberedView viewWithTag:1]).isSelected] forKey:@"remenberPassword"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.userNameTextField.text forKey:@"loginUserName"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:@"loginPassword"];
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
         int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
@@ -95,7 +135,7 @@
     self.userNameTextField.enabled = NO;
     self.passwordTextField.enabled = NO;
 }
-
+#pragma mark -
 - (void)downloadDone
 {
     [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{

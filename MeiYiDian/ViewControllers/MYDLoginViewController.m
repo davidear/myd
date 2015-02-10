@@ -264,7 +264,8 @@
     [UIView beginAnimations:@"ResizeView" context:nil];
     [UIView setAnimationDuration:animationDuration];
     
-    self.view.frame = CGRectOffset(self.view.frame, 0, -(CGRectGetMaxY(self.loginButton.frame) - keyboardRect.origin.y));
+    self.view.frame = CGRectMake(0, -(CGRectGetMaxY(self.loginButton.frame) - keyboardRect.origin.y), [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//    self.view.frame = CGRectOffset(self.view.frame, 0, -(CGRectGetMaxY(self.loginButton.frame) - keyboardRect.origin.y));
     
     [UIView commitAnimations];  
 }

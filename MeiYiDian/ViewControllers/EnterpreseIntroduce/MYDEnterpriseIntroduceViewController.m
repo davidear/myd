@@ -71,6 +71,8 @@
     //加载webView
     for (int i =0; i < self.introductionCatalogsArray.count; i++) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
+//        webView.scrollView.bounces = NO;
+        webView.scrollView.alwaysBounceVertical = NO;
         webView.backgroundColor = [UIColor whiteColor];
         NSString *idStr;
         for (NSDictionary *dic in self.introductionArray) {

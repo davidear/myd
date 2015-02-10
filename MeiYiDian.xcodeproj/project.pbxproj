@@ -108,6 +108,12 @@
 		3CCF8FA91A5E65FD0074ECED /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCF8FA81A5E65FD0074ECED /* libsqlite3.dylib */; };
 		3CCF8FAD1A5F60D60074ECED /* MYDPackageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF8FAC1A5F60D60074ECED /* MYDPackageManager.m */; };
 		3CCF8FB01A5F611B0074ECED /* MYDDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF8FAF1A5F611B0074ECED /* MYDDBManager.m */; };
+		3CE5A62B1A89AD5700702B29 /* LOGO_144X144.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A6271A89AD5700702B29 /* LOGO_144X144.png */; };
+		3CE5A62C1A89AD5700702B29 /* LOGO_152X152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A6281A89AD5700702B29 /* LOGO_152X152.png */; };
+		3CE5A62D1A89AD5700702B29 /* LOGO_72X72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A6291A89AD5700702B29 /* LOGO_72X72.png */; };
+		3CE5A62E1A89AD5700702B29 /* LOGO_76X76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A62A1A89AD5700702B29 /* LOGO_76X76.png */; };
+		3CE5A6311A89D41300702B29 /* btn_noSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A62F1A89D41300702B29 /* btn_noSelected@2x.png */; };
+		3CE5A6321A89D41300702B29 /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A6301A89D41300702B29 /* btn_selected@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +309,12 @@
 		3CCF8FAC1A5F60D60074ECED /* MYDPackageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDPackageManager.m; sourceTree = "<group>"; };
 		3CCF8FAE1A5F611B0074ECED /* MYDDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDDBManager.h; sourceTree = "<group>"; };
 		3CCF8FAF1A5F611B0074ECED /* MYDDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDDBManager.m; sourceTree = "<group>"; };
+		3CE5A6271A89AD5700702B29 /* LOGO_144X144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO_144X144.png; sourceTree = "<group>"; };
+		3CE5A6281A89AD5700702B29 /* LOGO_152X152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO_152X152.png; sourceTree = "<group>"; };
+		3CE5A6291A89AD5700702B29 /* LOGO_72X72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO_72X72.png; sourceTree = "<group>"; };
+		3CE5A62A1A89AD5700702B29 /* LOGO_76X76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO_76X76.png; sourceTree = "<group>"; };
+		3CE5A62F1A89D41300702B29 /* btn_noSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_noSelected@2x.png"; sourceTree = "<group>"; };
+		3CE5A6301A89D41300702B29 /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,7 +651,10 @@
 		3CC101851A7BD35D00A34B05 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				3CE5A6261A89AD5700702B29 /* Icons */,
 				3C921CEA1A865DDD007EC0F1 /* 左侧栏 */,
+				3CE5A62F1A89D41300702B29 /* btn_noSelected@2x.png */,
+				3CE5A6301A89D41300702B29 /* btn_selected@2x.png */,
 				3C602FF81A85FB6400958A01 /* all_icon_3@2x.png */,
 				3C602FF61A85FA0900958A01 /* all_icon_1@2x.png */,
 				3C602FF41A85F91400958A01 /* all_icon@2x.png */,
@@ -823,6 +838,17 @@
 			path = DataOperation;
 			sourceTree = "<group>";
 		};
+		3CE5A6261A89AD5700702B29 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				3CE5A6271A89AD5700702B29 /* LOGO_144X144.png */,
+				3CE5A6281A89AD5700702B29 /* LOGO_152X152.png */,
+				3CE5A6291A89AD5700702B29 /* LOGO_72X72.png */,
+				3CE5A62A1A89AD5700702B29 /* LOGO_76X76.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -907,16 +933,20 @@
 				3CC101951A7BD8E200A34B05 /* 首页.PNG in Resources */,
 				3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */,
 				3C921CF71A865DDD007EC0F1 /* 07_icon@2x.png in Resources */,
+				3CE5A62E1A89AD5700702B29 /* LOGO_76X76.png in Resources */,
 				3CC101991A7BE2E200A34B05 /* query.png in Resources */,
 				3C921CF21A865DDD007EC0F1 /* 02_icon@2x.png in Resources */,
 				3C239E3D1A5BBF30008419A4 /* LaunchScreen.xib in Resources */,
+				3CE5A6311A89D41300702B29 /* btn_noSelected@2x.png in Resources */,
 				3C602FF51A85F91400958A01 /* all_icon@2x.png in Resources */,
 				3C7E45971A877E3D0063CD0E /* MYDPictureScrollViewController.xib in Resources */,
+				3CE5A62B1A89AD5700702B29 /* LOGO_144X144.png in Resources */,
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
 				3C602FF71A85FA0900958A01 /* all_icon_1@2x.png in Resources */,
 				3C239E3A1A5BBF30008419A4 /* Images.xcassets in Resources */,
 				3C921CF61A865DDD007EC0F1 /* 06_icon@2x.png in Resources */,
+				3CE5A6321A89D41300702B29 /* btn_selected@2x.png in Resources */,
 				3C602FF91A85FB6400958A01 /* all_icon_3@2x.png in Resources */,
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
 				3CC101891A7BD42E00A34B05 /* header.png in Resources */,
@@ -926,8 +956,10 @@
 				3C921CF41A865DDD007EC0F1 /* 04_icon@2x.png in Resources */,
 				3CC101931A7BD8E200A34B05 /* 活动方案.png in Resources */,
 				3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */,
+				3CE5A62D1A89AD5700702B29 /* LOGO_72X72.png in Resources */,
 				3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */,
 				3CC101961A7BD8E200A34B05 /* 项目介绍.png in Resources */,
+				3CE5A62C1A89AD5700702B29 /* LOGO_152X152.png in Resources */,
 				3C921CF31A865DDD007EC0F1 /* 03_icon@2x.png in Resources */,
 				3CC101941A7BD8E200A34B05 /* 价格表.png in Resources */,
 				3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */,
@@ -1130,6 +1162,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1142,6 +1175,7 @@
 				INFOPLIST_FILE = MeiYiDian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35eebf96-9463-4fc4-a8fd-ad630d9a25d7";
@@ -1152,6 +1186,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1164,6 +1199,7 @@
 				INFOPLIST_FILE = MeiYiDian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35eebf96-9463-4fc4-a8fd-ad630d9a25d7";

@@ -61,7 +61,9 @@
     self.titleLabel.text = [dic objectForKey:@"Name"];
     self.priceLabel.text = [NSString stringWithFormat:@"价格：%@元",[dic objectForKey:@"Price"]];
     self.descriptionTextView.text = [dic objectForKey:@"Description"];
-    self.descriptionTextView.font = kFont_Small;
+    self.descriptionTextView.font = kFont_Normal;
+    self.descriptionTextView.textColor = kColorForMaroon;
+    
     self.Id = [dic objectForKey:@"Id"];
 }
 @end

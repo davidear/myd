@@ -28,11 +28,11 @@
 - (void)setSubviews
 {
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 80 * self.partiesArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 100 * self.partiesArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.partiesArray.count; i++) {
         NSDictionary *dic = [self.partiesArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:[UIImage imageNamed:@"all_icon_3.png"] selectedImage:nil];
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
         item.tag = i;
         [array addObject:item];
     }

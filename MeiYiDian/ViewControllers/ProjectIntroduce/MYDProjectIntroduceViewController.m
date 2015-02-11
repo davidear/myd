@@ -13,10 +13,9 @@
 #import "MYDScrollView.h"
 #import "MYDCell1.h"
 #import "MYDUIConstant.h"
+#import "MYDCollectionViewCell.h"
 
-#define kMainScrollView 100
-#define kDetailScrollView 200
-@interface MYDProjectIntroduceViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface MYDProjectIntroduceViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 //DATA
 @property (strong, nonatomic) NSArray *catalogsArray;
@@ -29,7 +28,7 @@
 @property (strong, nonatomic) NSMutableArray *sortedAllArray;//数组，元素是materialEntity的字典，按照sortedArray的次序排列
 
 //UI
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 //滑动图
 @property (strong, nonatomic) MYDScrollView *detailScrollView;
@@ -105,11 +104,11 @@
     //    navigationController.navigationBarHidden = YES;
     
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 80 * self.catalogsArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 100 * self.catalogsArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.catalogsArray.count; i++) {
         NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:[UIImage imageNamed:@"all_icon_3.png"] selectedImage:nil];
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
         item.tag = i;
         [array addObject:item];
     }
@@ -120,54 +119,90 @@
     self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 598);
     
     //添加列表
+    
     for (NSDictionary *dic in self.catalogsArray) {
         int i = [[dic objectForKey:@"OrderCode"] intValue] - 1;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.tag = i;
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [self.scrollView addSubview:tableView];
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.itemSize = CGSizeMake(250, 400);
+        //        flowLayout.minimumInteritemSpacing = 100;
+        flowLayout.minimumLineSpacing = 30;
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(874 * i + 30, 0, 874 - 60, 598) collectionViewLayout:flowLayout];
+        collectionView.backgroundColor = [UIColor clearColor];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.tag = i;
+        [collectionView registerNib:[UINib nibWithNibName:@"MYDCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyCollectionView"];
+        [self.scrollView addSubview:collectionView];
     }
 }
-
-
-#pragma mark - UITableView
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 150;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return ((NSMutableArray *)self.sortedArray[tableView.tag]).count;
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark - UICollectionView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    MYDCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
-    if (cell == nil) {
-        cell = [[MYDCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
-        cell.textLabel.font = kFont_Normal;
-    }
-    NSMutableArray *tempArr = self.sortedArray[tableView.tag];
+    return ((NSMutableArray *)self.sortedArray[collectionView.tag]).count;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MYDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCollectionView" forIndexPath:indexPath];
+    NSMutableArray *tempArr = self.sortedArray[collectionView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
-    cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Name"];
+    cell.label.text = [tempArr[indexPath.row] objectForKey:@"Name"];
+    cell.priceLabel.text = [NSString stringWithFormat:@"价格：%d",[[tempArr[indexPath.row] objectForKey:@"Price"] intValue]];
+    //    cell.label.text = [NSString stringWithFormat:@"index %d",collectionView.tag];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = [self.sortedArray[tableView.tag] objectAtIndex:indexPath.row];
+    NSDictionary *dic = [self.sortedArray[collectionView.tag] objectAtIndex:indexPath.row];
     NSInteger index = [self.sortedAllArray indexOfObject:dic];
     self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598) index:index];
     [self.view addSubview:self.detailScrollView];
     self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
     self.detailScrollView.detailDataList = self.sortedAllArray;
 }
+
+
+//#pragma mark - UITableView
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 150;
+//}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    
+//    return ((NSMutableArray *)self.sortedArray[tableView.tag]).count;
+//}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    MYDCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+//    if (cell == nil) {
+//        cell = [[MYDCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+//        cell.textLabel.font = kFont_Normal;
+//    }
+//    NSMutableArray *tempArr = self.sortedArray[tableView.tag];
+//    cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
+//    cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Name"];
+//    return cell;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSDictionary *dic = [self.sortedArray[tableView.tag] objectAtIndex:indexPath.row];
+//    NSInteger index = [self.sortedAllArray indexOfObject:dic];
+//    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598) index:index];
+//    [self.view addSubview:self.detailScrollView];
+//    self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
+//    self.detailScrollView.detailDataList = self.sortedAllArray;
+//}
 
 #pragma mark - UITabBar
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -185,11 +220,13 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
-    // 根据scorllView的contentOffset属性，判断当前所在的页数
-    NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
-    // 设置TabBar
-    self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+    if (![scrollView isKindOfClass:[UICollectionView class]]) {
+        // 根据scorllView的contentOffset属性，判断当前所在的页数
+        NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
+        
+        // 设置TabBar
+        self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+    }
     
 }
 

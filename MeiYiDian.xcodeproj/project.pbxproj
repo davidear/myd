@@ -52,7 +52,6 @@
 		3C921CF61A865DDD007EC0F1 /* 06_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CEF1A865DDD007EC0F1 /* 06_icon@2x.png */; };
 		3C921CF71A865DDD007EC0F1 /* 07_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CF01A865DDD007EC0F1 /* 07_icon@2x.png */; };
 		3C921CF81A865DDD007EC0F1 /* 01_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C921CF11A865DDD007EC0F1 /* 01_icon@2x.png */; };
-		3C921CFB1A865E5C007EC0F1 /* MYDCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C921CFA1A865E5C007EC0F1 /* MYDCell2.m */; };
 		3C97A9461A7CB24B00EE191B /* MYDImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */; };
 		3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */; };
 		3CA5E5341A714DD600A7CFF6 /* MYDBaseSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5E5331A714DD600A7CFF6 /* MYDBaseSubViewController.m */; };
@@ -66,6 +65,10 @@
 		3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC101911A7BD8E200A34B05 /* 作品展示.png */; };
 		3CC101991A7BE2E200A34B05 /* query.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC101981A7BE2E200A34B05 /* query.png */; };
 		3CC67C971A7781370043DE4C /* MYDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC67C961A7781370043DE4C /* MYDScrollView.m */; };
+		3CC8B2341A8B9C9D00C0D277 /* MYDCollectionViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8B2321A8B9C9D00C0D277 /* MYDCollectionViewCell2.m */; };
+		3CC8B2351A8B9C9D00C0D277 /* MYDCollectionViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8B2331A8B9C9D00C0D277 /* MYDCollectionViewCell2.xib */; };
+		3CC9122E1A8AF4A100359579 /* MYDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC9122C1A8AF4A100359579 /* MYDCollectionViewCell.m */; };
+		3CC9122F1A8AF4A100359579 /* MYDCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC9122D1A8AF4A100359579 /* MYDCollectionViewCell.xib */; };
 		3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB9DCC1A68A39300031372 /* MYDLoginViewController.m */; };
 		3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCB9DCD1A68A39300031372 /* MYDLoginViewController.xib */; };
 		3CCB9DD31A6907E000031372 /* MYDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB9DD11A6907E000031372 /* MYDHomeViewController.m */; };
@@ -205,8 +208,6 @@
 		3C921CEF1A865DDD007EC0F1 /* 06_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06_icon@2x.png"; sourceTree = "<group>"; };
 		3C921CF01A865DDD007EC0F1 /* 07_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07_icon@2x.png"; sourceTree = "<group>"; };
 		3C921CF11A865DDD007EC0F1 /* 01_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01_icon@2x.png"; sourceTree = "<group>"; };
-		3C921CF91A865E5C007EC0F1 /* MYDCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDCell2.h; sourceTree = "<group>"; };
-		3C921CFA1A865E5C007EC0F1 /* MYDCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDCell2.m; sourceTree = "<group>"; };
 		3C97A9431A7CB24B00EE191B /* MYDImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDImageScrollViewController.h; sourceTree = "<group>"; };
 		3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDImageScrollViewController.m; sourceTree = "<group>"; };
 		3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDImageScrollViewController.xib; sourceTree = "<group>"; };
@@ -224,6 +225,12 @@
 		3CC101981A7BE2E200A34B05 /* query.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = query.png; sourceTree = "<group>"; };
 		3CC67C951A7781370043DE4C /* MYDScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDScrollView.h; sourceTree = "<group>"; };
 		3CC67C961A7781370043DE4C /* MYDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDScrollView.m; sourceTree = "<group>"; };
+		3CC8B2311A8B9C9D00C0D277 /* MYDCollectionViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDCollectionViewCell2.h; sourceTree = "<group>"; };
+		3CC8B2321A8B9C9D00C0D277 /* MYDCollectionViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDCollectionViewCell2.m; sourceTree = "<group>"; };
+		3CC8B2331A8B9C9D00C0D277 /* MYDCollectionViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDCollectionViewCell2.xib; sourceTree = "<group>"; };
+		3CC9122B1A8AF4A100359579 /* MYDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDCollectionViewCell.h; sourceTree = "<group>"; };
+		3CC9122C1A8AF4A100359579 /* MYDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDCollectionViewCell.m; sourceTree = "<group>"; };
+		3CC9122D1A8AF4A100359579 /* MYDCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDCollectionViewCell.xib; sourceTree = "<group>"; };
 		3CCB9DCB1A68A39300031372 /* MYDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDLoginViewController.h; sourceTree = "<group>"; };
 		3CCB9DCC1A68A39300031372 /* MYDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDLoginViewController.m; sourceTree = "<group>"; };
 		3CCB9DCD1A68A39300031372 /* MYDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDLoginViewController.xib; sourceTree = "<group>"; };
@@ -554,8 +561,12 @@
 			children = (
 				3C602FEE1A85E3A700958A01 /* MYDCell1.h */,
 				3C602FEF1A85E3A700958A01 /* MYDCell1.m */,
-				3C921CF91A865E5C007EC0F1 /* MYDCell2.h */,
-				3C921CFA1A865E5C007EC0F1 /* MYDCell2.m */,
+				3CC9122B1A8AF4A100359579 /* MYDCollectionViewCell.h */,
+				3CC9122C1A8AF4A100359579 /* MYDCollectionViewCell.m */,
+				3CC9122D1A8AF4A100359579 /* MYDCollectionViewCell.xib */,
+				3CC8B2311A8B9C9D00C0D277 /* MYDCollectionViewCell2.h */,
+				3CC8B2321A8B9C9D00C0D277 /* MYDCollectionViewCell2.m */,
+				3CC8B2331A8B9C9D00C0D277 /* MYDCollectionViewCell2.xib */,
 			);
 			path = CellViews;
 			sourceTree = "<group>";
@@ -940,6 +951,7 @@
 				3CE5A6311A89D41300702B29 /* btn_noSelected@2x.png in Resources */,
 				3C602FF51A85F91400958A01 /* all_icon@2x.png in Resources */,
 				3C7E45971A877E3D0063CD0E /* MYDPictureScrollViewController.xib in Resources */,
+				3CC9122F1A8AF4A100359579 /* MYDCollectionViewCell.xib in Resources */,
 				3CE5A62B1A89AD5700702B29 /* LOGO_144X144.png in Resources */,
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
@@ -951,6 +963,7 @@
 				3CCEAC5C1A5CEB4700BF16F0 /* MYDMainViewController.xib in Resources */,
 				3CC101891A7BD42E00A34B05 /* header.png in Resources */,
 				3C602FF31A85F7D900958A01 /* home_bg@2x.png in Resources */,
+				3CC8B2351A8B9C9D00C0D277 /* MYDCollectionViewCell2.xib in Resources */,
 				3C921CF51A865DDD007EC0F1 /* 05_icon@2x.png in Resources */,
 				3C921CF81A865DDD007EC0F1 /* 01_icon@2x.png in Resources */,
 				3C921CF41A865DDD007EC0F1 /* 04_icon@2x.png in Resources */,
@@ -1002,6 +1015,7 @@
 				3CCF8FB01A5F611B0074ECED /* MYDDBManager.m in Sources */,
 				3C239EB51A5BC612008419A4 /* ASIFormDataRequest.m in Sources */,
 				3CCC293F1A6D44780087F280 /* SDWebImageDownloaderOperation.m in Sources */,
+				3CC8B2341A8B9C9D00C0D277 /* MYDCollectionViewCell2.m in Sources */,
 				3CCF8F9A1A5E57730074ECED /* FMResultSet.m in Sources */,
 				3C239EDA1A5BC7E1008419A4 /* MYDMediator.m in Sources */,
 				3C239E321A5BBF30008419A4 /* AppDelegate.m in Sources */,
@@ -1030,6 +1044,7 @@
 				3C239EB81A5BC612008419A4 /* ASINetworkQueue.m in Sources */,
 				3C97A9461A7CB24B00EE191B /* MYDImageScrollViewController.m in Sources */,
 				3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */,
+				3CC9122E1A8AF4A100359579 /* MYDCollectionViewCell.m in Sources */,
 				3C239EB31A5BC612008419A4 /* ASIDataDecompressor.m in Sources */,
 				3C726BED1A763588000E577A /* MYDProgressManager.m in Sources */,
 				3C239EB41A5BC612008419A4 /* ASIDownloadCache.m in Sources */,
@@ -1044,7 +1059,6 @@
 				3C5E10AA1A6C930A008D1E5E /* MYDPriceIntroduceViewController.m in Sources */,
 				3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */,
 				3CCEAC391A5CDCD300BF16F0 /* UIViewController+RESideMenu.m in Sources */,
-				3C921CFB1A865E5C007EC0F1 /* MYDCell2.m in Sources */,
 				3CCF8FAD1A5F60D60074ECED /* MYDPackageManager.m in Sources */,
 				3C2A0CE01A820D8F00318799 /* MYDPictureScrollViewController.m in Sources */,
 			);

@@ -57,7 +57,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.introductionCatalogsArray.count; i++) {
         NSDictionary *dic = [self.introductionCatalogsArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:[UIImage imageNamed:@"all_icon_3.png"] selectedImage:nil];
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
         item.tag = i;
         [array addObject:item];
     }

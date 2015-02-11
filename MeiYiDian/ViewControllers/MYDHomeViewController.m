@@ -17,7 +17,7 @@
 //UI
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *horizontalScrollView;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+//@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIButton *annoucementButton;
 @property (strong, nonatomic) IBOutlet UIButton *customerInfo;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *imageButtons;
@@ -28,11 +28,15 @@
 @property (strong, nonatomic) UINavigationController *navC;
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
-@property (strong, nonatomic) NSMutableArray *imageViewArray;
+@property (strong, nonatomic) NSMutableArray *imagesArray;
 
 @end
 
 @implementation MYDHomeViewController
+{
+    NSUInteger      _imageIndex;    // 图片序号
+    NSTimer *_timer;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,8 +45,19 @@
     [self initSubviews];
     [self setSubviews];
     [self initControllers];
+    [self creatAD];
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // 全局定时器，定时切换广告
+    _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(adAutoSliding:) userInfo:nil repeats:YES];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_timer invalidate];
+}
 - (void)viewDidAppear:(BOOL)animated
 {
 //    self.horizontalScrollView.frame = CGRectMake(0, 44, self.horizontalScrollView.frame.size.width, 680);
@@ -60,12 +75,12 @@
     if (self.dataArray == nil) {
         return;
     }
-    self.imageViewArray = [NSMutableArray array];
+    self.imagesArray = [NSMutableArray array];
     
     for (NSDictionary *dic in self.dataArray) {
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"FileName"]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        [self.imageViewArray addObject:imageView];
+//        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        [self.imagesArray addObject:image];
     }
 }
 
@@ -107,14 +122,14 @@
     // 将建立好的图像数组添加到scrollView中
     // 1) for (NSInteger idx = 0; idx < 5; idx ++)
     // 2) for (UIImageView obj in array)
-    [self.imageViewArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        // 1) 从数组取出imageView
-        UIImageView *imageView = obj;
-        // 2) 设置图像视图的frame
-        [imageView setFrame:CGRectMake(idx * self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
-        // 3) 将图像视图添加到scrollView
-        [self.horizontalScrollView addSubview:imageView];
-    }];
+//    [self.imageViewArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        // 1) 从数组取出imageView
+//        UIImageView *imageView = obj;
+//        // 2) 设置图像视图的frame
+//        [imageView setFrame:CGRectMake(idx * self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
+//        // 3) 将图像视图添加到scrollView
+//        [self.horizontalScrollView addSubview:imageView];
+//    }];
     
     // 5. 设置滚动视图属性
     // 1) 允许分页
@@ -182,27 +197,60 @@
 }
 
 
-#pragma mark - PageControl
-- (IBAction)pageChanged:(UIPageControl *)sender {
-    NSLog(@"分页了 %d", sender.currentPage);
-    // 根据变化到的页数，计算scrollView的contentOffset
-    CGFloat offsetX = sender.currentPage * self.horizontalScrollView.bounds.size.width;
+#pragma mark - 1.2.1、创建广告栏
+- (void)creatAD
+{
+    // 广告栏
+    self.horizontalScrollView.contentSize = CGSizeMake(self.horizontalScrollView.bounds.size.width * 3, 0);
+    self.horizontalScrollView.contentOffset = CGPointMake(self.horizontalScrollView.bounds.size.width, 0);
     
-    [self.horizontalScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    for (int i = 0; i < 3; i++){
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:self.imagesArray[i]];
+        imageView.tag = i + 1;
+        imageView.userInteractionEnabled = YES;
+        imageView.frame = (CGRect){self.horizontalScrollView.bounds.size.width * i, 0, self.horizontalScrollView.frame.size};
+        [self.horizontalScrollView addSubview:imageView];
+    }
+    _imageIndex = 0;
 }
+#pragma mark 1.2.1.1、广告栏自动滑动
+- (void)adAutoSliding:(id)timer
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.horizontalScrollView.contentOffset = CGPointMake(self.horizontalScrollView.bounds.size.width * 2.0, 0);
+    } completion:^(BOOL finished) {
+        [self scrollViewDidEndDecelerating:self.horizontalScrollView];
+    }];
+}
+
+//#pragma mark - PageControl
+//- (IBAction)pageChanged:(UIPageControl *)sender {
+//    NSLog(@"分页了 %d", sender.currentPage);
+//    // 根据变化到的页数，计算scrollView的contentOffset
+//    CGFloat offsetX = sender.currentPage * self.horizontalScrollView.bounds.size.width;
+//    
+//    [self.horizontalScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+//}
 #pragma mark - ScrollView Delegate
 #pragma mark 滚动视图减速事件
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if (scrollView.tag == kTagForhorizontalScrollView) {
-        NSLog(@"页面滚动停止 ");
-        // 根据scorllView的contentOffset属性，判断当前所在的页数
-        NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
+        UIImageView *image0 = (UIImageView *)[scrollView viewWithTag:1];
+        UIImageView *image1 = (UIImageView *)[scrollView viewWithTag:2];
+        UIImageView *image2 = (UIImageView *)[scrollView viewWithTag:3];
+        NSUInteger count = self.imagesArray.count;
+        if (scrollView.contentOffset.x > self.horizontalScrollView.bounds.size.width * 1.5) {                   // 往后滑动，后推一张图片
+            _imageIndex = ++_imageIndex % count;
+        } else if (scrollView.contentOffset.x < self.horizontalScrollView.bounds.size.width * 0.5){             // 往前滑动，前推一张图片
+            _imageIndex = (_imageIndex + count - 1) % count;
+        } else return;
         
-        // 设置页码
-        [self.pageControl setCurrentPage:pageNo];
-    }else {
-        
+        // 更换图片
+        image0.image = self.imagesArray[_imageIndex % count];
+        image1.image = self.imagesArray[(_imageIndex + 1) % count];
+        image2.image = self.imagesArray[(_imageIndex + 2) % count];
+        self.horizontalScrollView.contentOffset = CGPointMake(self.horizontalScrollView.bounds.size.width, 0);
     }
 
 }

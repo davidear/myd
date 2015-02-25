@@ -46,6 +46,8 @@
     //加载webView
     for (int i =0; i < self.partiesArray.count; i++) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(874 * i, 0, 874, 598)];
+        webView.scrollView.alwaysBounceVertical = NO;
+        webView.backgroundColor = [UIColor whiteColor];
         NSString *idStr = [self.partiesArray[i] objectForKey:@"Id"];
         NSString *str = [NSString stringWithFormat:@"http://pad.zmmyd.com/Publics/Party.aspx?id=%@",idStr];
         NSURL *url = [NSURL URLWithString:str];

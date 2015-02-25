@@ -100,12 +100,16 @@
 - (void)remenberUserName:(UIView *)sender
 {
     ((UIButton *)[self.userNameRememberedView viewWithTag:1]).selected = !((UIButton *)[self.userNameRememberedView viewWithTag:1]).isSelected;
+    if (!((UIButton *)[self.userNameRememberedView viewWithTag:1]).isSelected) {
+        ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = NO;
+    }
 
 }
 - (void)remenberPassword:(UIView *)sender
 {
-    ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = !((UIButton *)[self.passwordRememberedView viewWithTag:1]).isSelected;
-    
+    if (((UIButton *)[self.userNameRememberedView viewWithTag:1]).isSelected) {
+        ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = !((UIButton *)[self.passwordRememberedView viewWithTag:1]).isSelected;
+    }
 }
 //在点击按钮时做初始化
 - (IBAction)loginButtonPressed:(id)sender {

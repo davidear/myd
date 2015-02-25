@@ -14,6 +14,7 @@
 #import "MYDScrollView.h"
 #import "MYDUIConstant.h"
 #import "MYDCollectionViewCell2.h"
+#import "MYDConstants.h"
 
 @interface MYDWritingIntroduceViewController()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -210,12 +211,33 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = [self.sortedArray[collectionView.tag] objectAtIndex:indexPath.row];
-    NSInteger index = [self.sortedAllArray indexOfObject:dic];
-    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598) index:index];
-    [self.view addSubview:self.detailScrollView];
-    self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
+    //之前有一个详情页面
+//    NSDictionary *dic = [self.sortedArray[collectionView.tag] objectAtIndex:indexPath.row];
+//    NSInteger index = [self.sortedAllArray indexOfObject:dic];
+//    self.detailScrollView = [[MYDScrollView alloc] initWithFrame:CGRectMake(0, 60, 874, 598) index:index];
+//    [self.view addSubview:self.detailScrollView];
+//    self.detailScrollView.scrollDoneBlock = self.scrollDoneBlock;
     self.detailScrollView.detailDataList = self.sortedAllArray;
+    //详情页面完毕
+    
+    //直接跳转到图片展示页面
+    NSMutableArray *tempArr = [NSMutableArray array];
+    NSMutableArray *array = [[MYDDBManager getInstant] readMaterialPictures];
+    [array addObjectsFromArray:[[MYDDBManager getInstant] readProjectPictures]];
+    [array addObjectsFromArray:[[MYDDBManager getInstant] readWritingPictures]];
+    if (array == nil) {
+        return;
+    }
+    for (NSDictionary *dic in array) {
+        if ([[self.sortedAllArray[indexPath.row] objectForKey:@"Id"] isEqualToString:[dic objectForKey:@"FKId"]]) {
+            [tempArr addObject:[dic objectForKey:@"FileName"]];
+        }
+    }
+    if (tempArr.count == 0) {
+        return;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForImageButtonAction object:tempArr];
+    //直接跳转到图片展示页面
 }
 
 

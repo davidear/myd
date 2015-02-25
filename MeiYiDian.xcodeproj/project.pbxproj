@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204647C11A9E23C700273CFD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 204647C01A9E23C700273CFD /* red.png */; };
 		2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */; };
 		2046CACB1A9DAB9A001DE9B7 /* User@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC91A9DAB9A001DE9B7 /* User@2x.png */; };
 		3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */; };
@@ -132,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204647C01A9E23C700273CFD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key@2x.png"; sourceTree = "<group>"; };
 		2046CAC91A9DAB9A001DE9B7 /* User@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User@2x.png"; sourceTree = "<group>"; };
 		3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDItemDetailView.xib; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 		3CC101851A7BD35D00A34B05 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				204647C01A9E23C700273CFD /* red.png */,
 				2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */,
 				2046CAC91A9DAB9A001DE9B7 /* User@2x.png */,
 				3CE5A6261A89AD5700702B29 /* Icons */,
@@ -915,7 +918,7 @@
 				TargetAttributes = {
 					3C239E281A5BBF30008419A4 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 24EL9XJBYB;
+						DevelopmentTeam = Z5B9P6J2Z5;
 					};
 					3C239E411A5BBF30008419A4 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -977,6 +980,7 @@
 				2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */,
 				3CC101931A7BD8E200A34B05 /* 活动方案.png in Resources */,
 				3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */,
+				204647C11A9E23C700273CFD /* red.png in Resources */,
 				3CE5A62D1A89AD5700702B29 /* LOGO_72X72.png in Resources */,
 				3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */,
 				3CC101961A7BD8E200A34B05 /* 项目介绍.png in Resources */,

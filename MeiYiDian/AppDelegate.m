@@ -42,9 +42,10 @@
     
     [self.window makeKeyAndVisible];
     
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : kColorForOrangeRed} forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : kColorForDardRed} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : kColorForDardRed, NSBackgroundColorAttributeName : [UIColor blueColor]} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -10)];
+    
     
     
     return YES;

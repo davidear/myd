@@ -33,6 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //设置头像图像
+    self.userHeaderImageView.layer.cornerRadius = 100;
+    self.userHeaderImageView.clipsToBounds = YES;
+    
+    //设置登录按钮
+    self.loginButton.layer.borderWidth = 1;
+    self.loginButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.loginButton.layer.cornerRadius = 6;
+    self.loginButton.clipsToBounds = YES;
     //设置记住用户名和记住密码两个view
     UITapGestureRecognizer *rememberUserNameTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(remenberUserName:)];
     UITapGestureRecognizer *rememberPasswordTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(remenberPassword:)];
@@ -102,6 +111,15 @@
 - (IBAction)loginButtonPressed:(id)sender {
     [self.view endEditing:YES];
     if (self.isSelected == YES) {
+        return;
+    }
+    if (self.userNameTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写用户名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }else if (self.passwordTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
         return;
     }
     [[MYDMediator getInstant] loginWithUserName:self.userNameTextField.text password:self.passwordTextField.text success:^(NSString *responseString) {
@@ -276,16 +294,16 @@
             [self.passwordTextField becomeFirstResponder];
             break;
         case 2:
-            if (self.userNameTextField.text.length == 0) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写用户名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alert show];
-            }else if (self.passwordTextField.text.length == 0) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alert show];
-            }else {
+//            if (self.userNameTextField.text.length == 0) {
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写用户名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//                [alert show];
+//            }else if (self.passwordTextField.text.length == 0) {
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请填写密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//                [alert show];
+//            }else {
                 [textField resignFirstResponder];
                 [self loginButtonPressed:nil];
-            }
+//            }
             break;
         default:
             break;

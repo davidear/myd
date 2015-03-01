@@ -46,6 +46,8 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : kColorForDardRed, NSBackgroundColorAttributeName : [UIColor blueColor]} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -10)];
     
+    //不让程序黑屏
+    application.idleTimerDisabled = YES;
     
     
     return YES;

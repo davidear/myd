@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) IBOutlet UIView *userNameRememberedView;
 @property (strong, nonatomic) IBOutlet UIView *passwordRememberedView;
+@property (weak, nonatomic) IBOutlet UILabel *prompLabel;
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 @property (assign, nonatomic) BOOL isSelected;
@@ -34,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //设置头像图像
-    self.userHeaderImageView.layer.cornerRadius = 100;
+    self.userHeaderImageView.layer.cornerRadius = 84;
     self.userHeaderImageView.clipsToBounds = YES;
     
     //设置登录按钮
@@ -138,11 +139,13 @@
         
         if (oldDataVersion != newDataVersion | oldDataVersion == 0 ) {
             [[MYDMediator getInstant] getBaseDataWithDepartmentId:[[NSUserDefaults standardUserDefaults] objectForKey:@"DepartmentId"] success:^(NSString *responseString) {
+                self.prompLabel.text = @"数据更新中，请稍后.....";
                 [self downloadPictures];
             } failure:^(NSError *error) {
                 
             }];
         }else{
+            self.prompLabel.text = @"数据更新中，请稍后.....";
             [self downloadPictures];
         }
     } failure:^(NSError *error) {
@@ -151,15 +154,22 @@
         self.isSelected = NO;
         self.userNameTextField.enabled = YES;
         self.passwordTextField.enabled = YES;
+        self.prompLabel.hidden = YES;
     }];
     
     self.isSelected = YES;
     self.userNameTextField.enabled = NO;
     self.passwordTextField.enabled = NO;
+    self.prompLabel.text = @"检查服务器更新.....";
+    self.prompLabel.hidden = NO;
 }
 #pragma mark -
 - (void)downloadDone
 {
+    self.isSelected = NO;
+    self.userNameTextField.enabled = YES;
+    self.passwordTextField.enabled = YES;
+    self.prompLabel.hidden = YES;
     [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
         
     }];

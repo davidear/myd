@@ -103,7 +103,7 @@
     //    navigationController.navigationBarHidden = YES;
     
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 100 * self.catalogsArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 120 * self.catalogsArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.catalogsArray.count; i++) {
         NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
@@ -152,7 +152,7 @@
     NSMutableArray *tempArr = self.sortedArray[collectionView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
     cell.label.text = [tempArr[indexPath.row] objectForKey:@"Name"];
-    cell.priceLabel.text = [NSString stringWithFormat:@"价格：%d",[[tempArr[indexPath.row] objectForKey:@"Price"] intValue]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"RMB：%d",[[tempArr[indexPath.row] objectForKey:@"Price"] intValue]];
 //    cell.label.text = [NSString stringWithFormat:@"index %d",collectionView.tag];
     return cell;
 }

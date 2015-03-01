@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203C1BF91AA32188005B0D85 /* navigation_button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */; };
 		204647C11A9E23C700273CFD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 204647C01A9E23C700273CFD /* red.png */; };
 		2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */; };
 		2046CACB1A9DAB9A001DE9B7 /* User@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC91A9DAB9A001DE9B7 /* User@2x.png */; };
@@ -133,6 +134,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_button_back@2x.png"; sourceTree = "<group>"; };
 		204647C01A9E23C700273CFD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key@2x.png"; sourceTree = "<group>"; };
 		2046CAC91A9DAB9A001DE9B7 /* User@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User@2x.png"; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 		3CC101851A7BD35D00A34B05 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */,
 				204647C01A9E23C700273CFD /* red.png */,
 				2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */,
 				2046CAC91A9DAB9A001DE9B7 /* User@2x.png */,
@@ -979,6 +982,7 @@
 				3C921CF41A865DDD007EC0F1 /* 04_icon@2x.png in Resources */,
 				2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */,
 				3CC101931A7BD8E200A34B05 /* 活动方案.png in Resources */,
+				203C1BF91AA32188005B0D85 /* navigation_button_back@2x.png in Resources */,
 				3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */,
 				204647C11A9E23C700273CFD /* red.png in Resources */,
 				3CE5A62D1A89AD5700702B29 /* LOGO_72X72.png in Resources */,

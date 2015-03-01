@@ -145,7 +145,7 @@
     //    navigationController.navigationBarHidden = YES;
     
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 100 * self.catalogsArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 120 * self.catalogsArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.catalogsArray.count; i++) {
         NSDictionary *dic = [self.catalogsArray objectAtIndex:i];

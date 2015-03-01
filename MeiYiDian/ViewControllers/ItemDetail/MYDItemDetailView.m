@@ -22,7 +22,7 @@
     if (self) {
         [self.imageButton setImage:image forState:UIControlStateNormal];
         self.titleLabel.text = title;
-        self.priceLabel.text = [NSString stringWithFormat:@"价格：%@元",price];
+        self.priceLabel.text = [NSString stringWithFormat:@"RMB：%@",price];
         self.descriptionTextView.text = descriptioin;
     }
     return self;
@@ -59,7 +59,7 @@
     self.pictureEntityDic = dic;
     [self.imageButton setImage:image forState:UIControlStateNormal];
     self.titleLabel.text = [dic objectForKey:@"Name"];
-    self.priceLabel.text = [NSString stringWithFormat:@"价格：%@元",[dic objectForKey:@"Price"]];
+    self.priceLabel.text = [NSString stringWithFormat:@"RMB：%@",[dic objectForKey:@"Price"]];
     self.descriptionTextView.text = [dic objectForKey:@"Description"];
     self.descriptionTextView.font = kFont_Normal;
     self.descriptionTextView.textColor = kColorForMaroon;

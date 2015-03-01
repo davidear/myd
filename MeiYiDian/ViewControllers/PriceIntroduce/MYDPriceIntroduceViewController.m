@@ -107,7 +107,7 @@
 - (void)setSubviews
 {
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 100 * self.catalogsArray.count, 60);
+    self.tabBar.frame = CGRectMake(0, 0, 120 * self.catalogsArray.count, 60);
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < self.catalogsArray.count; i++) {
         NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
@@ -184,7 +184,7 @@
     NSMutableArray *tempArr = self.sortedArray[tableView.tag];
     cell.imageView.image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[tempArr[indexPath.row] objectForKey:@"TitlePictureFileName"]];
     cell.textLabel.text = [tempArr[indexPath.row] objectForKey:@"Name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"价格：%@",[tempArr[indexPath.row] objectForKey:@"Price"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"RMB：%@",[tempArr[indexPath.row] objectForKey:@"Price"]];
     cell.descriptionLabel.text = [tempArr[indexPath.row] objectForKey:@"Description"];
     return cell;
 //    switch (tableView.tag) {

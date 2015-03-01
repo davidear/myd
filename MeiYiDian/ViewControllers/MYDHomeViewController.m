@@ -51,7 +51,7 @@
 {
     [super viewWillAppear:animated];
     // 全局定时器，定时切换广告
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(adAutoSliding:) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(adAutoSliding:) userInfo:nil repeats:YES];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

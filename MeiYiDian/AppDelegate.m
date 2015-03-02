@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MYDLoginViewController.h"
-#import "MYDHomeViewController.h"
+#import "MYDViewControllerManager.h"
 #import "MYDUIConstant.h"
 
 @interface AppDelegate ()
@@ -38,7 +37,16 @@
 //    sideMenu.contentViewShadowEnabled = YES;
     
 //    self.window.rootViewController = [[MYDMainViewController alloc] init];
-    self.window.rootViewController = [[MYDLoginViewController alloc] init];
+    [MYDViewControllerManager defaultManager].window = self.window;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] != nil) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] boolValue]) {
+            self.window.rootViewController = [MYDViewControllerManager defaultManager].homeViewController;
+        }else {
+            self.window.rootViewController = [MYDViewControllerManager defaultManager].loginViewController;
+        }
+    }else {
+        self.window.rootViewController = [MYDViewControllerManager defaultManager].loginViewController;
+    }
     
     [self.window makeKeyAndVisible];
     

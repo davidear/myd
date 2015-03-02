@@ -11,6 +11,7 @@
 		204647C11A9E23C700273CFD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 204647C01A9E23C700273CFD /* red.png */; };
 		2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */; };
 		2046CACB1A9DAB9A001DE9B7 /* User@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC91A9DAB9A001DE9B7 /* User@2x.png */; };
+		208F3E531AA3F5C300003D32 /* MYDViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F3E521AA3F5C300003D32 /* MYDViewControllerManager.m */; };
 		3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */; };
 		3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */; };
 		3C239E2F1A5BBF30008419A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C239E2E1A5BBF30008419A4 /* main.m */; };
@@ -138,6 +139,8 @@
 		204647C01A9E23C700273CFD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key@2x.png"; sourceTree = "<group>"; };
 		2046CAC91A9DAB9A001DE9B7 /* User@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User@2x.png"; sourceTree = "<group>"; };
+		208F3E511AA3F5C300003D32 /* MYDViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDViewControllerManager.h; sourceTree = "<group>"; };
+		208F3E521AA3F5C300003D32 /* MYDViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDViewControllerManager.m; sourceTree = "<group>"; };
 		3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDItemDetailView.xib; sourceTree = "<group>"; };
 		3C2047F11A73AC620079B6C3 /* MYDItemDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDItemDetailView.h; sourceTree = "<group>"; };
 		3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDItemDetailView.m; sourceTree = "<group>"; };
@@ -770,6 +773,8 @@
 				3CCB9DD01A6907E000031372 /* MYDHomeViewController.h */,
 				3CCB9DD11A6907E000031372 /* MYDHomeViewController.m */,
 				3CCB9DD21A6907E000031372 /* MYDHomeViewController.xib */,
+				208F3E511AA3F5C300003D32 /* MYDViewControllerManager.h */,
+				208F3E521AA3F5C300003D32 /* MYDViewControllerManager.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1075,6 +1080,7 @@
 				3C5E10AA1A6C930A008D1E5E /* MYDPriceIntroduceViewController.m in Sources */,
 				3CCB9DCE1A68A39300031372 /* MYDLoginViewController.m in Sources */,
 				3CCEAC391A5CDCD300BF16F0 /* UIViewController+RESideMenu.m in Sources */,
+				208F3E531AA3F5C300003D32 /* MYDViewControllerManager.m in Sources */,
 				3CCF8FAD1A5F60D60074ECED /* MYDPackageManager.m in Sources */,
 				3C2A0CE01A820D8F00318799 /* MYDPictureScrollViewController.m in Sources */,
 			);

@@ -15,7 +15,7 @@
 #import "MYDProgressManager.h"
 #import "MBProgressHUD.h"
 #import "MYDNetwork.h"
-
+#import "MYDConstants.h"
 @interface MYDLoginViewController ()<MBProgressHUDDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -85,7 +85,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PicturesDone" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationForPictureDownload object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
@@ -133,6 +133,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:((UIButton *)[self.passwordRememberedView viewWithTag:1]).isSelected] forKey:@"remenberPassword"];
         [[NSUserDefaults standardUserDefaults] setObject:self.userNameTextField.text forKey:@"loginUserName"];
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:@"loginPassword"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
         int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
         int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
@@ -149,7 +150,7 @@
             [self downloadPictures];
         }
     } failure:^(NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败，请重试" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@,请重试",error.domain] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
         self.isSelected = NO;
         self.userNameTextField.enabled = YES;
@@ -171,7 +172,8 @@
     self.passwordTextField.enabled = YES;
     self.prompLabel.hidden = YES;
     [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
-        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }];
 }
 
@@ -274,7 +276,7 @@
     self.hud.delegate = self;
     self.hud.labelText = @"Loading..";
     [self.hud show:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDone) name:@"PicturesDone" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDone) name:kNotificationForPictureDownload object:nil];
 }
 
 #pragma mark HUD的代理方法,关闭HUD时执行

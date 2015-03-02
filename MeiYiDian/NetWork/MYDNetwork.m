@@ -8,6 +8,7 @@
 #import "MYDNetwork.h"
 #import "ASIHTTPRequest.h"
 #import "MYDProgressManager.h"
+#import "MYDConstants.h"
 
 @implementation MYDNetwork
 #pragma mark - 单例
@@ -108,7 +109,7 @@ static MYDNetwork *instant = nil;
 - (void)requestDidFinishAction
 {
     if (_networkQueue.requestsCount == 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PicturesDone" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForPictureDownload object:nil];
     }
     NSLog(@"\n~~~~~_networkQueue.count is %d~~~~~",_networkQueue.requestsCount);
 }

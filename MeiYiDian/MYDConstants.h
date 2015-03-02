@@ -10,5 +10,6 @@
 #define MeiYiDian_MYDConstants_h
 
 #define kNotificationForImageButtonAction @"kNotificationForImageButtonAction"
-
+#define kNotificationForLoginView @"kNotificationForLoginView"
+#define kNotificationForPictureDownload @"kNotificationForPicturesDone"
 #endif

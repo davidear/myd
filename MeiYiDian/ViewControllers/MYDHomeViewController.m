@@ -12,8 +12,9 @@
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
 #import "MYDUIConstant.h"
+#import "MYDConstants.h"
 #define kTagForhorizontalScrollView 10
-@interface MYDHomeViewController ()<UIScrollViewDelegate>
+@interface MYDHomeViewController ()<UIScrollViewDelegate,UIAlertViewDelegate>
 //UI
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *horizontalScrollView;
@@ -37,6 +38,28 @@
     NSUInteger      _imageIndex;    // 图片序号
     NSTimer *_timer;
 }
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self != nil) {
+        [[MYDMediator getInstant] getDataVersionWithDepartmentId:[[NSUserDefaults standardUserDefaults] objectForKey:@"DepartmentId"] success:^(NSString *responseString) {
+            //DataVersion不相同或者 baseData中的DataVersion为0，则发起数据更新
+            int oldDataVersion = [[MYDDBManager getInstant] readDataVersionFromBaseData];
+            int newDataVersion = [[MYDDBManager getInstant] readDataVersionFromLoginResult];
+            
+            if (oldDataVersion != newDataVersion | oldDataVersion == 0 ) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"数据版本有更新" message:@"重新登录更新数据" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                [alert show];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+    
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -255,4 +278,13 @@
 
 }
 
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForLoginView object:nil];
+    }
+}
 @end

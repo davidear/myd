@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F3B1C430-A0F2-4E08-A7FA-50EB309D007A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MeiYiDian</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5B4C0E31CE93CB8C40CD0DF4C3483F10474F08C0</key>
+		<string>github.com:davidear/myd.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MeiYiDian.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5B4C0E31CE93CB8C40CD0DF4C3483F10474F08C0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:davidear/myd.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5B4C0E31CE93CB8C40CD0DF4C3483F10474F08C0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5B4C0E31CE93CB8C40CD0DF4C3483F10474F08C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MeiYiDian</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -33,14 +33,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美易点智能接单系统" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="irr-Th-Qjo">
-                    <rect key="frame" x="413" y="340" width="198" height="27"/>
+                    <rect key="frame" x="413" y="346" width="198" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="Mod-0e-k0c">
-                    <rect key="frame" x="434" y="390" width="200" height="30"/>
+                    <rect key="frame" x="434" y="400" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="jtj-VO-zBc">
-                    <rect key="frame" x="434" y="428" width="200" height="30"/>
+                    <rect key="frame" x="434" y="438" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go" secureTextEntry="YES"/>
@@ -57,12 +57,12 @@
                         <outlet property="delegate" destination="-1" id="pyX-ij-xFt"/>
                     </connections>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO_144X144.png" id="ACA-nN-weE">
-                    <rect key="frame" x="427" y="162" width="170" height="170"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="200-2.png" id="ACA-nN-weE">
+                    <rect key="frame" x="427" y="142" width="170" height="170"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iD3-OG-08L">
-                    <rect key="frame" x="354" y="495" width="317" height="34"/>
+                    <rect key="frame" x="354" y="505" width="317" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,15 +72,15 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User.png" id="hl9-vb-rT7">
-                    <rect key="frame" x="390" y="390" width="30" height="30"/>
+                    <rect key="frame" x="390" y="400" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Key.png" id="loe-Iu-rbH">
-                    <rect key="frame" x="390" y="428" width="30" height="30"/>
+                    <rect key="frame" x="390" y="438" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="W4R-t4-laM" userLabel="记住用户名">
-                    <rect key="frame" x="408" y="466" width="100" height="21"/>
+                    <rect key="frame" x="408" y="476" width="100" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RB9-dv-XbJ">
@@ -101,7 +101,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="2NV-7G-bPI" userLabel="记住密码">
-                    <rect key="frame" x="516" y="466" width="100" height="21"/>
+                    <rect key="frame" x="516" y="476" width="100" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tjq-YM-P28">
@@ -122,7 +122,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="检查服务器更新....." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RIe-ZJ-cjh">
-                    <rect key="frame" x="412" y="582" width="200" height="21"/>
+                    <rect key="frame" x="412" y="592" width="200" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,8 +135,8 @@
         </view>
     </objects>
     <resources>
+        <image name="200-2.png" width="200" height="200"/>
         <image name="Key.png" width="24" height="24"/>
-        <image name="LOGO_144X144.png" width="144" height="144"/>
         <image name="User.png" width="30" height="27"/>
         <image name="btn_noSelected.png" width="15" height="15"/>
         <image name="home_bg.png" width="1024" height="768"/>

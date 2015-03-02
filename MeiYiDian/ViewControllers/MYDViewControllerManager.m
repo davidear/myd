@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotify) name:kNotificationForLoginView object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(homeViewNotify) name:kNotificationForHomeView object:nil];
     }
     return self;
 }
@@ -50,6 +51,14 @@
     if (![self.window.rootViewController isKindOfClass:NSClassFromString(@"MYDLoginViewController")])
     {
         self.window.rootViewController = self.loginViewController;
+    }
+}
+
+- (void)homeViewNotify
+{
+    if (![self.window.rootViewController isKindOfClass:NSClassFromString(@"MYDHomeViewController")])
+    {
+        self.window.rootViewController = self.homeViewController;
     }
 }
 

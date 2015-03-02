@@ -84,6 +84,10 @@ static NSString *MyCell = @"MyCell";
 {
     self.dataArray = @[@"首页",@"企业介绍",@"价格表",@"项目介绍",@"产品介绍",@"活动方案",@"作品展示"];
 }
+#pragma mark - Button Action
+- (IBAction)logoutAction:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForLoginView object:nil];
+}
 #pragma mark - TableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

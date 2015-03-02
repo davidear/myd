@@ -36,8 +36,8 @@
     
     [self.window makeKeyAndVisible];
     
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : kFont_Normal, NSForegroundColorAttributeName : kColorForDardRed, NSBackgroundColorAttributeName : [UIColor blueColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:19], NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:19], NSForegroundColorAttributeName : kColorForDardRed, NSBackgroundColorAttributeName : [UIColor blueColor]} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -10)];
     
     //不让程序黑屏

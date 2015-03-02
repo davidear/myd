@@ -11,5 +11,6 @@
 
 #define kNotificationForImageButtonAction @"kNotificationForImageButtonAction"
 #define kNotificationForLoginView @"kNotificationForLoginView"
+#define kNotificationForHomeView @"kNotificationForHomeView"
 #define kNotificationForPictureDownload @"kNotificationForPicturesDone"
 #endif

@@ -35,8 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //设置头像图像
-    self.userHeaderImageView.layer.cornerRadius = 84;
-    self.userHeaderImageView.clipsToBounds = YES;
+//    self.userHeaderImageView.layer.cornerRadius = 84;
+//    self.userHeaderImageView.clipsToBounds = YES;
     
     //设置登录按钮
     self.loginButton.layer.borderWidth = 1;
@@ -53,24 +53,12 @@
     [((UIButton *)[self.passwordRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_noSelected.png"] forState:UIControlStateNormal];
     [((UIButton *)[self.passwordRememberedView viewWithTag:1]) setImage:[UIImage imageNamed:@"btn_selected.png"] forState:UIControlStateSelected];
     
-    //从NSUserDefault取值并赋值给两个view
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] isKindOfClass:[NSNumber class]]) {
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] boolValue]) {
-            ((UIButton *)[self.userNameRememberedView viewWithTag:1]).selected = YES;
-            self.userNameTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginUserName"];
-            
-        }
-    }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] isKindOfClass:[NSNumber class]]) {
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] boolValue]) {
-            ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = YES;
-            self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginPassword"];
-        }
-    }
+
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isLogin"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -80,6 +68,24 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    //从NSUserDefault取值并赋值给两个view
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] isKindOfClass:[NSNumber class]]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberUserName"] boolValue]) {
+            ((UIButton *)[self.userNameRememberedView viewWithTag:1]).selected = YES;
+            self.userNameTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginUserName"];
+        }else{
+            self.userNameTextField.text = nil;
+        }
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] isKindOfClass:[NSNumber class]]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"remenberPassword"] boolValue]) {
+            ((UIButton *)[self.passwordRememberedView viewWithTag:1]).selected = YES;
+            self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginPassword"];
+        }else{
+            self.passwordTextField.text = nil;
+        }
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -167,14 +173,15 @@
 #pragma mark -
 - (void)downloadDone
 {
+    [self.hud hide:YES];
+    
     self.isSelected = NO;
     self.userNameTextField.enabled = YES;
     self.passwordTextField.enabled = YES;
     self.prompLabel.hidden = YES;
-    [self presentViewController:[[MYDHomeViewController alloc] init] animated:YES completion:^{
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForHomeView object:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)downloadPictures

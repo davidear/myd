@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		203C1BF91AA32188005B0D85 /* navigation_button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */; };
+		2043C1B61AA4AD9300382205 /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1B51AA4AD9300382205 /* logout@2x.png */; };
+		2043C1B81AA4AF5200382205 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1B71AA4AF5100382205 /* back@2x.png */; };
+		2043C1BA1AA4B99C00382205 /* logo-60-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1B91AA4B99C00382205 /* logo-60-60.png */; };
+		2043C1BC1AA4BCE300382205 /* 200-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1BB1AA4BCE300382205 /* 200-2.png */; };
 		204647C11A9E23C700273CFD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 204647C01A9E23C700273CFD /* red.png */; };
 		2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */; };
 		2046CACB1A9DAB9A001DE9B7 /* User@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC91A9DAB9A001DE9B7 /* User@2x.png */; };
@@ -136,6 +140,10 @@
 
 /* Begin PBXFileReference section */
 		203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_button_back@2x.png"; sourceTree = "<group>"; };
+		2043C1B51AA4AD9300382205 /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
+		2043C1B71AA4AF5100382205 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		2043C1B91AA4B99C00382205 /* logo-60-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-60-60.png"; sourceTree = "<group>"; };
+		2043C1BB1AA4BCE300382205 /* 200-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "200-2.png"; sourceTree = "<group>"; };
 		204647C01A9E23C700273CFD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key@2x.png"; sourceTree = "<group>"; };
 		2046CAC91A9DAB9A001DE9B7 /* User@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User@2x.png"; sourceTree = "<group>"; };
@@ -673,6 +681,10 @@
 		3CC101851A7BD35D00A34B05 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				2043C1BB1AA4BCE300382205 /* 200-2.png */,
+				2043C1B91AA4B99C00382205 /* logo-60-60.png */,
+				2043C1B71AA4AF5100382205 /* back@2x.png */,
+				2043C1B51AA4AD9300382205 /* logout@2x.png */,
 				203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */,
 				204647C01A9E23C700273CFD /* red.png */,
 				2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */,
@@ -681,9 +693,9 @@
 				3C921CEA1A865DDD007EC0F1 /* 左侧栏 */,
 				3CE5A62F1A89D41300702B29 /* btn_noSelected@2x.png */,
 				3CE5A6301A89D41300702B29 /* btn_selected@2x.png */,
+				3C602FF41A85F91400958A01 /* all_icon@2x.png */,
 				3C602FF81A85FB6400958A01 /* all_icon_3@2x.png */,
 				3C602FF61A85FA0900958A01 /* all_icon_1@2x.png */,
-				3C602FF41A85F91400958A01 /* all_icon@2x.png */,
 				3C602FF21A85F7D900958A01 /* home_bg@2x.png */,
 				3CC101981A7BE2E200A34B05 /* query.png */,
 				3CC1018C1A7BD8E200A34B05 /* 产品介绍.png */,
@@ -959,6 +971,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC101951A7BD8E200A34B05 /* 首页.PNG in Resources */,
+				2043C1BC1AA4BCE300382205 /* 200-2.png in Resources */,
+				2043C1B61AA4AD9300382205 /* logout@2x.png in Resources */,
 				3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */,
 				3C921CF71A865DDD007EC0F1 /* 07_icon@2x.png in Resources */,
 				3CE5A62E1A89AD5700702B29 /* LOGO_76X76.png in Resources */,
@@ -973,6 +987,7 @@
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
 				3C602FF71A85FA0900958A01 /* all_icon_1@2x.png in Resources */,
+				2043C1BA1AA4B99C00382205 /* logo-60-60.png in Resources */,
 				3C239E3A1A5BBF30008419A4 /* Images.xcassets in Resources */,
 				3C921CF61A865DDD007EC0F1 /* 06_icon@2x.png in Resources */,
 				3CE5A6321A89D41300702B29 /* btn_selected@2x.png in Resources */,
@@ -989,6 +1004,7 @@
 				3CC101931A7BD8E200A34B05 /* 活动方案.png in Resources */,
 				203C1BF91AA32188005B0D85 /* navigation_button_back@2x.png in Resources */,
 				3C97A9471A7CB24B00EE191B /* MYDImageScrollViewController.xib in Resources */,
+				2043C1B81AA4AF5200382205 /* back@2x.png in Resources */,
 				204647C11A9E23C700273CFD /* red.png in Resources */,
 				3CE5A62D1A89AD5700702B29 /* LOGO_72X72.png in Resources */,
 				3CC101971A7BD8E200A34B05 /* 作品展示.png in Resources */,

@@ -21,20 +21,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[[MYDMiddleViewController alloc] init]];
-//    
-//    MYDLeftViewController *leftVC = [[MYDLeftViewController alloc] init];
-//    MYDRightViewController *rightVC = [[MYDRightViewController alloc] init];
-//    RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:navi leftMenuViewController:leftVC rightMenuViewController:rightVC];
-//    
-//    sideMenu.backgroundImage = [UIImage imageNamed:@"Stars"];
-//    sideMenu.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-//    sideMenu.delegate = self;
-//    sideMenu.contentViewShadowColor = [UIColor blackColor];
-//    sideMenu.contentViewShadowOffset = CGSizeMake(0, 0);
-//    sideMenu.contentViewShadowOpacity = 0.6;
-//    sideMenu.contentViewShadowRadius = 12;
-//    sideMenu.contentViewShadowEnabled = YES;
     
 //    self.window.rootViewController = [[MYDMainViewController alloc] init];
     [MYDViewControllerManager defaultManager].window = self.window;

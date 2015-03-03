@@ -25,8 +25,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *textButtons;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *departmentNameLabels;
 
-//Controller
-@property (strong, nonatomic) UINavigationController *navC;
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
 @property (strong, nonatomic) NSMutableArray *imagesArray;

@@ -32,9 +32,10 @@
 }
 - (MYDHomeViewController *)homeViewController
 {
-    if (_homeViewController == nil) {
-        _homeViewController = [[MYDHomeViewController alloc] init];
-    }
+    //    if (_homeViewController == nil) {
+    [[NSNotificationCenter defaultCenter] removeObserver:_homeViewController.navC.viewControllers[0]];
+    _homeViewController = [[MYDHomeViewController alloc] init];
+    //    }
     return _homeViewController;
 }
 

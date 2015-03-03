@@ -9,5 +9,6 @@
 #import "MYDBaseViewController.h"
 
 @interface MYDHomeViewController : MYDBaseViewController
-
+//Controller
+@property (strong, nonatomic) UINavigationController *navC;
 @end

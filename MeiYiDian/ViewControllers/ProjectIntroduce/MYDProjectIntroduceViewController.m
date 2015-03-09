@@ -47,6 +47,7 @@
 - (void)initSubviews
 {
     [super initSubviews];
+    [self.titleSwitchView setDataArray:self.catalogsArray];
 }
 - (void)initDataSource
 {
@@ -92,7 +93,8 @@
         NSDictionary *dic = blockVC.sortedAllArray[index];
         for (int i = 0; i < blockVC.sortedCatalogIdArray.count; i++) {
             if ([[dic objectForKey:@"CatalogId"] isEqualToString:blockVC.sortedCatalogIdArray[i]]) {
-                blockVC.tabBar.selectedItem = blockVC.tabBar.items[i];
+//                blockVC.tabBar.selectedItem = blockVC.tabBar.items[i];
+                [blockVC.titleSwitchView selectIndex:i];
             }
         }
     };
@@ -104,16 +106,16 @@
     //    navigationController.navigationBarHidden = YES;
     
     //个性化父类组件
-    self.tabBar.frame = CGRectMake(0, 0, 120 * self.catalogsArray.count, 60);
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < self.catalogsArray.count; i++) {
-        NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
-        item.tag = i;
-        [array addObject:item];
-    }
-    self.tabBar.items = array;
-    self.tabBar.selectedItem = array[0];
+//    self.tabBar.frame = CGRectMake(0, 0, 120 * self.catalogsArray.count, 60);
+//    NSMutableArray *array = [NSMutableArray array];
+//    for (int i = 0; i < self.catalogsArray.count; i++) {
+//        NSDictionary *dic = [self.catalogsArray objectAtIndex:i];
+//        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:[dic objectForKey:@"Name"] image:nil selectedImage:nil];
+//        item.tag = i;
+//        [array addObject:item];
+//    }
+//    self.tabBar.items = array;
+//    self.tabBar.selectedItem = array[0];
     
     self.scrollView.frame = CGRectMake(0, 60, 874, 598);
     self.scrollView.contentSize = CGSizeMake(874 * self.catalogsArray.count, 598);
@@ -225,7 +227,8 @@
         NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
         
         // 设置TabBar
-        self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+//        self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+        [self.titleSwitchView selectIndex:pageNo];
     }
     
 }

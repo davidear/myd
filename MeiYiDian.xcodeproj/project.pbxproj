@@ -15,6 +15,7 @@
 		204647C11A9E23C700273CFD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 204647C01A9E23C700273CFD /* red.png */; };
 		2046CACA1A9DAB9A001DE9B7 /* Key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */; };
 		2046CACB1A9DAB9A001DE9B7 /* User@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2046CAC91A9DAB9A001DE9B7 /* User@2x.png */; };
+		207C0C9A1AAD298100A8DA64 /* MYDTitleSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207C0C991AAD298100A8DA64 /* MYDTitleSwitchView.m */; };
 		208F3E531AA3F5C300003D32 /* MYDViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F3E521AA3F5C300003D32 /* MYDViewControllerManager.m */; };
 		3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */; };
 		3C2047F31A73AC620079B6C3 /* MYDItemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2047F21A73AC620079B6C3 /* MYDItemDetailView.m */; };
@@ -147,6 +148,8 @@
 		204647C01A9E23C700273CFD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		2046CAC81A9DAB9A001DE9B7 /* Key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key@2x.png"; sourceTree = "<group>"; };
 		2046CAC91A9DAB9A001DE9B7 /* User@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User@2x.png"; sourceTree = "<group>"; };
+		207C0C981AAD298100A8DA64 /* MYDTitleSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDTitleSwitchView.h; sourceTree = "<group>"; };
+		207C0C991AAD298100A8DA64 /* MYDTitleSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDTitleSwitchView.m; sourceTree = "<group>"; };
 		208F3E511AA3F5C300003D32 /* MYDViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDViewControllerManager.h; sourceTree = "<group>"; };
 		208F3E521AA3F5C300003D32 /* MYDViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDViewControllerManager.m; sourceTree = "<group>"; };
 		3C2047EF1A73AA9B0079B6C3 /* MYDItemDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDItemDetailView.xib; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				3C97A9431A7CB24B00EE191B /* MYDImageScrollViewController.h */,
 				3C97A9441A7CB24B00EE191B /* MYDImageScrollViewController.m */,
 				3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */,
+				207C0C981AAD298100A8DA64 /* MYDTitleSwitchView.h */,
+				207C0C991AAD298100A8DA64 /* MYDTitleSwitchView.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1046,6 +1051,7 @@
 				3C239EB11A5BC612008419A4 /* ASIAuthenticationDialog.m in Sources */,
 				3C5E10B41A6C935D008D1E5E /* MYDWritingIntroduceViewController.m in Sources */,
 				3CCC29391A6D44780087F280 /* MKAnnotationView+WebCache.m in Sources */,
+				207C0C9A1AAD298100A8DA64 /* MYDTitleSwitchView.m in Sources */,
 				3CCEAC3E1A5CDDE100BF16F0 /* MYDBaseNavigationController.m in Sources */,
 				3CCEAC4A1A5CDEDB00BF16F0 /* MYDBaseViewController.m in Sources */,
 				3CCC29471A6D44780087F280 /* UIImageView+WebCache.m in Sources */,

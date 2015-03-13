@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20112BF21AB2C58100919E5D /* MYDInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20112BF11AB2C58100919E5D /* MYDInfoView.xib */; };
+		20112BF51AB2C68800919E5D /* 美易点二维码.png in Resources */ = {isa = PBXBuildFile; fileRef = 20112BF31AB2C68800919E5D /* 美易点二维码.png */; };
+		20112BF61AB2C68800919E5D /* delete_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20112BF41AB2C68800919E5D /* delete_@2x.png */; };
 		203C1BF91AA32188005B0D85 /* navigation_button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */; };
 		2043C1B61AA4AD9300382205 /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1B51AA4AD9300382205 /* logout@2x.png */; };
 		2043C1B81AA4AF5200382205 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2043C1B71AA4AF5100382205 /* back@2x.png */; };
@@ -140,6 +143,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20112BF11AB2C58100919E5D /* MYDInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYDInfoView.xib; sourceTree = "<group>"; };
+		20112BF31AB2C68800919E5D /* 美易点二维码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "美易点二维码.png"; sourceTree = "<group>"; };
+		20112BF41AB2C68800919E5D /* delete_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_@2x.png"; sourceTree = "<group>"; };
 		203C1BF81AA32188005B0D85 /* navigation_button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_button_back@2x.png"; sourceTree = "<group>"; };
 		2043C1B51AA4AD9300382205 /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
 		2043C1B71AA4AF5100382205 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -460,6 +466,7 @@
 				3C97A9451A7CB24B00EE191B /* MYDImageScrollViewController.xib */,
 				207C0C981AAD298100A8DA64 /* MYDTitleSwitchView.h */,
 				207C0C991AAD298100A8DA64 /* MYDTitleSwitchView.m */,
+				20112BF11AB2C58100919E5D /* MYDInfoView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -686,6 +693,8 @@
 		3CC101851A7BD35D00A34B05 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				20112BF31AB2C68800919E5D /* 美易点二维码.png */,
+				20112BF41AB2C68800919E5D /* delete_@2x.png */,
 				2043C1BB1AA4BCE300382205 /* 200-2.png */,
 				2043C1B91AA4B99C00382205 /* logo-60-60.png */,
 				2043C1B71AA4AF5100382205 /* back@2x.png */,
@@ -976,6 +985,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC101951A7BD8E200A34B05 /* 首页.PNG in Resources */,
+				20112BF21AB2C58100919E5D /* MYDInfoView.xib in Resources */,
 				2043C1BC1AA4BCE300382205 /* 200-2.png in Resources */,
 				2043C1B61AA4AD9300382205 /* logout@2x.png in Resources */,
 				3CCB9DCF1A68A39300031372 /* MYDLoginViewController.xib in Resources */,
@@ -988,6 +998,7 @@
 				3C602FF51A85F91400958A01 /* all_icon@2x.png in Resources */,
 				3C7E45971A877E3D0063CD0E /* MYDPictureScrollViewController.xib in Resources */,
 				3CC9122F1A8AF4A100359579 /* MYDCollectionViewCell.xib in Resources */,
+				20112BF61AB2C68800919E5D /* delete_@2x.png in Resources */,
 				3CE5A62B1A89AD5700702B29 /* LOGO_144X144.png in Resources */,
 				3CCB9DD41A6907E000031372 /* MYDHomeViewController.xib in Resources */,
 				3CC1018B1A7BD4EB00A34B05 /* headerBig.png in Resources */,
@@ -1018,6 +1029,7 @@
 				3C921CF31A865DDD007EC0F1 /* 03_icon@2x.png in Resources */,
 				3CC101941A7BD8E200A34B05 /* 价格表.png in Resources */,
 				3C2047F01A73AA9B0079B6C3 /* MYDItemDetailView.xib in Resources */,
+				20112BF51AB2C68800919E5D /* 美易点二维码.png in Resources */,
 				3CC101921A7BD8E200A34B05 /* 产品介绍.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

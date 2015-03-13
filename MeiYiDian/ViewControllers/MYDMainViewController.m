@@ -30,10 +30,15 @@
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 
-
-
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+//弹出的关于页面
+@property (strong, nonatomic) IBOutlet UIView *infoView;
+@property (strong, nonatomic) IBOutlet UIView *grayMask;
+@property (weak, nonatomic) IBOutlet UIImageView *logoView;
+@property (weak, nonatomic) IBOutlet UILabel *littleVersionLabel;
+
 
 //DATA
 @property (strong, nonatomic) NSArray *dataArray;
@@ -86,6 +91,27 @@ static NSString *MyCell = @"MyCell";
 }
 #pragma mark - Button Action
 - (IBAction)logoutAction:(id)sender {
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MYDInfoView" owner:self options:nil];
+    self.grayMask = [array firstObject];
+    self.infoView = [array lastObject];
+    self.infoView.center = self.view.center;
+//    self.infoView = [[[NSBundle mainBundle] loadNibNamed:@"MYDInfoView" owner:self options:nil] lastObject];
+    self.logoView.layer.cornerRadius = 5;
+    self.logoView.clipsToBounds = YES;
+    self.littleVersionLabel.layer.cornerRadius = 2;
+    self.littleVersionLabel.clipsToBounds = YES;
+    [self.view addSubview:self.grayMask];
+    [self.view addSubview:self.infoView];
+}
+
+//弹出的关于页面
+- (IBAction)cancelInfoView:(id)sender {
+    [self.grayMask removeFromSuperview];
+    [self.infoView removeFromSuperview];
+}
+- (IBAction)logout:(id)sender {
+    [self.grayMask removeFromSuperview];
+    [self.infoView removeFromSuperview];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForLoginView object:nil];
 }
 #pragma mark - TableView Delegate

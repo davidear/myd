@@ -10,7 +10,7 @@
 
 #import "MYDDBManager.h"
 #import "SDImageCache.h"
-#import "MYDScrollView.h"
+//#import "MYDScrollView.h"
 #import "MYDCell1.h"
 #import "MYDUIConstant.h"
 #import "MYDCollectionViewCell.h"
@@ -31,7 +31,7 @@
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 //滑动图
-@property (strong, nonatomic) MYDScrollView *detailScrollView;
+//@property (strong, nonatomic) MYDScrollView *detailScrollView;
 @property (strong, nonatomic) MYDScrollDoneBlock scrollDoneBlock;
 @end
 
@@ -206,32 +206,32 @@
 //    self.detailScrollView.detailDataList = self.sortedAllArray;
 //}
 
-#pragma mark - UITabBar
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    if ([self.view.subviews containsObject:self.detailScrollView]) {
-        [self.detailScrollView removeFromSuperview];
-        self.detailScrollView = nil;
-    }
-    CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
-    
-    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-    
-}
-#pragma mark - UIScrollView
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    
-    if (![scrollView isKindOfClass:[UICollectionView class]]) {
-        // 根据scorllView的contentOffset属性，判断当前所在的页数
-        NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
-        
-        // 设置TabBar
-//        self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
-        [self.titleSwitchView selectIndex:pageNo];
-    }
-    
-}
+//#pragma mark - UITabBar
+//- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+//{
+//    if ([self.view.subviews containsObject:self.detailScrollView]) {
+//        [self.detailScrollView removeFromSuperview];
+//        self.detailScrollView = nil;
+//    }
+//    CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
+//    
+//    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+//    
+//}
+//#pragma mark - UIScrollView
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    
+//    if (![scrollView isKindOfClass:[UICollectionView class]]) {
+//        // 根据scorllView的contentOffset属性，判断当前所在的页数
+//        NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
+//        
+//        // 设置TabBar
+////        self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+//        [self.titleSwitchView selectIndex:pageNo];
+//    }
+//    
+//}
 
 
 @end

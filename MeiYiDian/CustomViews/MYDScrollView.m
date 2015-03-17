@@ -18,8 +18,6 @@
 // 保存滚动视图显示内容的图像视图数组，数组中一共有三张图片
 @property (strong, nonatomic) NSArray *itemDetailViewList;
 
-// 滚动视图
-@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
 @implementation MYDScrollView

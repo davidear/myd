@@ -7,6 +7,7 @@
 //
 
 #import "MYDBaseSubViewController.h"
+#import "MYDItemDetailView.h"
 
 
 @implementation MYDBaseSubViewController
@@ -66,6 +67,15 @@
 #pragma mark - UIScrollViewSwitchViewDelegate
 - (void)titleSwitchView:(MYDTitleSwitchView *)titleSwitchView DidSelected:(NSInteger)index
 {
+//    for (UIView *subview in self.detailScrollView.scrollView.subviews){
+//        if([subview isKindOfClass:[MYDItemDetailView class]]){
+//            [subview removeFromSuperview];
+//        }
+//    }
+    if ([self.view.subviews containsObject:self.detailScrollView]) {
+        [self.detailScrollView removeFromSuperview];
+        self.detailScrollView = nil;
+    }
     CGFloat offsetX = index * self.scrollView.bounds.size.width;
     [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
@@ -73,7 +83,6 @@
 {
     // 根据scorllView的contentOffset属性，判断当前所在的页数
     NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
     // 设置TabBar
 //    self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
     [self.titleSwitchView selectIndex:pageNo];

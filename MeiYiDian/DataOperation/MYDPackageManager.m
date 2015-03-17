@@ -186,16 +186,28 @@ static MYDPackageManager *instant = nil;
     [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"<soap:Body>"]];
     
     //无GetPictureResult时，其数据结构有异，所以做判断
-    if ([mutableString containsString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\" />"]) {
+    NSRange range = [mutableString rangeOfString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\" />"];
+    if (range.length != 0) {
         [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\" />"]];
     }else{
         [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\">"]];
     }
-    if ([mutableString containsString:@"</GetPictureResponse></soap:Body></soap:Envelope>"]) {
+    NSRange range1 = [mutableString rangeOfString:@"</GetPictureResponse></soap:Body></soap:Envelope>"];
+    if (range1.length != 0) {
         [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"</GetPictureResponse></soap:Body></soap:Envelope>"]];
     }else{
         [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"</soap:Body></soap:Envelope>"]];
     }
+//    if ([mutableString containsString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\" />"]) {
+//        [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\" />"]];
+//    }else{
+//        [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"<GetPictureResponse xmlns=\"http://tempuri.org/\">"]];
+//    }
+//    if ([mutableString containsString:@"</GetPictureResponse></soap:Body></soap:Envelope>"]) {
+//        [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"</GetPictureResponse></soap:Body></soap:Envelope>"]];
+//    }else{
+//        [mutableString deleteCharactersInRange:[mutableString rangeOfString:@"</soap:Body></soap:Envelope>"]];
+//    }
     
     NSError *error = nil;
     DDXMLDocument *XMLDocument = [[DDXMLDocument alloc] initWithXMLString:mutableString options:0 error:&error];

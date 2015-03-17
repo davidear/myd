@@ -17,6 +17,8 @@ typedef  void(^MYDScrollDoneBlock)(NSInteger index);
 @property (strong, nonatomic) NSMutableArray *detailDataList;
 @property (strong, nonatomic) MYDScrollDoneBlock scrollDoneBlock;//每次滑动后的block
 
+// 滚动视图
+@property (strong, nonatomic) UIScrollView *scrollView;
 //@property (strong, nonatomic) id<MYDScrollViewDelegate> delegate;
 - (id)initWithFrame:(CGRect)frame index:(NSInteger)index;
 @end

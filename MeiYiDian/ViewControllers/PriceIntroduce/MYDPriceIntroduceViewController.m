@@ -295,53 +295,53 @@
 //    [self.view addSubview:self.detailScrollView];
 }
 
-#pragma mark - UITabBar
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    if ([self.view.subviews containsObject:self.detailScrollView]) {
-        [self.detailScrollView removeFromSuperview];
-        self.detailScrollView = nil;
-    }
-    CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
-    
-    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-//    if ([self.view.subviews containsObject:self.itemDetailView]) {
-//        [self.itemDetailView removeFromSuperview];
-//        self.itemDetailView = nil;
+//#pragma mark - UITabBar
+//- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+//{
+//    if ([self.view.subviews containsObject:self.detailScrollView]) {
+//        [self.detailScrollView removeFromSuperview];
+//        self.detailScrollView = nil;
 //    }
 //    CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
 //    
 //    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-    
-}
-#pragma mark - UIScrollView
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    // 根据scorllView的contentOffset属性，判断当前所在的页数
-    NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
-    // 设置TabBar
-//    self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
-    [self.titleSwitchView selectIndex:pageNo];
-//    switch (scrollView.tag) {
-//        case kMainScrollView:
-//        {
-//            // 根据scorllView的contentOffset属性，判断当前所在的页数
-//            NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
-//            
-//            // 设置TabBar
-//            self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
-//        }
-//            break;
-//        case kDetailScrollView:
-//        {
+////    if ([self.view.subviews containsObject:self.itemDetailView]) {
+////        [self.itemDetailView removeFromSuperview];
+////        self.itemDetailView = nil;
+////    }
+////    CGFloat offsetX = item.tag * self.scrollView.bounds.size.width;
+////    
+////    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+//    
+//}
+//#pragma mark - UIScrollView
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    // 根据scorllView的contentOffset属性，判断当前所在的页数
+//    NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
+//    
+//    // 设置TabBar
+////    self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+//    [self.titleSwitchView selectIndex:pageNo];
+////    switch (scrollView.tag) {
+////        case kMainScrollView:
+////        {
+////            // 根据scorllView的contentOffset属性，判断当前所在的页数
+////            NSInteger pageNo = scrollView.contentOffset.x / scrollView.bounds.size.width;
+////            
+////            // 设置TabBar
+////            self.tabBar.selectedItem = [self.tabBar.items objectAtIndex:pageNo];
+////        }
+////            break;
+////        case kDetailScrollView:
+////        {
+////
+////            
+////        }
+////        default:
+////            break;
+////    }
 //
-//            
-//        }
-//        default:
-//            break;
-//    }
-
-}
+//}
 
 @end

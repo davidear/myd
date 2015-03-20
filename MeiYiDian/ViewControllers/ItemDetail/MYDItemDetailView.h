@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSString *Id;
 @property (strong, nonatomic) MYDImageScrollViewController *VC;
 
-- (id)initWithImage:(UIImage *)image Title:(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin;
+- (id)initWithImage:(UIImage *)image Title:(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin PictureEntityDic:(NSDictionary *)dic;
 
 //刷新界面
 - (void)reloadDataWithImage:(UIImage *)image PictureEntityDic:(NSDictionary *)dic;

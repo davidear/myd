@@ -1179,6 +1179,106 @@ public class LoginUser
     [rs2 close];
     [self closeDB];
 }
+
+//Teams
+/*
+ <TeamEntity>
+ <Id>f42ffb24-c730-4f52-b12d-0cd37728d2fb</Id>
+ <Name>曦湾店</Name>
+ <NickName />
+ <Number />
+ <PositionName />
+ <Description>必瘦堂曦湾店坐落于中心区宝能太古城的商业旺区，正对面曦湾华府中国银行旁边，坚持带给顾客便捷是必瘦堂永远的追求，必瘦堂负责人对企业文化，秉承“外在美，内在美，精神美”的经营理念，把在韩国同步销售的产品逐步引到中国市场，同时把在韩国成功的运作模式、完善的教育体系以及传播健康美的知识服务于广大顾客。</Description>
+ <OrderCode>1</OrderCode>
+ <TitlePictureFileName>Title_a97d8992-88d9-4c87-8324-cb0286d6ca79.jpg</TitlePictureFileName>
+	</TeamEntity>
+ */
+
+- (void)saveTeamsWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray
+{
+    if (![self openDB]) {
+        return;
+    }
+    //创建表格
+    if (![_db tableExists:@"Teams"]) {
+        [_db executeUpdate:@"CREATE TABLE Teams (Id text, Name text, NickName text, Number text, PositionName text, OrderCode integer, TitlePictureFileName text, Description text)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM Teams"];
+    }
+    //    现在表中查询有没有相同的元素，如果有，做修改操作
+    for (NSDictionary *dic in dicArray) {
+        FMResultSet *rs = [_db executeQuery:@"select * from Teams where Id = ?",[dic objectForKey:@"Id"]];
+        if ([rs next]) {
+            for (NSString *str in keyArray) {
+                NSString *tempStr = [NSString stringWithFormat:@"update Teams set %@ = ? where Id = ?",str];
+                if([str isEqualToString:@"OrderCode"]) {
+                    [_db executeUpdate:tempStr,[NSNumber numberWithInt:[[dic objectForKey:str] intValue]],[dic objectForKey:@"Id"]];
+                }else {
+                    [_db executeUpdate:tempStr,[dic objectForKey:str],[dic objectForKey:@"Id"]];
+                }
+            }
+        }else {
+            [_db executeUpdate:@"INSERT INTO Teams (Id,Name,NickName,Number,PositionName,OrderCode,TitlePictureFileName,Description) VALUES (?,?,?,?,?,?,?,?)", [dic objectForKey:@"Id"],[dic objectForKey:@"Name"],[dic objectForKey:@"NickName"],[dic objectForKey:@"Number"],[dic objectForKey:@"PositionName"],[NSNumber numberWithInt:[[dic objectForKey:@"OrderCode"]intValue]],[dic objectForKey:@"TitlePictureFileName"],[dic objectForKey:@"Description"]];
+        }
+        [rs close];
+    }
+    
+    FMResultSet *rs2 = [_db executeQuery:@"SELECT * FROM Teams"];
+    
+    while ([rs2 next]) {
+        NSLog(@"Name is %@",[rs2 stringForColumn:@"Name"]);
+    }
+    [rs2 close];
+    [self closeDB];
+}
+/*
+ <PictureEntity>
+ <Id>7eadcefc-286d-472f-86f5-630438cf01e7</Id>
+ <CatalogId>619e40bd-1e1e-43f4-8a2c-3aa2626c48ad</CatalogId>
+ <FKId>106761c8-037f-46d1-9404-306f90792758</FKId>
+ <FileName>be685f13-4e69-4308-85e5-3b273e31c204.jpg</FileName>
+ <Description/>
+ <OrderCode>1</OrderCode>
+ </PictureEntity>
+ */
+- (void)saveTeamPicturesWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray
+{
+    if (![self openDB]) {
+        return;
+    }
+    //创建表格
+    if (![_db tableExists:@"TeamPictures"]) {
+        [_db executeUpdate:@"CREATE TABLE TeamPictures (Id text, CatalogId text, FKId text, FileName text, Description text,  OrderCode integer)"];
+    }else {
+        [_db executeUpdate:@"DELETE FROM TeamPictures"];
+    }
+    //    现在表中查询有没有相同的元素，如果有，做修改操作
+    for (NSDictionary *dic in dicArray) {
+        FMResultSet *rs = [_db executeQuery:@"select * from TeamPictures where Id = ?",[dic objectForKey:@"Id"]];
+        if ([rs next]) {
+            for (NSString *str in keyArray) {
+                NSString *tempStr = [NSString stringWithFormat:@"update TeamPictures set %@ = ? where Id = ?",str];
+                if([str isEqualToString:@"OrderCode"]) {
+                    [_db executeUpdate:tempStr,[NSNumber numberWithInt:[[dic objectForKey:str] intValue]],[dic objectForKey:@"Id"]];
+                }else {
+                    [_db executeUpdate:tempStr,[dic objectForKey:str],[dic objectForKey:@"Id"]];
+                }
+            }
+        }else {
+            [_db executeUpdate:@"INSERT INTO TeamPictures (Id,CatalogId,FKId,FileName,Description,OrderCode) VALUES (?,?,?,?,?,?)", [dic objectForKey:@"Id"],[dic objectForKey:@"CatalogId"],[dic objectForKey:@"FKId"],[dic objectForKey:@"FileName"],[dic objectForKey:@"Description"],[NSNumber numberWithInt:[[dic objectForKey:@"OrderCode"] intValue]]];
+        }
+        [rs close];
+    }
+    FMResultSet *rs2 = [_db executeQuery:@"SELECT * FROM TeamPictures"];
+    
+    while ([rs2 next]) {
+        NSLog(@"CatalogId is %@",[rs2 stringForColumn:@"CatalogId"]);
+    }
+    [rs2 close];
+    [self closeDB];
+}
+
+
 #pragma mark - 读数据库
 //读数据库数据
 - (int)readDataVersionFromLoginResult
@@ -1624,4 +1724,48 @@ public class LoginUser
     }
     return 0;
 }
+- (NSMutableArray *)readTeams
+{
+    if (![self openDB]) {
+        return nil;
+    }
+    if (![_db tableExists:@"Teams"]) {
+        return nil;
+    }
+    FMResultSet *rs = [_db executeQuery:@"select * from Teams"];
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    while ([rs next]) {
+        NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+        for (NSString *str in TeamsKeyArray) {
+            [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
+        }
+        [mutableArray addObject:mutableDic];
+    }
+    [rs close];
+    [self closeDB];
+    return mutableArray;
+}
+- (NSMutableArray *)readTeamPictures
+{
+    if (![self openDB]) {
+        return nil;
+    }
+    if (![_db tableExists:@"TeamPictures"]) {
+        return nil;
+    }
+    FMResultSet *rs = [_db executeQuery:@"select * from TeamPictures"];
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    while ([rs next]) {
+        NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+        for (NSString *str in PicturesKeyArray) {
+            [mutableDic setObject:[rs objectForColumnName:str] forKey:str];
+        }
+        [mutableArray addObject:mutableDic];
+    }
+    [rs close];
+    [self closeDB];
+    return mutableArray;
+}
+
+
 @end

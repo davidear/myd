@@ -16,7 +16,7 @@
 @end
 
 @implementation MYDItemDetailView
-- (id)initWithImage:(UIImage *)image Title :(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin
+- (id)initWithImage:(UIImage *)image Title :(NSString *)title Price:(NSNumber *)price Description:(NSString *)descriptioin PictureEntityDic:(NSDictionary *)dic
 {
     self = [[[NSBundle mainBundle] loadNibNamed:@"MYDItemDetailView" owner:nil options:nil] lastObject];
     if (self) {
@@ -24,6 +24,9 @@
         self.titleLabel.text = title;
         self.priceLabel.text = [NSString stringWithFormat:@"RMB：%@",price];
         self.descriptionTextView.text = descriptioin;
+        self.descriptionTextView.font = kFont_Normal;
+        self.descriptionTextView.textColor = kColorForMaroon;
+        self.pictureEntityDic = dic;
     }
     return self;
 }
@@ -40,6 +43,7 @@
     NSMutableArray *array = [[MYDDBManager getInstant] readMaterialPictures];
     [array addObjectsFromArray:[[MYDDBManager getInstant] readProjectPictures]];
     [array addObjectsFromArray:[[MYDDBManager getInstant] readWritingPictures]];
+    [array addObjectsFromArray:[[MYDDBManager getInstant] readTeamPictures]];
     if (array == nil) {
         return;
     }

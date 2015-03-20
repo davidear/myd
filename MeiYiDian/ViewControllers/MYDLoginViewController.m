@@ -240,6 +240,17 @@
     }
     
     //获取06团队图片
+    picArr = [[MYDDBManager getInstant] readTeamPictures];
+    for (NSDictionary *dic in picArr) {
+        if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"FileName"]]) {
+            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"06" fileName:[dic objectForKey:@"FileName"] success:^(NSString *responseString) {
+                NSLog(@"download %@ done!",[dic objectForKey:@"FileName"]);
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+        
+    }
     
 //!!!比较坑的来了，上面的图片不是其类中包含图片，比如说05取的图不是在porjects中的图片字段所指的图，那么，所有类中出现的图也必须下载
     picArr = [[MYDDBManager getInstant] readProjects];
@@ -268,6 +279,17 @@
     for (NSDictionary *dic in picArr) {
         if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"TitlePictureFileName"]]) {
             [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"04" fileName:[dic objectForKey:@"TitlePictureFileName"] success:^(NSString *responseString) {
+                NSLog(@"download %@ done!",[dic objectForKey:@"TitlePictureFileName"]);
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+    }
+    
+    picArr = [[MYDDBManager getInstant] readTeams];
+    for (NSDictionary *dic in picArr) {
+        if (![[SDImageCache sharedImageCache] diskImageExistsWithKey:[dic objectForKey:@"TitlePictureFileName"]]) {
+            [[MYDMediator getInstant] getPictureWithDepartmentId:DepartmentId typeCode:@"06" fileName:[dic objectForKey:@"TitlePictureFileName"] success:^(NSString *responseString) {
                 NSLog(@"download %@ done!",[dic objectForKey:@"TitlePictureFileName"]);
             } failure:^(NSError *error) {
                 

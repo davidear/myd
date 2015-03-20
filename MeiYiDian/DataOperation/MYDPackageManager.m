@@ -173,7 +173,8 @@ static MYDPackageManager *instant = nil;
     [self readProjectsWithXMLDocument:XMLDocument];
     [self readProjectPicturesWithXMLDocument:XMLDocument];
     [self readDataVersionWithXMLDocument:XMLDocument];
-    
+    [self readTeamsWithXMLDocument:XMLDocument];
+    [self readTeamPicturesWithXMLDocument:XMLDocument];
     
     
 }
@@ -679,4 +680,50 @@ static MYDPackageManager *instant = nil;
     NSMutableArray *mutableArray = [self dicArrayWithStringArray:array xPathHeader:@"//" XMLDocument:XMLDocument];
     [[MYDDBManager getInstant] saveDataVersionWithDicArray:mutableArray keyArrayForDic:array];
 }
+
+//Teams
+/*
+ <TeamEntity>
+ <Id>f42ffb24-c730-4f52-b12d-0cd37728d2fb</Id>
+ <Name>曦湾店</Name>
+ <NickName />
+ <Number />
+ <PositionName />
+ <Description>必瘦堂曦湾店坐落于中心区宝能太古城的商业旺区，正对面曦湾华府中国银行旁边，坚持带给顾客便捷是必瘦堂永远的追求，必瘦堂负责人对企业文化，秉承“外在美，内在美，精神美”的经营理念，把在韩国同步销售的产品逐步引到中国市场，同时把在韩国成功的运作模式、完善的教育体系以及传播健康美的知识服务于广大顾客。</Description>
+ <OrderCode>1</OrderCode>
+ <TitlePictureFileName>Title_a97d8992-88d9-4c87-8324-cb0286d6ca79.jpg</TitlePictureFileName>
+	</TeamEntity>
+ */
+- (void)readTeamsWithXMLDocument:(DDXMLDocument *)XMLDocument
+{
+    //    NSArray *array = @[@"Id",@"Name",@"Code",@"CatalogId",@"UnitName",@"StandardName",@"Price",@"TypeCodeX",@"OrderCode",@"TitlePictureFileName",@"Description"];
+    //    NSString *xPath;
+    //    DDXMLNode *node;
+    //    NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionary];
+    //    for (NSString *str in array) {
+    //        xPath = [NSString stringWithFormat:@"//Materials/MaterialEntity/%@",str];
+    //        node = (DDXMLNode *)[[XMLDocument nodesForXPath:xPath error:nil] lastObject];
+    //        [mutableDictionary setObject:node.stringValue forKey:str];
+    //    }
+    NSMutableArray *mutableArray = [self dicArrayWithStringArray:TeamsKeyArray xPathHeader:@"//Teams/TeamEntity/" XMLDocument:XMLDocument];
+    [[MYDDBManager getInstant] saveTeamsWithDicArray:mutableArray keyArrayForDic:TeamsKeyArray];
+    
+}
+- (void)readTeamPicturesWithXMLDocument:(DDXMLDocument *)XMLDocument
+{
+    //    NSArray *array = @[@"Id",@"CatalogId",@"FKId",@"FileName",@"Description",@"OrderCode"];
+    //    NSString *xPath;
+    //    DDXMLNode *node;
+    //    NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionary];
+    //    for (NSString *str in array) {
+    //        xPath = [NSString stringWithFormat:@"//MaterialPictures/PictureEntity/%@",str];
+    //        node = (DDXMLNode *)[[XMLDocument nodesForXPath:xPath error:nil] lastObject];
+    //        [mutableDictionary setObject:node.stringValue forKey:str];
+    //    }
+    NSMutableArray *mutableArray = [self dicArrayWithStringArray:PicturesKeyArray xPathHeader:@"//TeamPictures/TeamPictureEntity/" XMLDocument:XMLDocument];
+    [[MYDDBManager getInstant] saveTeamPicturesWithDicArray:mutableArray keyArrayForDic:PicturesKeyArray];
+    
+}
+
+
 @end

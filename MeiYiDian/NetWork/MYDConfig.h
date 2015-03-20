@@ -43,7 +43,7 @@ typedef enum {
 #define WritingsKeyArray @[@"Id",@"CatalogId",@"Title",@"OrderCode",@"TitlePictureFileName"]
 #define AnnouncementsKeyArray  @[@"Id",@"Title",@"Content",@"OrderCode"]
 #define ProjectsKeyArray @[@"Id",@"Name",@"Code",@"CatalogId",@"UnitName",@"StandardName",@"Price",@"OrderCode",@"TitlePictureFileName",@"Description"]
-
+#define TeamsKeyArray @[@"Id",@"Name",@"NickName",@"Number",@"PositionName",@"Description",@"OrderCode",@"TitlePictureFileName"]
 //打印SDK日志开关  1-开，0-关
 #define SDK_DEBUG 1
 #if SDK_DEBUG

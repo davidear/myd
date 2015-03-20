@@ -55,6 +55,10 @@
 - (void)saveProjectPicturesWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray;
 ////存baseData中的DataVersion
 - (void)saveDataVersionWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray;
+////存TeamEntity
+- (void)saveTeamsWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray;
+////存TeamPictureEntity
+- (void)saveTeamPicturesWithDicArray:(NSMutableArray *)dicArray keyArrayForDic:(NSArray *)keyArray;
 
 //下载Picture
 //读数据库数据
@@ -77,5 +81,7 @@
 - (NSMutableArray *)readProjectCatalogs;
 - (NSMutableArray *)readProjects;
 - (NSMutableArray *)readProjectPictures;
+- (NSMutableArray *)readTeams;
+- (NSMutableArray *)readTeamPictures;
 - (int)readDataVersionFromBaseData;//baseData表中的DataVersion
 @end

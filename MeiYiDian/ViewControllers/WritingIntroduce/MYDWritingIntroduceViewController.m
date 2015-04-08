@@ -230,8 +230,9 @@
     if (array == nil) {
         return;
     }
+    NSLog(@"%ld",(long)indexPath.row);
     for (NSDictionary *dic in array) {
-        if ([[self.sortedAllArray[collectionView.tag] objectForKey:@"Id"] isEqualToString:[dic objectForKey:@"FKId"]]) {
+        if ([[self.sortedArray[collectionView.tag][indexPath.row] objectForKey:@"Id"] isEqualToString:[dic objectForKey:@"FKId"]]) {
             [tempArr addObject:[dic objectForKey:@"FileName"]];
         }
     }

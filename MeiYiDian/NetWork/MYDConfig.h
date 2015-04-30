@@ -9,7 +9,7 @@
 #ifndef MeiYiDian_MYDConfig_h
 #define MeiYiDian_MYDConfig_h
 
-#define kMYDServerId @"http://pad.zmmyd.com/services/webservice.asmx"
+#define kMYDServerId @"http://121.41.106.38:8088/services/webservice.asmx"
 
 
 //SoapAction

@@ -101,7 +101,9 @@
     for (NSDictionary *dic in self.dataArray) {
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[dic objectForKey:@"FileName"]];
 //        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        [self.imagesArray addObject:image];
+        if (image != nil) {
+            [self.imagesArray addObject:image];
+        }
     }
 }
 

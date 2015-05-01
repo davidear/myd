@@ -8,6 +8,7 @@
 //有特异性处理，团队介绍不是使用的网页，而是使用的MYDScrollView
 #import "MYDEnterpriseIntroduceViewController.h"
 #import "MYDItemDetailView.h"
+#import "MYDConfig.h"
 #import "SDImageCache.h"
 
 @interface MYDEnterpriseIntroduceViewController ()<UITabBarDelegate,UIScrollViewDelegate>
@@ -92,7 +93,7 @@
                     idStr = [dic objectForKey:@"Id"];
                 }
             }
-            NSString *str = [NSString stringWithFormat:@"http://pad.zmmyd.com/Publics/Introduction.aspx?id=%@",idStr];
+            NSString *str = [NSString stringWithFormat:kMYDIntroduction,idStr];
             NSURL *url = [NSURL URLWithString:str];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [webView loadRequest:request];

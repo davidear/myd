@@ -10,7 +10,8 @@
 #define MeiYiDian_MYDConfig_h
 
 #define kMYDServerId @"http://121.41.106.38:8088/services/webservice.asmx"
-
+#define kMYDPartyId                 @"http://121.41.106.38:8088/Publics/Party.aspx?id=%@"
+#define kMYDIntroduction            @"http://121.41.106.38:8088/Publics/Introduction.aspx?id=%@"
 
 //SoapAction
 #define kMYDLoginSoapActionId @"http://tempuri.org/Login"

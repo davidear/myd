@@ -7,6 +7,7 @@
 //http://pad.zmmyd.com/Publics/Party.aspx?id=活动方案Id
 
 #import "MYDPartyIntroduceViewController.h"
+#import "MYDConfig.h"
 
 @interface MYDPartyIntroduceViewController ()
 @property (strong, nonatomic) NSArray *partiesArray;
@@ -53,7 +54,7 @@
         webView.scrollView.alwaysBounceVertical = NO;
         webView.backgroundColor = [UIColor whiteColor];
         NSString *idStr = [self.partiesArray[i] objectForKey:@"Id"];
-        NSString *str = [NSString stringWithFormat:@"http://pad.zmmyd.com/Publics/Party.aspx?id=%@",idStr];
+        NSString *str = [NSString stringWithFormat:kMYDPartyId,idStr];
         NSURL *url = [NSURL URLWithString:str];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [webView loadRequest:request];
